@@ -84,19 +84,21 @@ export default function Home() {
             />
           </motion.div>
 
-          {/* DIANA — vertical letters, left side */}
+          {/* DIANA HORBYK — vertical letters, left side */}
           <div className="absolute left-3 top-0 bottom-0 flex flex-col justify-center z-10 pointer-events-none">
-            {['D','I','A','N','A'].map((letter, i) => (
-              <motion.span
-                key={i}
-                className="font-display font-semibold leading-none"
-                style={{ fontSize: '13vw', color: '#D72638', filter: 'blur(2px)' }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 + i * 0.06, duration: 0.6 }}
-              >
-                {letter}
-              </motion.span>
+            {['D','I','A','N','A',' ','H','O','R','B','Y','K'].map((letter, i) => (
+              letter === ' '
+                ? <div key={i} style={{ height: '2vw' }} />
+                : <motion.span
+                    key={i}
+                    className="font-display font-semibold leading-none"
+                    style={{ fontSize: '10vw', color: '#D72638', filter: 'blur(2px)' }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.1 + i * 0.05, duration: 0.6 }}
+                  >
+                    {letter}
+                  </motion.span>
             ))}
           </div>
 
