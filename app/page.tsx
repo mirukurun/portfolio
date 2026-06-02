@@ -93,7 +93,7 @@ export default function Home() {
                 <motion.span
                   key={i}
                   className="font-display font-semibold leading-none"
-                  style={{ fontSize: '22vw', color: '#D72638', filter: 'blur(2px)' }}
+                  style={{ fontSize: '18vw', color: '#D72638', filter: 'blur(2px)' }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.1 + i * 0.05, duration: 0.6 }}
@@ -108,7 +108,7 @@ export default function Home() {
                 <motion.span
                   key={i}
                   className="font-display font-semibold leading-none"
-                  style={{ fontSize: '22vw', color: '#D72638', filter: 'blur(2px)' }}
+                  style={{ fontSize: '18vw', color: '#D72638', filter: 'blur(2px)' }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 + i * 0.05, duration: 0.6 }}
