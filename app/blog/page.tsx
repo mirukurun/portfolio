@@ -97,7 +97,7 @@ export default function BlogPage() {
                 Notes on design, marketing automation, AI tools, and working across languages and borders.
               </p>
               <a
-                href="https://www.linkedin.com/in/diana-horbyk"
+                href="https://www.linkedin.com/in/diana-h-133a68336/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="shrink-0 inline-flex items-center gap-2 font-sans text-sm text-ink/50 hover:text-accent transition-colors duration-300"
