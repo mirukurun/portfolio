@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Avatar, type Zone } from '@/components/Avatar'
 import { CVModal } from '@/components/CVModal'
 import { TextureOverlay } from '@/components/TextureOverlay'
@@ -51,183 +52,192 @@ export default function Home() {
       <TextureOverlay />
       <CVModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
 
-      {/* ─────────────────────────────────────────
-          MOBILE LAYOUT  (hidden on md+)
-      ───────────────────────────────────────── */}
-      <main className="md:hidden min-h-screen flex flex-col" style={{ backgroundColor: '#F4F0EB', color: '#2f2f2b' }}>
-
-        {/* Header */}
-        <div className="flex justify-between items-center px-6 pt-6 pb-4">
-          <span className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/35">Portfolio · 2026</span>
-          <span className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/35">Stockholm</span>
+      {/* ═══════════════════════════════
+          MOBILE  (< md)
+      ═══════════════════════════════ */}
+      <main
+        className="md:hidden h-[100svh] overflow-hidden flex flex-col"
+        style={{ backgroundColor: '#F4F0EB', color: '#2f2f2b' }}
+      >
+        {/* Top bar */}
+        <div className="shrink-0 flex justify-between items-center px-5 pt-5 pb-2 z-20 relative">
+          <span className="font-sans text-[8px] tracking-[0.35em] uppercase" style={{ color: '#2f2f2b99' }}>Portfolio · 2026</span>
+          <span className="font-sans text-[8px] tracking-[0.35em] uppercase" style={{ color: '#2f2f2b99' }}>Stockholm</span>
         </div>
 
-        {/* Avatar + name */}
-        <div className="flex flex-col items-center px-6 pt-4 pb-6">
-          <motion.p
-            className="font-sans text-[9px] tracking-[0.35em] uppercase text-ink/40 mb-3 cursor-pointer"
-            onClick={() => setModalOpen(true)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            — CV —
-          </motion.p>
+        {/* Main area */}
+        <div className="flex-1 relative overflow-hidden min-h-0">
 
-          <div className="w-48 h-48 relative" onClick={() => setModalOpen(true)}>
-            <Avatar hoveredZone={null} onClick={() => setModalOpen(true)} />
+          {/* Avatar — right side, full height, slightly overflowing */}
+          <motion.div
+            className="absolute top-0 bottom-0 right-0 w-[78%]"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            onClick={() => setModalOpen(true)}
+          >
+            <Image
+              src="/avatar/avatar-front.png"
+              alt="Diana Horbyk"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </motion.div>
+
+          {/* DIANA — vertical letters, left side */}
+          <div className="absolute left-3 top-0 bottom-0 flex flex-col justify-center z-10 pointer-events-none">
+            {['D','I','A','N','A'].map((letter, i) => (
+              <motion.span
+                key={i}
+                className="font-display font-semibold leading-none"
+                style={{ fontSize: '13vw', color: '#D72638', filter: 'blur(2px)' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 + i * 0.06, duration: 0.6 }}
+              >
+                {letter}
+              </motion.span>
+            ))}
           </div>
 
-          <motion.div
-            className="text-center mt-5"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.7 }}
+          {/* CV hint */}
+          <motion.button
+            className="absolute top-3 left-1/2 -translate-x-1/2 z-20 font-sans text-[8px] tracking-[0.35em] uppercase"
+            style={{ color: '#2f2f2b60' }}
+            onClick={() => setModalOpen(true)}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
           >
-            <h1 className="font-display font-light text-ink leading-none tracking-tight"
-              style={{ fontSize: 'clamp(2.4rem, 11vw, 4rem)' }}>
-              Diana Horbyk
-            </h1>
-            <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/45 mt-3">
-              UX/UI Design · Marketing · AI
-            </p>
-          </motion.div>
+            — CV —
+          </motion.button>
         </div>
 
         {/* Navigation */}
         <motion.div
-          className="mt-auto border-t border-ink/10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="shrink-0 z-20"
+          style={{ backgroundColor: '#F4F0EB', borderTop: '1px solid rgba(47,47,43,0.1)' }}
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           {[
             { label: 'Design', sub: 'UX/UI · Web Design', href: '/design' },
-            { label: 'Marketing', sub: 'Growth · AI Automation', href: '/marketing' },
-            { label: 'Blog', sub: 'Writing · Thoughts', href: '/blog' },
-          ].map((item) => (
+            { label: 'Marketing', sub: 'Growth · AI', href: '/marketing' },
+            { label: 'Blog', sub: 'Writing', href: '/blog' },
+          ].map((item, i) => (
             <button
               key={item.href}
               onClick={() => router.push(item.href)}
-              className="w-full flex justify-between items-center px-6 py-5 border-b border-ink/8 active:bg-ink/5 text-left"
+              className="w-full flex justify-between items-center px-5 py-4 text-left active:opacity-60"
+              style={{ borderBottom: i < 2 ? '1px solid rgba(47,47,43,0.08)' : 'none' }}
             >
-              <span className="font-display text-3xl font-light text-ink">{item.label}</span>
-              <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-ink/40">{item.sub}</span>
+              <span className="font-display text-[7.5vw] font-light" style={{ color: '#2f2f2b' }}>{item.label}</span>
+              <span className="font-sans text-[8px] tracking-[0.18em] uppercase" style={{ color: '#2f2f2b55' }}>{item.sub}</span>
             </button>
           ))}
         </motion.div>
       </main>
 
-      {/* ─────────────────────────────────────────
-          DESKTOP LAYOUT  (hidden on mobile)
-      ───────────────────────────────────────── */}
+      {/* ═══════════════════════════════
+          DESKTOP  (md+)
+      ═══════════════════════════════ */}
       <main
         ref={containerRef}
-        className="relative h-screen overflow-hidden bg-bg select-none hidden md:flex md:justify-center"
+        className="relative h-screen overflow-hidden bg-bg select-none hidden md:block"
       >
-      <div className="relative w-full max-w-[1800px] h-full">
-        {/* Top metadata strip */}
-        <div className="absolute top-0 inset-x-0 flex justify-between items-start px-7 pt-6 z-10 pointer-events-none">
-          <p className="font-sans text-[9px] tracking-[0.45em] uppercase text-ink/35">Portfolio&nbsp;·&nbsp;2026</p>
-          <p className="font-sans text-[9px] tracking-[0.45em] uppercase text-ink/35">Stockholm</p>
-        </div>
-
-        {/* DIANA */}
-        <div className="absolute top-0 inset-x-0 flex justify-center items-end pointer-events-none z-[5]" style={{ height: '51%' }}>
-          <motion.h1
-            className="font-display font-semibold text-accent leading-none text-center"
-            style={{ fontSize: 'clamp(4.8rem, 15vw, 19rem)', letterSpacing: '0.05em', filter: 'blur(5px)' }}
-            animate={{ opacity: 1 }} initial={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: 'easeOut', delay: 0.1 }}
-          >
-            DIANA
-          </motion.h1>
-        </div>
-
-        {/* HORBYK */}
-        <div className="absolute bottom-0 inset-x-0 flex justify-center items-start pointer-events-none z-[5]" style={{ height: '44%' }}>
-          <motion.span
-            className="font-display font-semibold text-accent leading-none text-center"
-            style={{ fontSize: 'clamp(4.8rem, 15vw, 19rem)', letterSpacing: '0.05em', filter: 'blur(5px)' }}
-            animate={{ opacity: 1 }} initial={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
-          >
-            HORBYK
-          </motion.span>
-        </div>
-
-        {/* Navigation zones */}
-        <div className="absolute inset-0 flex z-10" style={{ paddingBottom: '13%' }}>
-          <motion.div className="flex-1 flex items-center cursor-pointer" onClick={() => router.push('/design')}
-            animate={{ opacity: isDesignFaded ? 0.28 : 1 }} transition={{ duration: 0.4, ease: 'easeInOut' }}>
-            <div className="pl-7 md:pl-10 lg:pl-16">
-              <motion.p className="font-display font-medium text-ink leading-none tracking-tight"
-                style={{ fontSize: 'clamp(2.2rem, 5.5vw, 7rem)' }}
-                animate={{ scale: isDesignActive ? 1.04 : 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
-                DESIGN
-              </motion.p>
-              <motion.div className="mt-2 space-y-0.5" animate={{ opacity: isDesignActive ? 1 : 0.55 }} transition={{ duration: 0.3 }}>
-                <p className="font-sans text-xs tracking-widest uppercase text-ink/60">UX/UI Design</p>
-                <p className="font-sans text-xs tracking-widest uppercase text-ink/60">Web Design</p>
-              </motion.div>
-              <motion.div className="mt-4 w-8 h-px bg-accent"
-                animate={{ width: isDesignActive ? '3rem' : '2rem', opacity: isDesignActive ? 1 : 0 }} transition={{ duration: 0.35 }} />
-            </div>
-          </motion.div>
-
-          <motion.div className="flex-1 flex items-center justify-end cursor-pointer" onClick={() => router.push('/marketing')}
-            animate={{ opacity: isMarketingFaded ? 0.28 : 1 }} transition={{ duration: 0.4, ease: 'easeInOut' }}>
-            <div className="pr-7 md:pr-10 lg:pr-16 text-right">
-              <motion.p className="font-display font-medium text-ink leading-none tracking-tight"
-                style={{ fontSize: 'clamp(1.8rem, 4.4vw, 5.8rem)' }}
-                animate={{ scale: isMarketingActive ? 1.04 : 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
-                MARKETING
-              </motion.p>
-              <motion.div className="mt-2 space-y-0.5" animate={{ opacity: isMarketingActive ? 1 : 0.55 }} transition={{ duration: 0.3 }}>
-                <p className="font-sans text-xs tracking-widest uppercase text-ink/60">Marketing</p>
-                <p className="font-sans text-xs tracking-widest uppercase text-ink/60">AI Automation</p>
-              </motion.div>
-              <motion.div className="mt-4 ml-auto h-px bg-accent"
-                animate={{ width: isMarketingActive ? '3rem' : '2rem', opacity: isMarketingActive ? 1 : 0 }} transition={{ duration: 0.35 }} />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* BLOG zone */}
-        <motion.div className="absolute bottom-0 inset-x-0 flex flex-col items-center justify-end pb-6 cursor-pointer z-10"
-          style={{ height: '14%' }} onClick={() => router.push('/blog')}
-          animate={{ opacity: isBlogFaded ? 0.28 : 1 }} transition={{ duration: 0.4, ease: 'easeInOut' }}>
-          <motion.div className="flex items-center gap-3"
-            animate={{ scale: isBlogActive ? 1.07 : 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
-            <span className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/30">—</span>
-            <span className="font-display font-light text-ink tracking-[0.2em]" style={{ fontSize: 'clamp(1.1rem, 2.8vw, 3.2rem)' }}>BLOG</span>
-            <span className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/30">—</span>
-          </motion.div>
-          <motion.p className="font-sans text-[9px] tracking-[0.3em] uppercase text-ink/30 mt-1"
-            animate={{ opacity: isBlogActive ? 1 : 0 }} transition={{ duration: 0.3 }}>
-            Writing & Thoughts
-          </motion.p>
-        </motion.div>
-
-        {/* Avatar */}
-        <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
-          <motion.div className="absolute left-[22%] top-1/2 -translate-y-1/2 h-px bg-ink/10 hidden lg:block"
-            style={{ width: 'calc(28% - 280px)' }} animate={{ opacity: hoveredZone === 'design' ? 0.4 : 0.15 }} />
-          <motion.div className="absolute right-[22%] top-1/2 -translate-y-1/2 h-px bg-ink/10 hidden lg:block"
-            style={{ width: 'calc(28% - 280px)' }} animate={{ opacity: hoveredZone === 'marketing' ? 0.4 : 0.15 }} />
-
-          <div className="pointer-events-auto flex flex-col items-center gap-3 group/avatar">
-            <motion.p
-              className="font-sans text-[9px] tracking-[0.35em] uppercase text-ink/35 group-hover/avatar:text-ink/70 transition-colors duration-300 cursor-pointer"
-              onClick={() => setModalOpen(true)}
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-              transition={{ delay: 1.5, duration: 0.8 }}
-            >
-              — CV —
-            </motion.p>
-            <Avatar hoveredZone={hoveredZone} onClick={() => setModalOpen(true)} />
+        <div className="relative w-full max-w-[1800px] mx-auto h-full">
+          {/* Top metadata */}
+          <div className="absolute top-0 inset-x-0 flex justify-between items-start px-7 pt-6 z-10 pointer-events-none">
+            <p className="font-sans text-[9px] tracking-[0.45em] uppercase text-ink/35">Portfolio&nbsp;·&nbsp;2026</p>
+            <p className="font-sans text-[9px] tracking-[0.45em] uppercase text-ink/35">Stockholm</p>
           </div>
-        </div>
+
+          {/* DIANA */}
+          <div className="absolute top-0 inset-x-0 flex justify-center items-end pointer-events-none z-[5]" style={{ height: '51%' }}>
+            <motion.h1
+              className="font-display font-semibold text-accent leading-none text-center"
+              style={{ fontSize: 'clamp(4.8rem, 15vw, 19rem)', letterSpacing: '0.05em', filter: 'blur(5px)' }}
+              animate={{ opacity: 1 }} initial={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: 'easeOut', delay: 0.1 }}
+            >DIANA</motion.h1>
+          </div>
+
+          {/* HORBYK */}
+          <div className="absolute bottom-0 inset-x-0 flex justify-center items-start pointer-events-none z-[5]" style={{ height: '44%' }}>
+            <motion.span
+              className="font-display font-semibold text-accent leading-none text-center"
+              style={{ fontSize: 'clamp(4.8rem, 15vw, 19rem)', letterSpacing: '0.05em', filter: 'blur(5px)' }}
+              animate={{ opacity: 1 }} initial={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
+            >HORBYK</motion.span>
+          </div>
+
+          {/* Nav zones */}
+          <div className="absolute inset-0 flex z-10" style={{ paddingBottom: '13%' }}>
+            <motion.div className="flex-1 flex items-center cursor-pointer" onClick={() => router.push('/design')}
+              animate={{ opacity: isDesignFaded ? 0.28 : 1 }} transition={{ duration: 0.4, ease: 'easeInOut' }}>
+              <div className="pl-7 md:pl-10 lg:pl-16">
+                <motion.p className="font-display font-medium text-ink leading-none tracking-tight"
+                  style={{ fontSize: 'clamp(2.2rem, 5.5vw, 7rem)' }}
+                  animate={{ scale: isDesignActive ? 1.04 : 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
+                  DESIGN
+                </motion.p>
+                <motion.div className="mt-2 space-y-0.5" animate={{ opacity: isDesignActive ? 1 : 0.55 }}>
+                  <p className="font-sans text-xs tracking-widest uppercase text-ink/60">UX/UI Design</p>
+                  <p className="font-sans text-xs tracking-widest uppercase text-ink/60">Web Design</p>
+                </motion.div>
+                <motion.div className="mt-4 w-8 h-px bg-accent"
+                  animate={{ width: isDesignActive ? '3rem' : '2rem', opacity: isDesignActive ? 1 : 0 }} />
+              </div>
+            </motion.div>
+
+            <motion.div className="flex-1 flex items-center justify-end cursor-pointer" onClick={() => router.push('/marketing')}
+              animate={{ opacity: isMarketingFaded ? 0.28 : 1 }} transition={{ duration: 0.4, ease: 'easeInOut' }}>
+              <div className="pr-7 md:pr-10 lg:pr-16 text-right">
+                <motion.p className="font-display font-medium text-ink leading-none tracking-tight"
+                  style={{ fontSize: 'clamp(1.8rem, 4.4vw, 5.8rem)' }}
+                  animate={{ scale: isMarketingActive ? 1.04 : 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
+                  MARKETING
+                </motion.p>
+                <motion.div className="mt-2 space-y-0.5" animate={{ opacity: isMarketingActive ? 1 : 0.55 }}>
+                  <p className="font-sans text-xs tracking-widest uppercase text-ink/60">Marketing</p>
+                  <p className="font-sans text-xs tracking-widest uppercase text-ink/60">AI Automation</p>
+                </motion.div>
+                <motion.div className="mt-4 ml-auto h-px bg-accent"
+                  animate={{ width: isMarketingActive ? '3rem' : '2rem', opacity: isMarketingActive ? 1 : 0 }} />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* BLOG */}
+          <motion.div className="absolute bottom-0 inset-x-0 flex flex-col items-center justify-end pb-6 cursor-pointer z-10"
+            style={{ height: '14%' }} onClick={() => router.push('/blog')}
+            animate={{ opacity: isBlogFaded ? 0.28 : 1 }} transition={{ duration: 0.4, ease: 'easeInOut' }}>
+            <motion.div className="flex items-center gap-3"
+              animate={{ scale: isBlogActive ? 1.07 : 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
+              <span className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/30">—</span>
+              <span className="font-display font-light text-ink tracking-[0.2em]" style={{ fontSize: 'clamp(1.1rem, 2.8vw, 3.2rem)' }}>BLOG</span>
+              <span className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/30">—</span>
+            </motion.div>
+            <motion.p className="font-sans text-[9px] tracking-[0.3em] uppercase text-ink/30 mt-1"
+              animate={{ opacity: isBlogActive ? 1 : 0 }}>Writing & Thoughts</motion.p>
+          </motion.div>
+
+          {/* Avatar */}
+          <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
+            <motion.div className="absolute left-[22%] top-1/2 -translate-y-1/2 h-px bg-ink/10 hidden lg:block"
+              style={{ width: 'calc(28% - 280px)' }} animate={{ opacity: hoveredZone === 'design' ? 0.4 : 0.15 }} />
+            <motion.div className="absolute right-[22%] top-1/2 -translate-y-1/2 h-px bg-ink/10 hidden lg:block"
+              style={{ width: 'calc(28% - 280px)' }} animate={{ opacity: hoveredZone === 'marketing' ? 0.4 : 0.15 }} />
+            <div className="pointer-events-auto flex flex-col items-center gap-3 group/avatar">
+              <motion.p
+                className="font-sans text-[9px] tracking-[0.35em] uppercase text-ink/35 group-hover/avatar:text-ink/70 transition-colors duration-300 cursor-pointer"
+                onClick={() => setModalOpen(true)}
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 0.8 }}
+              >— CV —</motion.p>
+              <Avatar hoveredZone={hoveredZone} onClick={() => setModalOpen(true)} />
+            </div>
+          </div>
         </div>
       </main>
     </>
