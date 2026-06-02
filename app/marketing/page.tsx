@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
 import { TextureOverlay } from '@/components/TextureOverlay'
 
-const WORK: { id: string; title: string; category: string; company: string; year: string; description: string; videoSrc?: string }[] = [
+const WORK: { id: string; title: string; category: string; company: string; year: string; description: string; videoSrc?: string; href?: string }[] = [
   {
     id: '01',
     title: 'LinkedIn Outreach Engine',
