@@ -20,6 +20,19 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
   description: 'Portfolio of Diana Horbyk — UX/UI Designer, Web Designer & Growth Marketer based in Stockholm.',
+  openGraph: {
+    title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
+    description: 'Portfolio of Diana Horbyk — UX/UI Designer, Web Designer & Growth Marketer based in Stockholm.',
+    url: 'https://diportfolio-self.vercel.app',
+    siteName: 'Diana Horbyk',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
+    description: 'Portfolio of Diana Horbyk — UX/UI Designer, Web Designer & Growth Marketer based in Stockholm.',
+  },
 }
 
 export default function RootLayout({
