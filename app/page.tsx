@@ -68,38 +68,54 @@ export default function Home() {
         {/* Main area */}
         <div className="flex-1 relative overflow-hidden min-h-0">
 
-          {/* Avatar — right side, full height */}
+          {/* Avatar — center-right, transparent PNG, sized to fit */}
           <motion.div
-            className="absolute top-0 bottom-0 right-0 w-[75%]"
+            className="absolute top-0 bottom-0 right-0 left-[22%]"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             onClick={() => setModalOpen(true)}
           >
             <Image
-              src="/avatar/avatar_front_half.jpg"
+              src="/avatar/avatar-front.png"
               alt="Diana Horbyk"
               fill
-              className="object-cover object-top"
+              className="object-contain object-top"
               priority
             />
           </motion.div>
 
-          {/* DIANA HORBYK — vertical letters, left side */}
-          <div className="absolute left-3 top-0 bottom-0 flex flex-col justify-center z-10 pointer-events-none">
-            {['D','I','A','N','A',' ','H','O','R','B','Y','K'].map((letter, i) => (
-              letter === ' '
-                ? <div key={i} style={{ height: '2vw' }} />
-                : <motion.span
-                    key={i}
-                    className="font-display font-semibold leading-none"
-                    style={{ fontSize: '10vw', color: '#D72638', filter: 'blur(2px)' }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.1 + i * 0.05, duration: 0.6 }}
-                  >
-                    {letter}
-                  </motion.span>
-            ))}
+          {/* DIANA | HORBYK — two vertical columns, left side */}
+          <div className="absolute left-1 top-0 bottom-0 flex flex-row gap-1 items-center z-10 pointer-events-none">
+            {/* Column 1: DIANA */}
+            <div className="flex flex-col justify-center">
+              {['D','I','A','N','A'].map((letter, i) => (
+                <motion.span
+                  key={i}
+                  className="font-display font-semibold leading-none"
+                  style={{ fontSize: '9vw', color: '#D72638', filter: 'blur(2px)' }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.1 + i * 0.05, duration: 0.6 }}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
+            {/* Column 2: HORBYK */}
+            <div className="flex flex-col justify-center">
+              {['H','O','R','B','Y','K'].map((letter, i) => (
+                <motion.span
+                  key={i}
+                  className="font-display font-semibold leading-none"
+                  style={{ fontSize: '9vw', color: '#D72638', filter: 'blur(2px)' }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 + i * 0.05, duration: 0.6 }}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
           </div>
 
           {/* CV hint */}

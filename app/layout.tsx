@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
@@ -16,6 +16,10 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
   display: 'swap',
 })
+
+export const viewport: Viewport = {
+  colorScheme: 'light',
+}
 
 export const metadata: Metadata = {
   title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
