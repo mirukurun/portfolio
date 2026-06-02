@@ -86,14 +86,14 @@ export default function Home() {
           </motion.div>
 
           {/* DIANA | HORBYK — two vertical columns, left side */}
-          <div className="absolute left-6 top-0 bottom-0 flex flex-row gap-1 items-center z-10 pointer-events-none">
+          <div className="absolute left-6 top-0 bottom-0 flex flex-row gap-3 z-10 pointer-events-none">
             {/* Column 1: DIANA */}
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-between h-full py-6">
               {['D','I','A','N','A'].map((letter, i) => (
                 <motion.span
                   key={i}
                   className="font-display font-semibold leading-none"
-                  style={{ fontSize: '9vw', color: '#D72638', filter: 'blur(2px)' }}
+                  style={{ fontSize: '11vw', color: '#D72638', filter: 'blur(2px)' }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.1 + i * 0.05, duration: 0.6 }}
@@ -103,12 +103,12 @@ export default function Home() {
               ))}
             </div>
             {/* Column 2: HORBYK */}
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-between h-full py-6">
               {['H','O','R','B','Y','K'].map((letter, i) => (
                 <motion.span
                   key={i}
                   className="font-display font-semibold leading-none"
-                  style={{ fontSize: '9vw', color: '#D72638', filter: 'blur(2px)' }}
+                  style={{ fontSize: '11vw', color: '#D72638', filter: 'blur(2px)' }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 + i * 0.05, duration: 0.6 }}
