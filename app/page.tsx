@@ -68,15 +68,15 @@ export default function Home() {
         {/* Main area */}
         <div className="flex-1 relative overflow-hidden min-h-0">
 
-          {/* Avatar — right side, full height, slightly overflowing */}
+          {/* Avatar — right side, full height */}
           <motion.div
-            className="absolute top-0 bottom-0 right-0 w-[78%]"
+            className="absolute top-0 bottom-0 right-0 w-[75%]"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             onClick={() => setModalOpen(true)}
           >
             <Image
-              src="/avatar/avatar-front.png"
+              src="/avatar/avatar_front_half.jpg"
               alt="Diana Horbyk"
               fill
               className="object-cover object-top"
