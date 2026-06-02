@@ -77,16 +77,16 @@ export default function Home() {
             onClick={() => setModalOpen(true)}
           >
             <Image
-              src="/avatar/avatar-front.png"
+              src="/avatar/avatar_front_half.jpg"
               alt="Diana Horbyk"
               fill
-              className="object-contain object-top"
+              className="object-cover object-center"
               priority
             />
           </motion.div>
 
           {/* DIANA | HORBYK — two vertical columns, left side */}
-          <div className="absolute left-1 top-0 bottom-0 flex flex-row gap-1 items-center z-10 pointer-events-none">
+          <div className="absolute left-4 top-0 bottom-0 flex flex-row gap-1 items-center z-10 pointer-events-none">
             {/* Column 1: DIANA */}
             <div className="flex flex-col justify-center">
               {['D','I','A','N','A'].map((letter, i) => (

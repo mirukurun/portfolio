@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const viewport: Viewport = {
-  colorScheme: 'light',
+  colorScheme: 'only light',
 }
 
 export const metadata: Metadata = {
