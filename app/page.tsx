@@ -86,9 +86,9 @@ export default function Home() {
           </motion.div>
 
           {/* DIANA | HORBYK — two vertical columns, left side */}
-          <div className="absolute left-[12%] top-0 bottom-0 flex flex-row gap-9 z-10 pointer-events-none">
+          <div className="absolute left-[20%] top-0 bottom-0 flex flex-row gap-9 items-center z-10 pointer-events-none">
             {/* Column 1: DIANA */}
-            <div className="flex flex-col justify-between h-full py-6">
+            <div className="flex flex-col justify-center">
               {['D','I','A','N','A'].map((letter, i) => (
                 <motion.span
                   key={i}
@@ -103,7 +103,7 @@ export default function Home() {
               ))}
             </div>
             {/* Column 2: HORBYK */}
-            <div className="flex flex-col justify-between h-full py-6">
+            <div className="flex flex-col justify-center">
               {['H','O','R','B','Y','K'].map((letter, i) => (
                 <motion.span
                   key={i}
