@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'Diana Horbyk — Creative Director',
+  title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
   description: 'Portfolio of Diana Horbyk — UX/UI Designer, Web Designer & Growth Marketer based in Stockholm.',
 }
 
