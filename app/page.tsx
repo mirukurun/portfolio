@@ -77,10 +77,10 @@ export default function Home() {
             onClick={() => setModalOpen(true)}
           >
             <Image
-              src="/avatar/avatar_front_half.jpg"
+              src="/avatar/avatar_front_half.png"
               alt="Diana Horbyk"
               fill
-              className="object-cover object-center"
+              className="object-contain object-top"
               priority
             />
           </motion.div>

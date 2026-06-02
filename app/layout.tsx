@@ -45,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${spaceGrotesk.variable}`} style={{ colorScheme: 'light' }}>
+    <html lang="en" className={`${cormorant.variable} ${spaceGrotesk.variable}`} style={{ colorScheme: 'only light' }}>
       <body className="font-sans antialiased bg-bg text-ink">
         {children}
       </body>
