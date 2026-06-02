@@ -149,7 +149,7 @@ export default function Home() {
               className="w-full flex justify-between items-center px-5 py-4 text-left active:opacity-60"
               style={{ borderBottom: i < 2 ? '1px solid rgba(47,47,43,0.08)' : 'none' }}
             >
-              <span className="font-display text-[7.5vw] font-medium" style={{ color: '#2f2f2b' }}>{item.label}</span>
+              <span className="font-display text-[7.5vw] font-semibold" style={{ color: '#2f2f2b' }}>{item.label}</span>
               <span className="font-sans font-medium text-[11px] tracking-[0.18em] uppercase" style={{ color: '#2f2f2b' }}>{item.sub}</span>
             </button>
           ))}
