@@ -18,6 +18,10 @@
 }
 
 html {
+  color-scheme: light only;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
