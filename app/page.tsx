@@ -61,8 +61,8 @@ export default function Home() {
       >
         {/* Top bar */}
         <div className="shrink-0 flex justify-between items-center px-5 pt-5 pb-2 z-20 relative">
-          <span className="font-sans text-[8px] tracking-[0.35em] uppercase" style={{ color: '#2f2f2b99' }}>Portfolio · 2026</span>
-          <span className="font-sans text-[8px] tracking-[0.35em] uppercase" style={{ color: '#2f2f2b99' }}>Stockholm</span>
+          <span className="font-sans text-[11px] tracking-[0.35em] uppercase" style={{ color: '#2f2f2b99' }}>Portfolio · 2026</span>
+          <span className="font-sans text-[11px] tracking-[0.35em] uppercase" style={{ color: '#2f2f2b99' }}>Stockholm</span>
         </div>
 
         {/* Main area */}
@@ -121,7 +121,7 @@ export default function Home() {
 
           {/* CV hint */}
           <motion.button
-            className="absolute top-3 left-1/2 -translate-x-1/2 z-20 font-sans text-[8px] tracking-[0.35em] uppercase"
+            className="absolute top-3 left-1/2 -translate-x-1/2 z-20 font-sans text-[11px] tracking-[0.35em] uppercase"
             style={{ color: '#2f2f2b60' }}
             onClick={() => setModalOpen(true)}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
@@ -150,7 +150,7 @@ export default function Home() {
               style={{ borderBottom: i < 2 ? '1px solid rgba(47,47,43,0.08)' : 'none' }}
             >
               <span className="font-display text-[7.5vw] font-light" style={{ color: '#2f2f2b' }}>{item.label}</span>
-              <span className="font-sans text-[8px] tracking-[0.18em] uppercase" style={{ color: '#2f2f2b55' }}>{item.sub}</span>
+              <span className="font-sans text-[11px] tracking-[0.18em] uppercase" style={{ color: '#2f2f2b55' }}>{item.sub}</span>
             </button>
           ))}
         </motion.div>
