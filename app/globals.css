@@ -19,6 +19,14 @@
 
 html {
   color-scheme: light only;
+  background-color: #F4F0EB !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body, main {
+    background-color: #F4F0EB !important;
+    color: #2f2f2b !important;
+  }
 }
 
 html {

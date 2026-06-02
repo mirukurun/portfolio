@@ -71,6 +71,7 @@ export default function Home() {
           {/* Avatar — center-right, transparent PNG, sized to fit */}
           <motion.div
             className="absolute top-0 bottom-0 right-0 left-[22%]"
+            style={{ backgroundColor: '#F4F0EB' }}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             onClick={() => setModalOpen(true)}
