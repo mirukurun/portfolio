@@ -46,6 +46,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${spaceGrotesk.variable}`} style={{ colorScheme: 'only light' }}>
+      <head>
+        <style>{`html,body{color-scheme:only light!important;background-color:#F4F0EB!important;}`}</style>
+      </head>
       <body className="font-sans antialiased bg-bg text-ink">
         {children}
       </body>
