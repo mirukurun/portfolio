@@ -80,13 +80,13 @@ export default function Home() {
               src="/avatar/avatar_front_half.png"
               alt="Diana Horbyk"
               fill
-              className="object-contain object-top"
+              className="object-contain object-right-top"
               priority
             />
           </motion.div>
 
           {/* DIANA | HORBYK — two vertical columns, left side */}
-          <div className="absolute left-4 top-0 bottom-0 flex flex-row gap-1 items-center z-10 pointer-events-none">
+          <div className="absolute left-6 top-0 bottom-0 flex flex-row gap-1 items-center z-10 pointer-events-none">
             {/* Column 1: DIANA */}
             <div className="flex flex-col justify-center">
               {['D','I','A','N','A'].map((letter, i) => (
