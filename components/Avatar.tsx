@@ -62,8 +62,8 @@ export function Avatar({ hoveredZone, onClick }: AvatarProps) {
           rotateY,
           height: '64vh',
           width: '64vh',
-          maxWidth: '520px',
-          maxHeight: '520px',
+          maxWidth: '720px',
+          maxHeight: '720px',
         }}
         className="relative cursor-pointer select-none"
         onClick={onClick}

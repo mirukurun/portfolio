@@ -123,8 +123,9 @@ export default function Home() {
       ───────────────────────────────────────── */}
       <main
         ref={containerRef}
-        className="relative h-screen overflow-hidden bg-bg select-none hidden md:block"
+        className="relative h-screen overflow-hidden bg-bg select-none hidden md:flex md:justify-center"
       >
+      <div className="relative w-full max-w-[1800px] h-full">
         {/* Top metadata strip */}
         <div className="absolute top-0 inset-x-0 flex justify-between items-start px-7 pt-6 z-10 pointer-events-none">
           <p className="font-sans text-[9px] tracking-[0.45em] uppercase text-ink/35">Portfolio&nbsp;·&nbsp;2026</p>
@@ -226,6 +227,7 @@ export default function Home() {
             </motion.p>
             <Avatar hoveredZone={hoveredZone} onClick={() => setModalOpen(true)} />
           </div>
+        </div>
         </div>
       </main>
     </>
