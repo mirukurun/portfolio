@@ -23,6 +23,15 @@ const PROJECTS = [
     external: true,
   },
   {
+    id: '03',
+    title: 'Queens Qoncept Clinic — Beauty Website',
+    category: 'Web Design · Live',
+    year: '2025',
+    description: 'Full website for a Stockholm-based aesthetic clinic — homepage, services, team, gallery and booking. Elegant, minimal design matching a luxury beauty brand.',
+    href: 'https://qqclinic.vercel.app',
+    external: true,
+  },
+  {
     id: '04',
     title: 'Portfolio Website',
     category: 'Web Design · Frontend',
