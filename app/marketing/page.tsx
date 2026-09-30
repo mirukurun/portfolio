@@ -31,22 +31,6 @@ const WORK: { id: string; title: string; category: string; company: string; year
   },
   {
     id: '04',
-    title: 'Brand System from Zero',
-    category: 'Brand Strategy · Design Systems · Figma',
-    company: 'Voxear Technologies AB',
-    year: '2026',
-    description: 'Audited a library of ~95 marketing files with no documented brand rules and built the company\'s first brand system in Figma: colour, typography, logo usage, custom icon set, voice and tone, exported as reusable design tokens. Leadership approved the two most contested decisions on the strength of an evidence-based case.',
-  },
-  {
-    id: '05',
-    title: 'Retail Display Redesign',
-    category: 'Project Delivery · Vendor Coordination',
-    company: 'Voxear Technologies AB',
-    year: '2026',
-    description: 'Got a months-stalled in-store display redesign moving: replaced vague feedback with a written, checkable defect list, turned it into a print specification with the external vendor, and brought the new brand accent colour onto a physical product for the first time.',
-  },
-  {
-    id: '06',
     title: 'FindMeAJob',
     category: 'AI Product · Personal Project',
     company: 'Personal',
@@ -54,7 +38,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Local-first job application assistant built with Next.js and Claude. Upload a resume, get an AI-extracted candidate profile, and match against job listings with scored reasoning — all running on your own machine.',
   },
   {
-    id: '07',
+    id: '05',
     title: 'Reddit → LinkedIn Engine',
     category: 'AI Automation · Content · Personal Project',
     company: 'Personal',
@@ -62,7 +46,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'A research and drafting pipeline that turns Reddit discussions into original LinkedIn content. Fetches threads, extracts human insights via LLM, generates post angles and drafts — in your voice, not Reddit\'s.',
   },
   {
-    id: '08',
+    id: '06',
     title: 'LinkedIn Outreach Engine',
     category: 'Growth Marketing · AI Automation',
     company: 'Ivy Interactive',
@@ -70,7 +54,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Built and operated a full LinkedIn outreach workflow: lead segmentation, campaign variants, AI-automated reply categorisation and follow-up drafting. Turned manual processes into a repeatable, scalable system.',
   },
   {
-    id: '09',
+    id: '07',
     title: 'AI Workflow Automation',
     category: 'AI · n8n · Operations',
     company: 'Ivy Interactive',
@@ -78,7 +62,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Designed and deployed AI-assisted outreach automation using Claude, n8n, and Clay. Reduced manual task time significantly across lead research, reply handling, and follow-up scheduling.',
   },
   {
-    id: '10',
+    id: '08',
     title: 'Social Media Launch',
     category: 'Content · Community · Ads',
     company: 'Beredskapslyftet',
@@ -86,7 +70,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Built Facebook and Instagram presence from zero for a Swedish social initiative. Created multilingual content, managed ad campaigns, and covered live events — from photography to short-form video.',
   },
   {
-    id: '11',
+    id: '09',
     title: 'Media Localisation at Scale',
     category: 'Operations · Project Management',
     company: 'Ukrainian Media Localisation Initiative',
@@ -94,7 +78,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Founded and led a 30-person remote volunteer team across translation, voice acting, and post-production. Delivered 3 complete localised episodes through structured async workflows.',
   },
   {
-    id: '12',
+    id: '10',
     title: 'Content Creation — Targeted Advertising',
     category: 'Content · Video · Visual Design',
     company: 'Beauty by Luidmila',
