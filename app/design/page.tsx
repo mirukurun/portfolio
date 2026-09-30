@@ -11,7 +11,7 @@ const PROJECTS = [
     category: 'Brand Identity · Design System · Figma',
     year: '2026',
     description: 'First documented brand system for a hardware company, reverse-engineered from ~95 existing files: foundations, colour, typography, logo usage, UI components, voice and tone, applied examples. Exported as reusable design tokens.',
-      href: '/design/voxear#brand-system',
+    href: '/design/voxear#brand-system',
   },
   {
     id: '02',
@@ -19,7 +19,7 @@ const PROJECTS = [
     category: 'Iconography · Visual Design',
     year: '2026',
     description: 'Icon set drawn from scratch to match the brand\'s existing logo geometry, and reused across new deliverables within the same month.',
-      href: '/design/voxear#icon-set',
+    href: '/design/voxear#icon-set',
   },
   {
     id: '03',
@@ -27,7 +27,7 @@ const PROJECTS = [
     category: 'Physical Design · Print Production',
     year: '2026',
     description: 'Took the new brand accent colour off the guideline pages and onto a physical product display. Reviewed the vendor\'s concept, wrote the print specification (colour profile, bleed, dimensions, colour build) and agreed the revision list in the design review.',
-      href: '/design/voxear#display',
+    href: '/design/voxear#display',
   },
   {
     id: '04',
@@ -35,7 +35,7 @@ const PROJECTS = [
     category: 'Layout · Templates · Print',
     year: '2026',
     description: 'Branded document template with a self-demonstrating style guide so the team can produce on-brand documents without a designer, plus editable, translated product sheets with exact lab-tested specs.',
-      href: '/design/voxear#templates',
+    href: '/design/voxear#templates',
   },
   {
     id: '05',
