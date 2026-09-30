@@ -7,6 +7,41 @@ import { TextureOverlay } from '@/components/TextureOverlay'
 const PROJECTS = [
   {
     id: '01',
+    title: 'Voxear — Brand System',
+    category: 'Brand Identity · Design System · Figma',
+    year: '2026',
+    description: 'First documented brand system for a hardware company, reverse-engineered from ~95 existing files: foundations, colour, typography, logo usage, UI components, voice and tone, applied examples. Exported as reusable design tokens.',
+  },
+  {
+    id: '02',
+    title: 'Voxear — Custom Icon Set',
+    category: 'Iconography · Visual Design',
+    year: '2026',
+    description: 'Icon set drawn from scratch to match the brand\'s existing logo geometry, and reused across new deliverables within the same month.',
+  },
+  {
+    id: '03',
+    title: 'Voxear — Retail Display Redesign',
+    category: 'Physical Design · Print Production',
+    year: '2026',
+    description: 'Took the new brand accent colour off the guideline pages and onto a physical product display. Reviewed the vendor\'s concept, wrote the print specification (colour profile, bleed, dimensions, colour build) and agreed the revision list in the design review.',
+  },
+  {
+    id: '04',
+    title: 'Voxear — Document Templates & Product Sheets',
+    category: 'Layout · Templates · Print',
+    year: '2026',
+    description: 'Branded document template with a self-demonstrating style guide so the team can produce on-brand documents without a designer, plus editable, translated product sheets with exact lab-tested specs.',
+  },
+  {
+    id: '05',
+    title: 'Portfolio Website',
+    category: 'Web Design · Frontend',
+    year: '2026',
+    description: 'Editorial-first personal portfolio. Designed as an interactive magazine cover combining fashion editorial aesthetics with functional navigation.',
+  },
+  {
+    id: '06',
     title: 'SpaceCorps — Game Platform',
     category: 'UX/UI Design · Brand Identity',
     year: '2025',
@@ -14,7 +49,7 @@ const PROJECTS = [
     href: '/design/spacecorps',
   },
   {
-    id: '02',
+    id: '07',
     title: 'SpaceCorps — Company Website',
     category: 'Web Design · Live',
     year: '2025',
@@ -23,7 +58,7 @@ const PROJECTS = [
     external: true,
   },
   {
-    id: '03',
+    id: '08',
     title: 'Queens Qoncept Clinic — Beauty Website',
     category: 'Web Design · Live',
     year: '2025',
@@ -32,14 +67,7 @@ const PROJECTS = [
     external: true,
   },
   {
-    id: '04',
-    title: 'Portfolio Website',
-    category: 'Web Design · Frontend',
-    year: '2026',
-    description: 'Editorial-first personal portfolio. Designed as an interactive magazine cover combining fashion editorial aesthetics with functional navigation.',
-  },
-  {
-    id: '05',
+    id: '09',
     title: 'Karolinska Institutet — HR Dashboard',
     category: 'UX/UI Design · Data Dashboard',
     year: '2025',
@@ -47,7 +75,7 @@ const PROJECTS = [
     href: '/design/karolinska',
   },
   {
-    id: '06',
+    id: '10',
     title: 'Ivy Interactive — Landing Page Prototype',
     category: 'UX/UI Design · Product Messaging',
     year: '2025',
@@ -55,7 +83,7 @@ const PROJECTS = [
     href: '/design/ivy',
   },
   {
-    id: '07',
+    id: '11',
     title: 'Ivy Interactive — Studio Prototype',
     category: 'UX/UI Design · App Interface',
     year: '2025',
@@ -63,39 +91,11 @@ const PROJECTS = [
     href: '/design/ivy-studio',
   },
   {
-    id: '08',
+    id: '12',
     title: 'Connecting Jobs — Social Presence',
     category: 'Visual Design · Content',
     year: '2025',
     description: 'Social media visual identity and content templates for Connecting Jobs — a sub-project of Beredskapslyftet, a Swedish employment integration initiative serving a multilingual audience.',
-  },
-  {
-    id: '09',
-    title: 'Voxear — Brand System',
-    category: 'Brand Identity · Design System · Figma',
-    year: '2026',
-    description: 'First documented brand system for a hardware company, reverse-engineered from ~95 existing files: foundations, colour, typography, logo usage, UI components, voice and tone, applied examples. Exported as reusable design tokens.',
-  },
-  {
-    id: '10',
-    title: 'Voxear — Custom Icon Set',
-    category: 'Iconography · Visual Design',
-    year: '2026',
-    description: 'Icon set drawn from scratch to match the brand\'s existing logo geometry, and reused across new deliverables within the same month.',
-  },
-  {
-    id: '11',
-    title: 'Voxear — Retail Display Redesign',
-    category: 'Physical Design · Print Production',
-    year: '2026',
-    description: 'Took the new brand accent colour off the guideline pages and onto a physical product display. Reviewed the vendor\'s concept, wrote the print specification (colour profile, bleed, dimensions, colour build) and agreed the revision list in the design review.',
-  },
-  {
-    id: '12',
-    title: 'Voxear — Document Templates & Product Sheets',
-    category: 'Layout · Templates · Print',
-    year: '2026',
-    description: 'Branded document template with a self-demonstrating style guide so the team can produce on-brand documents without a designer, plus editable, translated product sheets with exact lab-tested specs.',
   },
 ]
 
