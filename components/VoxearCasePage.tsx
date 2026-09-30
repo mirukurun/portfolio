@@ -103,6 +103,57 @@ export function VoxearCasePage({ item }: { item: VoxearCase }) {
             <p className="mt-8 font-sans text-base text-ink/90 max-w-2xl leading-loose">{item.intro}</p>
           </motion.div>
 
+          {item.pairs?.map((pair, pi) => (
+            <motion.section
+              key={pair.title}
+              className="mb-16"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease }}
+            >
+              <h2 className="font-display text-3xl md:text-4xl font-light text-ink mb-6">
+                <span className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/30 mr-4 align-middle">
+                  {String(pi + 1).padStart(2, '0')}
+                </span>
+                {pair.title}
+              </h2>
+              <div className="grid grid-cols-2 gap-3 md:gap-6">
+                {[pair.before, pair.after].map((img, k) => (
+                  <div key={img.src}>
+                    <p className={`font-sans text-[10px] tracking-[0.3em] uppercase mb-2 ${k === 1 ? 'text-accent' : 'text-ink/50'}`}>
+                      {img.label}
+                    </p>
+                    <div
+                      className="relative overflow-hidden bg-ink/5 cursor-zoom-in border border-ink/8"
+                      style={{ aspectRatio: '1 / 1' }}
+                      onClick={() => setLightbox(img)}
+                    >
+                      <Image
+                        src={img.src}
+                        alt={`${pair.title} — ${img.label}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 600px"
+                      />
+                    </div>
+                    <p className="mt-2 font-sans text-sm text-ink/70 leading-relaxed">{img.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 max-w-2xl">
+                <h3 className="font-sans text-[10px] tracking-[0.3em] uppercase text-accent mb-4">Why the second one works better</h3>
+                <ul className="space-y-3">
+                  {pair.why.map((w) => (
+                    <li key={w} className="flex gap-3 font-sans text-base text-ink/90 leading-relaxed">
+                      <span className="text-accent mt-0.5 shrink-0">—</span>
+                      {w}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.section>
+          ))}
+
           <motion.div
             variants={containerVariants}
             initial="hidden"

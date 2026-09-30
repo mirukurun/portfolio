@@ -1,11 +1,14 @@
 export type Img = { src: string; w: number; h: number; label: string; description: string }
 
+export type Pair = { title: string; before: Img; after: Img; why: string[] }
+
 export type VoxearCase = {
   slug: string
   eyebrow: string
   title: string
   intro: string
   grid?: 1 | 2
+  pairs?: Pair[]
   images: Img[]
   points: string[]
   tools: string[]
@@ -76,27 +79,47 @@ export const VOXEAR_CASES: VoxearCase[] = [
     title: 'Retail Display Redesign',
     intro:
       'The in-store product display had known problems, but nobody had written down what was wrong and sign-off had stalled for months. I documented the current state with specific, dated defects, worked with the external production vendor on a print specification, and brought the new brand accent colour from guideline pages onto a physical fixture for the first time.',
+    pairs: [
+      {
+        title: 'Front graphic',
+        before: {
+          src: '/projects/voxear/before-front.jpg', w: 1000, h: 1124,
+          label: 'Before',
+          description: 'A text list over a photo, without brand colour.',
+        },
+        after: {
+          src: '/projects/voxear/display-front.jpg', w: 1600, h: 1462,
+          label: 'After',
+          description: 'Headline in the brand accent, three spec callouts with icons.',
+        },
+        why: [
+          'One message instead of four bullets: the two-line headline reads in a couple of seconds from a few metres away.',
+          'Specs become numbers. 40 h and 35 dB are set large with an icon each, so a shopper can compare at a glance instead of reading a list.',
+          'The brand accent finally appears on a physical surface, so the display is recognisably the same brand as the guidelines, site and sheets.',
+          'The earbud is visible in the ear, in context, and the award mark sits in a fixed corner without competing with the headline.',
+        ],
+      },
+      {
+        title: 'Product panel',
+        before: {
+          src: '/projects/voxear/before-back.jpg', w: 1200, h: 1108,
+          label: 'Before',
+          description: 'A labelled diagram with small text and a paragraph.',
+        },
+        after: {
+          src: '/projects/voxear/display-back.jpg', w: 1600, h: 1483,
+          label: 'After',
+          description: 'Annotated product, fit chart and QR code.',
+        },
+        why: [
+          'The product is the hero. One large image with callouts in orange leader lines replaces three separate small diagrams.',
+          'Short labels instead of a paragraph: each function gets a name and one line, which is all a person standing at a display will read.',
+          'A fit chart shows every eartip size against its rating (SNR29 / SNR35) in one strip, answering the most common buyer question visually.',
+          'A clear finish: target trades and a QR code to the product page, so the display leads somewhere.',
+        ],
+      },
+    ],
     images: [
-      {
-        src: '/projects/voxear/before-front.jpg', w: 1000, h: 1124,
-        label: 'Before — front graphic',
-        description: 'An earlier version of the front graphic, before the brand system: a text list over a photo, without brand colour or a clear hierarchy.',
-      },
-      {
-        src: '/projects/voxear/display-front.jpg', w: 1600, h: 1462,
-        label: 'After — front graphic',
-        description: 'Two-line headline in the brand accent, three spec callouts with the new icons, and the award mark. Photography does the rest.',
-      },
-      {
-        src: '/projects/voxear/before-back.jpg', w: 1200, h: 1108,
-        label: 'Before — product panel',
-        description: 'An earlier product panel: a labelled diagram on a dark background, before the new type and colour.',
-      },
-      {
-        src: '/projects/voxear/display-back.jpg', w: 1600, h: 1483,
-        label: 'After — product panel',
-        description: 'An annotated product diagram with orange leader lines, a fit chart for every eartip size and rating, and a QR code to the product page.',
-      },
       {
         src: '/projects/voxear/display-explorations.jpg', w: 1400, h: 928,
         label: 'Concept explorations',
