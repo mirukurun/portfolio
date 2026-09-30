@@ -117,7 +117,7 @@ export function VoxearCasePage({ item }: { item: VoxearCase }) {
                 </span>
                 {pair.title}
               </h2>
-              <div className="grid grid-cols-2 gap-3 md:gap-6">
+              <div className="grid grid-cols-2 items-start gap-3 md:gap-6">
                 {[pair.before, pair.after].map((img, k) => (
                   <div key={img.src}>
                     <p className={`font-sans text-[10px] tracking-[0.3em] uppercase mb-2 ${k === 1 ? 'text-accent' : 'text-ink/50'}`}>
@@ -125,7 +125,7 @@ export function VoxearCasePage({ item }: { item: VoxearCase }) {
                     </p>
                     <div
                       className="relative overflow-hidden bg-ink/5 cursor-zoom-in border border-ink/8"
-                      style={{ aspectRatio: '1 / 1' }}
+                      style={{ aspectRatio: `${img.w}/${img.h}` }}
                       onClick={() => setLightbox(img)}
                     >
                       <Image
