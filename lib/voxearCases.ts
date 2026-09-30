@@ -104,7 +104,7 @@ export const VOXEAR_CASES: VoxearCase[] = [
         before: {
           src: '/projects/voxear/before-back.jpg', w: 1200, h: 1108,
           label: 'Before',
-          description: 'A labelled diagram with small text and a paragraph.',
+          description: 'Three small product views, many thin labels and a paragraph.',
         },
         after: {
           src: '/projects/voxear/display-back.jpg', w: 1600, h: 1483,
@@ -112,7 +112,7 @@ export const VOXEAR_CASES: VoxearCase[] = [
           description: 'Annotated product, fit chart and QR code.',
         },
         why: [
-          'The product is the hero. One large image with callouts in orange leader lines replaces three separate small diagrams.',
+          'The product is shown once, as it is sold: case open with both earbuds inside. The earlier panel split it into three small views (case, case side, single earbud) with a dozen thin labels; here only the handful of functions that sell the product get a callout, in orange leader lines.',
           'Short labels instead of a paragraph: each function gets a name and one line, which is all a person standing at a display will read.',
           'A fit chart shows every eartip size against its rating (SNR29 / SNR35) in one strip, answering the most common buyer question visually.',
           'A clear finish: target trades and a QR code to the product page, so the display leads somewhere.',
