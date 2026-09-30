@@ -85,7 +85,7 @@ const SKILLS = {
 }
 
 const EDUCATION = [
-  { title: "Bachelor's in Marketing", period: 'Sep 2022 – Present', detail: 'Market analysis · consumer behaviour · data-driven strategy' },
+  { title: "Bachelor's in Marketing", period: 'Sep 2022 – Jul 2026', detail: 'Market analysis · consumer behaviour · data-driven strategy' },
   { title: 'AI Marketing Specialist', period: 'Jul 2025 – Present', detail: 'AI agents · chatbots · CRM integration · marketing analytics' },
   { title: 'UX/UI Design & Web Design', period: 'Feb 2025 – Dec 2025', detail: 'Figma · prototyping · design principles · responsive design' },
   { title: 'Swedish Language Studies', period: 'Aug 2024 – Dec 2024', detail: 'Stockholm University · professional communication' },
