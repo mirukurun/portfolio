@@ -69,6 +69,34 @@ const PROJECTS = [
     year: '2025',
     description: 'Social media visual identity and content templates for Connecting Jobs — a sub-project of Beredskapslyftet, a Swedish employment integration initiative serving a multilingual audience.',
   },
+  {
+    id: '09',
+    title: 'Voxear — Brand System',
+    category: 'Brand Identity · Design System · Figma',
+    year: '2026',
+    description: 'First documented brand system for a hardware company, reverse-engineered from ~95 existing files: foundations, colour, typography, logo usage, UI components, voice and tone, applied examples. Exported as reusable design tokens.',
+  },
+  {
+    id: '10',
+    title: 'Voxear — Custom Icon Set',
+    category: 'Iconography · Visual Design',
+    year: '2026',
+    description: 'Icon set drawn from scratch to match the brand\'s existing logo geometry, and reused across new deliverables within the same month.',
+  },
+  {
+    id: '11',
+    title: 'Voxear — Retail Display Redesign',
+    category: 'Physical Design · Print Production',
+    year: '2026',
+    description: 'Took the new brand accent colour off the guideline pages and onto a physical product display. Reviewed the vendor\'s concept, wrote the print specification (colour profile, bleed, dimensions, colour build) and agreed the revision list in the design review.',
+  },
+  {
+    id: '12',
+    title: 'Voxear — Document Templates & Product Sheets',
+    category: 'Layout · Templates · Print',
+    year: '2026',
+    description: 'Branded document template with a self-demonstrating style guide so the team can produce on-brand documents without a designer, plus editable, translated product sheets with exact lab-tested specs.',
+  },
 ]
 
 const containerVariants: Variants = {
