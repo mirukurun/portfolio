@@ -148,7 +148,7 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
                 {/* Header */}
                 <div className="border-b border-ink/10 pb-8 mb-8">
                   <h2 className="font-display text-5xl font-light tracking-tight text-ink mb-1">Diana Horbyk</h2>
-                  <p className="font-sans text-sm text-mid">Junior Growth Marketer · Digital Marketing & UX/UI Design</p>
+                  <p className="font-sans text-sm text-mid">Growth Marketer · Digital Marketing & UX/UI Design</p>
                   <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-xs text-ink/50 font-sans">
                     <span>diana.horbyk@gmail.com</span>
                     <span>(+46) 76-174-5666</span>
