@@ -78,6 +78,30 @@ const WORK: { id: string; title: string; category: string; company: string; year
     year: '2026',
     description: 'Got a months-stalled in-store display redesign moving: replaced vague feedback with a written, checkable defect list, turned it into a print specification with the external vendor, and brought the new brand accent colour onto a physical product for the first time.',
   },
+  {
+    id: '10',
+    title: 'Buyer Personas & Messaging Matrix',
+    category: 'Positioning · Audience Research',
+    company: 'Voxear Technologies AB',
+    year: '2026',
+    description: 'Built 5 end-user and 2 distributor personas from EU professional communities, each mapped across a 6-stage buyer journey with message, proof and channel. Gave a distributor-led go-to-market a working model for who every page, post, sheet and deck is for.',
+  },
+  {
+    id: '11',
+    title: 'SEO & AI-Search Visibility Baseline',
+    category: 'SEO · Web Performance · GEO',
+    company: 'Voxear Technologies AB',
+    year: '2026',
+    description: 'Closed the company\'s first web and SEO baseline (Search Console, GA4, Core Web Vitals, rankings, backlinks) and separately tested how the brand shows up in Google AI Overviews and ChatGPT for real buyer questions. Turned the gaps into a prioritised action list and a briefing that won leadership buy-in for a new workstream.',
+  },
+  {
+    id: '12',
+    title: 'Social Baseline & Customer Proof Bank',
+    category: 'Social · Content · Voice of Customer',
+    company: 'Voxear Technologies AB',
+    year: '2026',
+    description: 'Benchmarked every active social channel using public data only, then set up a content calendar and monthly metrics. Turned raw customer field-test forms into a reusable bank of testimonials and stats with consent tracking, and proposed a zero-cost review-collection flow.',
+  },
 ]
 
 const containerVariants: Variants = {
