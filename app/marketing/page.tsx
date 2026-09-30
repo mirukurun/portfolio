@@ -62,6 +62,22 @@ const WORK: { id: string; title: string; category: string; company: string; year
     year: '2026',
     description: 'A research and drafting pipeline that turns Reddit discussions into original LinkedIn content. Fetches threads, extracts human insights via LLM, generates post angles and drafts — in your voice, not Reddit\'s.',
   },
+  {
+    id: '08',
+    title: 'Brand System from Zero',
+    category: 'Brand Strategy · Design Systems · Figma',
+    company: 'Voxear Technologies AB',
+    year: '2026',
+    description: 'Audited a library of ~95 marketing files with no documented brand rules and built the company\'s first brand system in Figma: colour, typography, logo usage, custom icon set, voice and tone, exported as reusable design tokens. Leadership approved the two most contested decisions on the strength of an evidence-based case.',
+  },
+  {
+    id: '09',
+    title: 'Retail Display Redesign',
+    category: 'Project Delivery · Vendor Coordination',
+    company: 'Voxear Technologies AB',
+    year: '2026',
+    description: 'Got a months-stalled in-store display redesign moving: replaced vague feedback with a written, checkable defect list, turned it into a print specification with the external vendor, and brought the new brand accent colour onto a physical product for the first time.',
+  },
 ]
 
 const containerVariants: Variants = {

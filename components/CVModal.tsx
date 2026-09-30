@@ -10,6 +10,19 @@ interface CVModalProps {
 
 const EXPERIENCE = [
   {
+    title: 'Marketing Coordinator',
+    company: 'Voxear Technologies AB',
+    period: 'Aug 2026 – Present',
+    context: 'B2B hardware company · Professional hearing protection',
+    points: [
+      'Audited the full marketing collateral library (~95 files) and built the company\'s first documented brand system in Figma — visual identity, design tokens, iconography and usage guidelines.',
+      'Won leadership approval on the two most contested brand decisions (accent colour, body typeface) with a research-backed case instead of opinion.',
+      'Unblocked a stalled retail-display redesign: documented defects, agreed print specs with the external production vendor, and led the design review.',
+      'Ran the company\'s first SEO and web performance baseline together with an external analytics and web agency.',
+      'Built an internal issue-tracking tool from scratch to give leadership real-time visibility into open marketing and operations issues.',
+    ],
+  },
+  {
     title: 'Growth Marketer',
     company: 'Ivy Interactive',
     period: 'Sep 2025 – Jun 2026',
