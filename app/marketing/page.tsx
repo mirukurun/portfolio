@@ -7,6 +7,15 @@ import { TextureOverlay } from '@/components/TextureOverlay'
 const WORK: { id: string; title: string; category: string; company: string; year: string; description: string; videoSrc?: string; href?: string }[] = [
   {
     id: '01',
+    title: 'Hordi Nails',
+    category: 'Small Business · Local SEO · Content Automation',
+    company: 'Own business',
+    year: '2026',
+    description: 'My home nail studio north of Stockholm, where I run all of the marketing. The site carries NailSalon, price and FAQ structured data (39 questions) plus an llms.txt file, so Google and AI assistants can answer questions about prices, hours and booking. Reels are voiced and edited by a pipeline I put together (Kokoro TTS, Whisper, Remotion, FFmpeg), which lets me publish without filming clients; 4 reels so far.',
+    href: 'https://hordinails.com',
+  },
+  {
+    id: '02',
     title: 'SEO & AI-Search Visibility Baseline',
     category: 'SEO · Web Performance · GEO',
     company: 'Voxear Technologies AB',
@@ -14,7 +23,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Closed the company\'s first web and SEO baseline (Search Console, GA4, Core Web Vitals, rankings, backlinks) and separately tested how the brand shows up in Google AI Overviews and ChatGPT for real buyer questions. Turned the gaps into a prioritised action list and a briefing that won leadership buy-in for a new workstream.',
   },
   {
-    id: '02',
+    id: '03',
     title: 'Buyer Personas & Messaging Matrix',
     category: 'Positioning · Audience Research',
     company: 'Voxear Technologies AB',
@@ -22,7 +31,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Built 5 end-user and 2 distributor personas from EU professional communities, each mapped across a 6-stage buyer journey with message, proof and channel. Gave a distributor-led go-to-market a working model for who every page, post, sheet and deck is for.',
   },
   {
-    id: '03',
+    id: '04',
     title: 'Social Baseline & Customer Proof Bank',
     category: 'Social · Content · Voice of Customer',
     company: 'Voxear Technologies AB',
@@ -30,7 +39,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Benchmarked every active social channel using public data only, then set up a content calendar and monthly metrics. Turned raw customer field-test forms into a reusable bank of testimonials and stats with consent tracking, and proposed a zero-cost review-collection flow.',
   },
   {
-    id: '04',
+    id: '05',
     title: 'FindMeAJob',
     category: 'AI Product · Personal Project',
     company: 'Personal',
@@ -38,7 +47,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Local-first job application assistant built with Next.js and Claude. Upload a resume, get an AI-extracted candidate profile, and match against job listings with scored reasoning — all running on your own machine.',
   },
   {
-    id: '05',
+    id: '06',
     title: 'Reddit → LinkedIn Engine',
     category: 'AI Automation · Content · Personal Project',
     company: 'Personal',
@@ -46,7 +55,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'A research and drafting pipeline that turns Reddit discussions into original LinkedIn content. Fetches threads, extracts human insights via LLM, generates post angles and drafts — in your voice, not Reddit\'s.',
   },
   {
-    id: '06',
+    id: '07',
     title: 'LinkedIn Outreach Engine',
     category: 'Growth Marketing · AI Automation',
     company: 'Ivy Interactive',
@@ -54,7 +63,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Built and operated a full LinkedIn outreach workflow: lead segmentation, campaign variants, AI-automated reply categorisation and follow-up drafting. Turned manual processes into a repeatable, scalable system.',
   },
   {
-    id: '07',
+    id: '08',
     title: 'AI Workflow Automation',
     category: 'AI · n8n · Operations',
     company: 'Ivy Interactive',
@@ -62,7 +71,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Designed and deployed AI-assisted outreach automation using Claude, n8n, and Clay. Reduced manual task time significantly across lead research, reply handling, and follow-up scheduling.',
   },
   {
-    id: '08',
+    id: '09',
     title: 'Social Media Launch',
     category: 'Content · Community · Ads',
     company: 'Beredskapslyftet',
@@ -70,7 +79,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Built Facebook and Instagram presence from zero for a Swedish social initiative. Created multilingual content, managed ad campaigns, and covered live events — from photography to short-form video.',
   },
   {
-    id: '09',
+    id: '10',
     title: 'Media Localisation at Scale',
     category: 'Operations · Project Management',
     company: 'Ukrainian Media Localisation Initiative',
@@ -78,7 +87,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Founded and led a 30-person remote volunteer team across translation, voice acting, and post-production. Delivered 3 complete localised episodes through structured async workflows.',
   },
   {
-    id: '10',
+    id: '11',
     title: 'Content Creation — Targeted Advertising',
     category: 'Content · Video · Visual Design',
     company: 'Beauty by Luidmila',

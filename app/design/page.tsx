@@ -7,6 +7,15 @@ import { TextureOverlay } from '@/components/TextureOverlay'
 const PROJECTS = [
   {
     id: '01',
+    title: 'Hordi Nails: Brand & Booking Site',
+    category: 'Brand Identity · Web Design · Live',
+    year: '2026',
+    description: 'Wordmark and monogram for my own nail studio, then a one-page site with gallery, price list and online booking. Clients pick length, design tier, extras and gel colour, see the price and duration, and choose a slot that fits the set. Requests reach me in Telegram through a Cloudflare Worker, and clients get confirmation and reminder emails. Live at hordinails.com.',
+    href: 'https://hordinails.com',
+    external: true,
+  },
+  {
+    id: '02',
     title: 'Voxear — Brand System',
     category: 'Brand Identity · Design System · Figma',
     year: '2026',
@@ -14,7 +23,7 @@ const PROJECTS = [
     href: '/design/voxear-brand-system',
   },
   {
-    id: '02',
+    id: '03',
     title: 'Voxear — Custom Icon Set',
     category: 'Iconography · Visual Design',
     year: '2026',
@@ -22,7 +31,7 @@ const PROJECTS = [
     href: '/design/voxear-icon-set',
   },
   {
-    id: '03',
+    id: '04',
     title: 'Voxear — Retail Display Redesign',
     category: 'Physical Design · Print Production',
     year: '2026',
@@ -30,7 +39,7 @@ const PROJECTS = [
     href: '/design/voxear-retail-display',
   },
   {
-    id: '04',
+    id: '05',
     title: 'Voxear — Document Templates & Product Sheets',
     category: 'Layout · Templates · Print',
     year: '2026',
@@ -38,14 +47,14 @@ const PROJECTS = [
     href: '/design/voxear-templates',
   },
   {
-    id: '05',
+    id: '06',
     title: 'Portfolio Website',
     category: 'Web Design · Frontend',
     year: '2026',
     description: 'Editorial-first personal portfolio. Designed as an interactive magazine cover combining fashion editorial aesthetics with functional navigation.',
   },
   {
-    id: '06',
+    id: '07',
     title: 'SpaceCorps — Game Platform',
     category: 'UX/UI Design · Brand Identity',
     year: '2025',
@@ -53,7 +62,7 @@ const PROJECTS = [
     href: '/design/spacecorps',
   },
   {
-    id: '07',
+    id: '08',
     title: 'SpaceCorps — Company Website',
     category: 'Web Design · Live',
     year: '2025',
@@ -62,7 +71,7 @@ const PROJECTS = [
     external: true,
   },
   {
-    id: '08',
+    id: '09',
     title: 'Queens Qoncept Clinic — Beauty Website',
     category: 'Web Design · Live',
     year: '2025',
@@ -71,7 +80,7 @@ const PROJECTS = [
     external: true,
   },
   {
-    id: '09',
+    id: '10',
     title: 'Karolinska Institutet — HR Dashboard',
     category: 'UX/UI Design · Data Dashboard',
     year: '2025',
@@ -79,7 +88,7 @@ const PROJECTS = [
     href: '/design/karolinska',
   },
   {
-    id: '10',
+    id: '11',
     title: 'Ivy Interactive — Landing Page Prototype',
     category: 'UX/UI Design · Product Messaging',
     year: '2025',
@@ -87,7 +96,7 @@ const PROJECTS = [
     href: '/design/ivy',
   },
   {
-    id: '11',
+    id: '12',
     title: 'Ivy Interactive — Studio Prototype',
     category: 'UX/UI Design · App Interface',
     year: '2025',
@@ -95,7 +104,7 @@ const PROJECTS = [
     href: '/design/ivy-studio',
   },
   {
-    id: '12',
+    id: '13',
     title: 'Connecting Jobs — Social Presence',
     category: 'Visual Design · Content',
     year: '2025',

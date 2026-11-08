@@ -10,6 +10,18 @@ interface CVModalProps {
 
 const EXPERIENCE = [
   {
+    title: 'Founder',
+    company: 'Hordi Nails',
+    period: '2026 – Present',
+    context: 'Own home nail studio · Upplands Väsby, Stockholm',
+    points: [
+      'Designed the brand (wordmark and monogram) and built hordinails.com: gallery, price list and an online booking flow with a price and duration calculator.',
+      'Built the booking backend on Cloudflare Workers: requests arrive in Telegram with confirm, suggest and decline buttons, clients get emails and a reminder the day before.',
+      'Set up local and AI-search visibility: NailSalon, offer and FAQ structured data, sitemap and an llms.txt file.',
+      'Put together a reel pipeline (Kokoro TTS, Whisper, Remotion, FFmpeg) and a content planner with 100 topics, so content does not depend on filming clients.',
+    ],
+  },
+  {
     title: 'Marketing Coordinator',
     company: 'Voxear Technologies AB',
     period: 'Aug 2026 – Present',
