@@ -235,7 +235,6 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
                       { lang: 'English', level: 'B2 — Professional' },
                       { lang: 'Swedish', level: 'B1 — Intermediate' },
                       { lang: 'Ukrainian', level: 'Native' },
-                      { lang: 'Russian', level: 'Native' },
                     ].map(({ lang, level }) => (
                       <div key={lang}>
                         <p className="font-display text-lg font-medium text-ink">{lang}</p>
