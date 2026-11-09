@@ -12,13 +12,24 @@ const EXPERIENCE = [
   {
     title: 'Founder',
     company: 'Hordi Nails',
-    period: '2026 – Present',
+    period: 'May 2026 – Present',
     context: 'Own home nail studio · Upplands Väsby, Stockholm',
     points: [
       'Designed the brand (wordmark and monogram) and built hordinails.com: gallery, price list and an online booking flow with a price and duration calculator.',
       'Built the booking backend on Cloudflare Workers: requests arrive in Telegram with confirm, suggest and decline buttons, clients get emails and a reminder the day before.',
       'Set up local and AI-search visibility: NailSalon, offer and FAQ structured data, sitemap and an llms.txt file.',
-      'Put together a reel pipeline (Kokoro TTS, Whisper, Remotion, FFmpeg) and a content planner with 100 topics, so content does not depend on filming clients.',
+      'Building a reel pipeline (Kokoro TTS, Whisper, Remotion, FFmpeg) so content does not depend on filming clients.',
+    ],
+  },
+  {
+    title: 'Co-Founder & Head of Marketing',
+    company: 'ICPress — Individual Contributor Press',
+    period: 'Nov 2026 – Present',
+    context: 'StoryPop AB · Platform for comparing companies with their real peers',
+    points: [
+      'Ran the marketing audit and repositioned the product around fair, apples-to-apples company comparison; planned a waitlist-first launch and comparison-led content.',
+      'Wrote and filed product issues detailed enough for the developers\' AI coding agents to fix as-is: URL and user state, element IDs, measurements, cause, fix and acceptance checklist.',
+      'Created “Finance from zero”, a short-video series for beginners, and built the engine that renders episodes from scripts with TTS narration and timed captions.',
     ],
   },
   {

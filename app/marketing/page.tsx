@@ -4,18 +4,28 @@ import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
 import { TextureOverlay } from '@/components/TextureOverlay'
 
-const WORK: { id: string; title: string; category: string; company: string; year: string; description: string; videoSrc?: string; href?: string }[] = [
+const WORK: { id: string; title: string; category: string; company: string; year: string; description: string; videoSrc?: string; href?: string; site?: string }[] = [
   {
     id: '01',
     title: 'Hordi Nails',
-    category: 'Small Business · Local SEO · Content Automation',
+    category: 'Small Business · Local SEO · AI Search',
     company: 'Own business',
     year: '2026',
-    description: 'My home nail studio north of Stockholm, where I run all of the marketing. The site carries NailSalon, price and FAQ structured data (39 questions) plus an llms.txt file, so Google and AI assistants can answer questions about prices, hours and booking. Reels are voiced and edited by a pipeline I put together (Kokoro TTS, Whisper, Remotion, FFmpeg), which lets me publish without filming clients; 4 reels so far.',
-    href: 'https://hordinails.com',
+    description: 'My home nail studio north of Stockholm, where I run all of the marketing. The site carries NailSalon, price and FAQ structured data (39 questions) plus an llms.txt file, so Google and AI assistants can answer questions about prices, hours and booking. I also rebuilt the Google Business Profile and wrote local posts in Swedish, English and Ukrainian. Now building a reel pipeline (Kokoro TTS, Whisper, Remotion, FFmpeg) so I can publish without filming clients.',
+    href: '/marketing/hordi-nails',
+    site: 'https://hordinails.com',
   },
   {
     id: '02',
+    title: 'ICPress: Positioning, Product Backlog & Explainer Series',
+    category: 'Product Marketing · UX Audit · Video Content',
+    company: 'Co-Founder & Head of Marketing · Individual Contributor Press',
+    year: '2026',
+    description: 'Marketing audit for a company comparison platform that showed the public site was selling a different product from the one being built, and a new positioning around fair, apples-to-apples comparison. Wrote product issues detailed enough for an AI coding agent to fix as-is, and built “Finance from zero”, a short-video series rendered from scripts with TTS narration and timed captions.',
+    href: '/marketing/icpress',
+  },
+  {
+    id: '03',
     title: 'SEO & AI-Search Visibility Baseline',
     category: 'SEO · Web Performance · GEO',
     company: 'Voxear Technologies AB',
@@ -23,7 +33,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Closed the company\'s first web and SEO baseline (Search Console, GA4, Core Web Vitals, rankings, backlinks) and separately tested how the brand shows up in Google AI Overviews and ChatGPT for real buyer questions. Turned the gaps into a prioritised action list and a briefing that won leadership buy-in for a new workstream.',
   },
   {
-    id: '03',
+    id: '04',
     title: 'Buyer Personas & Messaging Matrix',
     category: 'Positioning · Audience Research',
     company: 'Voxear Technologies AB',
@@ -31,7 +41,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Built 5 end-user and 2 distributor personas from EU professional communities, each mapped across a 6-stage buyer journey with message, proof and channel. Gave a distributor-led go-to-market a working model for who every page, post, sheet and deck is for.',
   },
   {
-    id: '04',
+    id: '05',
     title: 'Social Baseline & Customer Proof Bank',
     category: 'Social · Content · Voice of Customer',
     company: 'Voxear Technologies AB',
@@ -39,7 +49,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Benchmarked every active social channel using public data only, then set up a content calendar and monthly metrics. Turned raw customer field-test forms into a reusable bank of testimonials and stats with consent tracking, and proposed a zero-cost review-collection flow.',
   },
   {
-    id: '05',
+    id: '06',
     title: 'FindMeAJob',
     category: 'AI Product · Personal Project',
     company: 'Personal',
@@ -47,7 +57,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Local-first job application assistant built with Next.js and Claude. Upload a resume, get an AI-extracted candidate profile, and match against job listings with scored reasoning — all running on your own machine.',
   },
   {
-    id: '06',
+    id: '07',
     title: 'Reddit → LinkedIn Engine',
     category: 'AI Automation · Content · Personal Project',
     company: 'Personal',
@@ -55,7 +65,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'A research and drafting pipeline that turns Reddit discussions into original LinkedIn content. Fetches threads, extracts human insights via LLM, generates post angles and drafts — in your voice, not Reddit\'s.',
   },
   {
-    id: '07',
+    id: '08',
     title: 'LinkedIn Outreach Engine',
     category: 'Growth Marketing · AI Automation',
     company: 'Ivy Interactive',
@@ -63,7 +73,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Built and operated a full LinkedIn outreach workflow: lead segmentation, campaign variants, AI-automated reply categorisation and follow-up drafting. Turned manual processes into a repeatable, scalable system.',
   },
   {
-    id: '08',
+    id: '09',
     title: 'AI Workflow Automation',
     category: 'AI · n8n · Operations',
     company: 'Ivy Interactive',
@@ -71,7 +81,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Designed and deployed AI-assisted outreach automation using Claude, n8n, and Clay. Reduced manual task time significantly across lead research, reply handling, and follow-up scheduling.',
   },
   {
-    id: '09',
+    id: '10',
     title: 'Social Media Launch',
     category: 'Content · Community · Ads',
     company: 'Beredskapslyftet',
@@ -79,7 +89,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Built Facebook and Instagram presence from zero for a Swedish social initiative. Created multilingual content, managed ad campaigns, and covered live events — from photography to short-form video.',
   },
   {
-    id: '10',
+    id: '11',
     title: 'Media Localisation at Scale',
     category: 'Operations · Project Management',
     company: 'Ukrainian Media Localisation Initiative',
@@ -87,7 +97,7 @@ const WORK: { id: string; title: string; category: string; company: string; year
     description: 'Founded and led a 30-person remote volunteer team across translation, voice acting, and post-production. Delivered 3 complete localised episodes through structured async workflows.',
   },
   {
-    id: '11',
+    id: '12',
     title: 'Content Creation — Targeted Advertising',
     category: 'Content · Video · Visual Design',
     company: 'Beauty by Luidmila',
@@ -161,6 +171,17 @@ export default function MarketingPage() {
                   <p className="font-sans text-xs tracking-[0.12em] uppercase text-accent mb-1">{item.category}</p>
                   <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/50 mb-4">{item.company}</p>
                   <p className="font-sans text-base text-ink/90 leading-relaxed">{item.description}</p>
+                  {'site' in item && item.site && (
+                    <a
+                      href={item.site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative z-10 mt-5 self-start inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.3em] uppercase text-accent hover:text-ink transition-colors"
+                    >
+                      <span className="w-4 h-px bg-current" />
+                      {item.site.replace('https://', '')} ↗
+                    </a>
+                  )}
                   {'href' in item && item.href && (
                     <div className="mt-auto pt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="w-4 h-px bg-accent" />
@@ -175,7 +196,12 @@ export default function MarketingPage() {
                 variants={itemVariants}
                 className={`h-full${isLastOdd ? ' md:col-span-2' : ''}`}
               >
-                {'href' in item && item.href ? (
+                {'site' in item && item.site ? (
+                  <div className="group relative flex flex-col h-full bg-bg p-8 md:p-10 hover:bg-ink/[0.02] transition-colors duration-300">
+                    <Link href={item.href!} aria-label={item.title} className="absolute inset-0" />
+                    {cardInner}
+                  </div>
+                ) : 'href' in item && item.href ? (
                   <Link href={item.href} className="group flex flex-col h-full bg-bg p-8 md:p-10 hover:bg-ink/[0.02] transition-colors duration-300">
                     {cardInner}
                   </Link>

@@ -10,9 +10,9 @@ const PROJECTS = [
     title: 'Hordi Nails: Brand & Booking Site',
     category: 'Brand Identity · Web Design · Live',
     year: '2026',
-    description: 'Wordmark and monogram for my own nail studio, then a one-page site with gallery, price list and online booking. Clients pick length, design tier, extras and gel colour, see the price and duration, and choose a slot that fits the set. Requests reach me in Telegram through a Cloudflare Worker, and clients get confirmation and reminder emails. Live at hordinails.com.',
-    href: 'https://hordinails.com',
-    external: true,
+    description: 'Wordmark and monogram for my own nail studio, then a mobile-first booking site with gallery, price list and online booking. Clients pick length, design tier, extras and gel colour, see the price and duration, and choose a slot that fits the set. Requests reach me in Telegram through a Cloudflare Worker, and clients get confirmation and reminder emails. Live at hordinails.com.',
+    href: '/design/hordi-nails',
+    site: 'https://hordinails.com',
   },
   {
     id: '02',
@@ -175,6 +175,17 @@ export default function DesignPage() {
                   </h2>
                   <p className="font-sans text-xs tracking-[0.12em] uppercase text-accent mb-4">{project.category}</p>
                   <p className="font-sans text-base text-ink/90 leading-relaxed">{project.description}</p>
+                  {'site' in project && project.site && (
+                    <a
+                      href={project.site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative z-10 mt-5 self-start inline-flex projects-center gap-2 font-sans text-[10px] tracking-[0.3em] uppercase text-accent hover:text-ink transition-colors"
+                    >
+                      <span className="w-4 h-px bg-current" />
+                      {project.site.replace('https://', '')} ↗
+                    </a>
+                  )}
                   <div className="mt-auto pt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="w-4 h-px bg-accent" />
                     <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-accent">
@@ -185,7 +196,12 @@ export default function DesignPage() {
               )
               return (
                 <motion.div key={project.id} variants={itemVariants} className={`h-full${isLastOdd ? ' md:col-span-2' : ''}`}>
-                  {'href' in project ? (
+                  {'site' in project && project.site ? (
+                  <div className="group relative flex flex-col h-full bg-bg p-8 md:p-10 hover:bg-ink/[0.02] transition-colors duration-300">
+                    <Link href={(project as typeof project & { href: string }).href} aria-label={project.title} className="absolute inset-0" />
+                    {inner}
+                  </div>
+                ) : 'href' in project ? (
                     <Link
                       href={(project as typeof project & { href: string }).href}
                       className="group flex flex-col h-full bg-bg p-8 md:p-10 hover:bg-ink/[0.02] transition-colors duration-300"
