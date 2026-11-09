@@ -17,12 +17,11 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 })
 
-// Declaring "light dark" (instead of "only light") tells Samsung Internet and
-// Chrome's auto-dark that the site handles dark mode itself, so they skip their
-// colour-inverting algorithm. Every colour is set explicitly to the light
-// palette, so the page stays cream/light in dark mode too.
+// Light only. Chrome / Firefox / Safari respect this. Samsung Internet's forced
+// dark mode ignores every site-side setting (tested 2026-11-09: only light,
+// light dark, dark, only dark, JS counter-filter) — nothing a site can do.
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
+  colorScheme: 'only light',
 }
 
 export const metadata: Metadata = {
@@ -52,8 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <meta name="color-scheme" content="light dark" />
-        <meta name="supported-color-schemes" content="light dark" />
+        <meta name="color-scheme" content="only light" />
         <style>{`:root,html,body{background-color:#F4F0EB!important;color:#2f2f2b!important;}`}</style>
       </head>
       <body className="font-sans antialiased bg-bg text-ink">
