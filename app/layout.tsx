@@ -26,18 +26,19 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dianahorbyk.eu'),
   title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
   description: 'Portfolio of Diana Horbyk — UX/UI Designer, Web Designer & Growth Marketer based in Stockholm.',
   openGraph: {
     title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
     description: 'Portfolio of Diana Horbyk — UX/UI Designer, Web Designer & Growth Marketer based in Stockholm.',
-    url: 'https://diportfolio-self.vercel.app',
+    url: 'https://dianahorbyk.eu',
     siteName: 'Diana Horbyk',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
     description: 'Portfolio of Diana Horbyk — UX/UI Designer, Web Designer & Growth Marketer based in Stockholm.',
   },
