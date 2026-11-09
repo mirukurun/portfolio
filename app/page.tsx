@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { Avatar, type Zone } from '@/components/Avatar'
 import { CVModal } from '@/components/CVModal'
 import { TextureOverlay } from '@/components/TextureOverlay'
+import { CV_PDF } from '@/lib/cvData'
 
 export default function Home() {
   const [hoveredZone, setHoveredZone] = useState<Zone>(null)
@@ -153,6 +154,14 @@ export default function Home() {
               <span className="font-sans font-medium text-[11px] tracking-[0.18em] uppercase" style={{ color: '#2f2f2b' }}>{item.sub}</span>
             </button>
           ))}
+          <a
+            href={CV_PDF}
+            download
+            className="flex justify-center items-center gap-3 px-5 py-3 font-sans font-medium text-[11px] tracking-[0.3em] uppercase active:opacity-60"
+            style={{ color: '#D72638', borderTop: '1px solid rgba(47,47,43,0.08)' }}
+          >
+            Download CV as PDF <span aria-hidden="true">↓</span>
+          </a>
         </motion.div>
       </main>
 
@@ -240,6 +249,19 @@ export default function Home() {
             <motion.p className="font-sans text-[9px] tracking-[0.3em] uppercase text-ink/30 mt-1"
               animate={{ opacity: isBlogActive ? 1 : 0 }}>Writing & Thoughts</motion.p>
           </motion.div>
+
+          {/* Download CV */}
+          <motion.a
+            href={CV_PDF}
+            download
+            className="absolute bottom-6 right-7 z-40 flex items-center gap-3 font-sans text-[10px] tracking-[0.35em] uppercase text-accent hover:text-ink transition-colors"
+            onMouseEnter={() => setHoveredZone(null)}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 0.8 }}
+          >
+            <span className="w-6 h-px bg-current" />
+            Download CV as PDF ↓
+          </motion.a>
 
           {/* Avatar */}
           <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
