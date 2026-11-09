@@ -86,6 +86,21 @@ export default function Home() {
             />
           </motion.div>
 
+          {/* Name + role — left of the avatar */}
+          <motion.div
+            className="absolute left-5 top-1/2 -translate-y-1/2 z-10 pointer-events-none"
+            initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <h1 className="font-display font-semibold leading-[0.9]" style={{ fontSize: '12.5vw', color: '#2f2f2b' }}>
+              Diana<br />Horbyk
+            </h1>
+            <div className="mt-4 w-8 h-px" style={{ backgroundColor: '#D72638' }} />
+            <p className="mt-3 font-sans font-medium text-[10px] tracking-[0.25em] uppercase leading-[1.7]" style={{ color: '#2f2f2b' }}>
+              UX/UI Designer<br />&amp; Growth<br />Marketer
+            </p>
+          </motion.div>
+
           {/* CV hint */}
           <motion.button
             className="absolute top-3 left-1/2 -translate-x-1/2 z-20 font-sans font-medium text-[11px] tracking-[0.35em] uppercase"
