@@ -38,7 +38,7 @@ export const EXPERIENCE = [
   {
     title: 'Marketing Coordinator',
     company: 'Voxear Technologies AB',
-    period: 'Aug 2026 – Present',
+    period: 'Aug 2026 – Oct 2026',
     context: 'B2B hardware company · Professional hearing protection',
     points: [
       'Built the company\'s first documented brand system in Figma from a ~95-file audit — identity, design tokens, custom icon set and tone of voice — and won leadership approval on the most contested decisions with a research-backed case.',
