@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
 import { TextureOverlay } from '@/components/TextureOverlay'
+import { MobileCaseList } from '@/components/MobileCaseList'
 
 const PROJECTS = [
   {
@@ -155,12 +156,15 @@ export default function DesignPage() {
             </p>
           </motion.div>
 
+          {/* Mobile: compact accordion list */}
+          <MobileCaseList items={PROJECTS} />
+
           {/* Projects grid */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink/8"
+            className="hidden md:grid md:grid-cols-2 gap-px bg-ink/8"
           >
             {PROJECTS.map((project, i) => {
               const isLastOdd = i === PROJECTS.length - 1 && PROJECTS.length % 2 !== 0

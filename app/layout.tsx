@@ -17,8 +17,12 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 })
 
+// Declaring "light dark" (instead of "only light") tells Samsung Internet and
+// Chrome's auto-dark that the site handles dark mode itself, so they skip their
+// colour-inverting algorithm. Every colour is set explicitly to the light
+// palette, so the page stays cream/light in dark mode too.
 export const viewport: Viewport = {
-  colorScheme: 'only light',
+  colorScheme: 'light dark',
 }
 
 export const metadata: Metadata = {
@@ -45,10 +49,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${spaceGrotesk.variable}`} style={{ colorScheme: 'only light' }}>
+    <html lang="en" className={`${cormorant.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <meta name="color-scheme" content="only light" />
-        <style>{`:root,html,body{color-scheme:only light!important;background-color:#F4F0EB!important;color:#2f2f2b!important;}`}</style>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="supported-color-schemes" content="light dark" />
+        <style>{`:root,html,body{background-color:#F4F0EB!important;color:#2f2f2b!important;}`}</style>
       </head>
       <body className="font-sans antialiased bg-bg text-ink">
         {children}

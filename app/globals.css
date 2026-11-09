@@ -17,18 +17,19 @@
   box-sizing: border-box;
 }
 
+/* Light palette always. We declare "light dark" so Samsung Internet / Chrome
+   auto-dark treat the site as dark-mode aware and do NOT invert it, then pin
+   every colour to the light palette in both schemes. */
 :root {
-  color-scheme: only light;
+  color-scheme: light dark;
 }
 
 html {
-  color-scheme: only light;
   background-color: #F4F0EB !important;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root, html, body, main {
-    color-scheme: only light !important;
+  html, body, main {
     background-color: #F4F0EB !important;
     color: #2f2f2b !important;
   }

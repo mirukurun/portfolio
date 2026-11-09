@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
 import { TextureOverlay } from '@/components/TextureOverlay'
+import { MobileCaseList } from '@/components/MobileCaseList'
 
 const WORK: { id: string; title: string; category: string; company: string; year: string; description: string; videoSrc?: string; href?: string; site?: string }[] = [
   {
@@ -150,12 +151,15 @@ export default function MarketingPage() {
             </p>
           </motion.div>
 
+          {/* Mobile: compact accordion list */}
+          <MobileCaseList items={WORK} />
+
           {/* Work grid */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink/8"
+            className="hidden md:grid md:grid-cols-2 gap-px bg-ink/8"
           >
             {WORK.map((item, i) => {
               const isLastOdd = i === WORK.length - 1 && WORK.length % 2 !== 0
