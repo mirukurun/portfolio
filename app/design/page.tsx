@@ -12,6 +12,8 @@ const PROJECTS = [
     category: 'Brand Identity · Web Design · Live',
     year: '2026',
     description: 'Wordmark and monogram for my own nail studio, then a mobile-first booking site with gallery, price list and online booking. Clients pick length, design tier, extras and gel colour, see the price and duration, and choose a slot that fits the set. Requests reach me in Telegram through a Cloudflare Worker, and clients get confirmation and reminder emails. Live at hordinails.com.',
+    summary: 'Brand and booking site for my nail studio, live with online booking.',
+    thumb: '/projects/thumbs/hordi-nails.jpg',
     href: '/design/hordi-nails',
     site: 'https://hordinails.com',
   },
@@ -21,6 +23,8 @@ const PROJECTS = [
     category: 'Brand Identity · Design System · Figma',
     year: '2026',
     description: 'First documented brand system for a hardware company, reverse-engineered from ~95 existing files: foundations, colour, typography, logo usage, UI components, voice and tone, applied examples. Exported as reusable design tokens.',
+    summary: 'First brand system for a hardware company, built from ~95 scattered files.',
+    thumb: '/projects/thumbs/voxear-brand-system.jpg',
     href: '/design/voxear-brand-system',
   },
   {
@@ -29,6 +33,8 @@ const PROJECTS = [
     category: 'Iconography · Visual Design',
     year: '2026',
     description: 'Icon set drawn from scratch to match the brand\'s existing logo geometry, and reused across new deliverables within the same month.',
+    summary: 'Custom icon set drawn to match the logo geometry.',
+    thumb: '/projects/thumbs/voxear-icon-set.jpg',
     href: '/design/voxear-icon-set',
   },
   {
@@ -37,6 +43,8 @@ const PROJECTS = [
     category: 'Physical Design · Print Production',
     year: '2026',
     description: 'Took the new brand accent colour off the guideline pages and onto a physical product display. Reviewed the vendor\'s concept, wrote the print specification (colour profile, bleed, dimensions, colour build) and agreed the revision list in the design review.',
+    summary: 'New brand colour taken off the guidelines and onto a printed retail display.',
+    thumb: '/projects/thumbs/voxear-retail-display.jpg',
     href: '/design/voxear-retail-display',
   },
   {
@@ -45,71 +53,71 @@ const PROJECTS = [
     category: 'Layout · Templates · Print',
     year: '2026',
     description: 'Branded document template with a self-demonstrating style guide so the team can produce on-brand documents without a designer, plus editable, translated product sheets with exact lab-tested specs.',
+    summary: 'Templates that let the team make on-brand documents without a designer.',
+    thumb: '/projects/thumbs/voxear-templates.jpg',
     href: '/design/voxear-templates',
   },
   {
     id: '06',
-    title: 'Portfolio Website',
-    category: 'Web Design · Frontend',
-    year: '2026',
-    description: 'Editorial-first personal portfolio. Designed as an interactive magazine cover combining fashion editorial aesthetics with functional navigation.',
-  },
-  {
-    id: '07',
     title: 'SpaceCorps — Game Platform',
     category: 'UX/UI Design · Brand Identity',
     year: '2025',
     description: 'Visual identity and UX/UI system for an early-stage browser game startup. Brand tokens, game screens, and component library from zero.',
+    summary: 'Brand and UI system for a browser game, built from zero.',
+    thumb: '/projects/thumbs/spacecorps-platform.jpg',
     href: '/design/spacecorps',
   },
   {
-    id: '08',
+    id: '07',
     title: 'SpaceCorps — Company Website',
     category: 'Web Design · Live',
     year: '2025',
     description: 'Public-facing company website for SpaceCorps Technology. Designed and shipped — live at spacecorpstechnology.com.',
+    summary: 'Company website, designed and shipped.',
+    thumb: '/projects/thumbs/spacecorps-website.jpg',
     href: 'https://spacecorpstechnology.com',
     external: true,
   },
   {
-    id: '09',
+    id: '08',
     title: 'Queens Qoncept Clinic — Beauty Website',
     category: 'Web Design · Live',
     year: '2025',
     description: 'Full website for a Stockholm-based aesthetic clinic — homepage, services, team, gallery and booking. Elegant, minimal design matching a luxury beauty brand.',
+    summary: 'Website for a Stockholm aesthetic clinic: services, team and booking.',
+    thumb: '/projects/thumbs/queens-qoncept.jpg',
     href: 'https://qqclinic.vercel.app',
     external: true,
   },
   {
-    id: '10',
+    id: '09',
     title: 'Karolinska Institutet — HR Dashboard',
     category: 'UX/UI Design · Data Dashboard',
     year: '2025',
     description: 'HR and analytics dashboard for internal operational management. Complex data made readable within the university\'s dark plum and coral brand system.',
+    summary: 'HR dashboard that makes complex data readable.',
+    thumb: '/projects/thumbs/karolinska.jpg',
     href: '/design/karolinska',
   },
   {
-    id: '11',
+    id: '10',
     title: 'Ivy Interactive — Landing Page Prototype',
     category: 'UX/UI Design · Product Messaging',
     year: '2025',
     description: 'Landing page concepts and product messaging frameworks for a B2B developer-focused platform. Translating technical features into clear positioning.',
+    summary: 'Landing page that turns developer features into clear positioning.',
+    thumb: '/projects/thumbs/ivy-landing.jpg',
     href: '/design/ivy',
   },
   {
-    id: '12',
+    id: '11',
     title: 'Ivy Interactive — Studio Prototype',
     category: 'UX/UI Design · App Interface',
     year: '2025',
     description: 'First prototype of the Ivy Studio interface — early-stage product design exploring core navigation and workspace layout.',
+    summary: 'First prototype of the Ivy Studio workspace.',
+    thumb: '/projects/thumbs/ivy-studio.jpg',
     href: '/design/ivy-studio',
-  },
-  {
-    id: '13',
-    title: 'Connecting Jobs — Social Presence',
-    category: 'Visual Design · Content',
-    year: '2025',
-    description: 'Social media visual identity and content templates for Connecting Jobs — a sub-project of Beredskapslyftet, a Swedish employment integration initiative serving a multilingual audience.',
   },
 ]
 
@@ -169,16 +177,26 @@ export default function DesignPage() {
             {PROJECTS.map((project, i) => {
               const isLastOdd = i === PROJECTS.length - 1 && PROJECTS.length % 2 !== 0
               const inner = (
-                <>
-                  <div className="flex justify-between items-start mb-6">
+                <div className={isLastOdd ? 'grid grid-cols-2 gap-10 items-center h-full' : 'flex flex-col h-full'}>
+                  <div className={`overflow-hidden bg-ink/5 aspect-[16/10]${isLastOdd ? '' : ' mb-7'}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={project.thumb}
+                      alt={`${project.title} preview`}
+                      loading={i < 4 ? 'eager' : 'lazy'}
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="flex flex-col flex-1">
+                  <div className="flex justify-between items-start mb-3">
                     <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-ink/60">{project.id}</span>
                     <span className="font-sans text-[11px] tracking-[0.08em] uppercase text-ink/60">{project.year}</span>
                   </div>
                   <h2 className="font-display text-3xl md:text-4xl font-medium text-ink mb-2 leading-tight group-hover:text-accent transition-colors duration-300">
                     {project.title}
                   </h2>
-                  <p className="font-sans text-xs tracking-[0.12em] uppercase text-accent mb-4">{project.category}</p>
-                  <p className="font-sans text-base text-ink/90 leading-relaxed">{project.description}</p>
+                  <p className="font-sans text-xs tracking-[0.12em] uppercase text-accent mb-3">{project.category}</p>
+                  <p className="font-sans text-base text-ink/90 leading-relaxed">{project.summary}</p>
                   {'site' in project && project.site && (
                     <a
                       href={project.site}
@@ -196,7 +214,8 @@ export default function DesignPage() {
                       {'href' in project ? 'View Project ↗' : 'Coming Soon'}
                     </span>
                   </div>
-                </>
+                  </div>
+                </div>
               )
               return (
                 <motion.div key={project.id} variants={itemVariants} className={`h-full${isLastOdd ? ' md:col-span-2' : ''}`}>
