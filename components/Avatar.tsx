@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import Image from 'next/image'
 
-export type Zone = 'design' | 'marketing' | 'blog' | null
+export type Zone = 'design' | 'marketing' | 'blog' | 'services' | null
 
 interface AvatarProps {
   hoveredZone: Zone
@@ -22,6 +22,7 @@ function getTransform(zone: Zone) {
   if (zone === 'design') return { rotate: -4, x: -14, y: 0 }
   if (zone === 'marketing') return { rotate: 4, x: 14, y: 0 }
   if (zone === 'blog') return { rotate: 0, x: 0, y: 12 }
+  if (zone === 'services') return { rotate: 0, x: 0, y: -10 }
   return { rotate: 0, x: 0, y: 0 }
 }
 
@@ -76,7 +77,7 @@ export function Avatar({ hoveredZone, onClick }: AvatarProps) {
           <motion.div
             key={src}
             className="absolute inset-0"
-            animate={{ opacity: hoveredZone === key ? 1 : 0 }}
+            animate={{ opacity: (hoveredZone === 'services' ? null : hoveredZone) === key ? 1 : 0 }}
             initial={false}
             transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
           >

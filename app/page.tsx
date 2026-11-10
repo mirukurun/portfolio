@@ -22,7 +22,9 @@ export default function Home() {
     const x = (e.clientX - rect.left) / rect.width
     const y = (e.clientY - rect.top) / rect.height
     const overHead = x > 0.33 && x < 0.67 && y > 0.14 && y < 0.52
-    if (y > 0.86) setHoveredZone('blog')
+    const overServices = x > 0.38 && x < 0.62 && y < 0.17
+    if (overServices) setHoveredZone('services')
+    else if (y > 0.86) setHoveredZone('blog')
     else if (overHead) setHoveredZone(null)
     else if (x < 0.5) setHoveredZone('design')
     else setHoveredZone('marketing')
@@ -41,9 +43,11 @@ export default function Home() {
     }
   }, [handleMouseMove, handleMouseLeave])
 
-  const isDesignFaded = hoveredZone === 'marketing' || hoveredZone === 'blog'
-  const isMarketingFaded = hoveredZone === 'design' || hoveredZone === 'blog'
-  const isBlogFaded = hoveredZone === 'design' || hoveredZone === 'marketing'
+  const isDesignFaded = hoveredZone === 'marketing' || hoveredZone === 'blog' || hoveredZone === 'services'
+  const isMarketingFaded = hoveredZone === 'design' || hoveredZone === 'blog' || hoveredZone === 'services'
+  const isBlogFaded = hoveredZone === 'design' || hoveredZone === 'marketing' || hoveredZone === 'services'
+  const isServicesFaded = hoveredZone === 'design' || hoveredZone === 'marketing' || hoveredZone === 'blog'
+  const isServicesActive = hoveredZone === 'services'
   const isDesignActive = hoveredZone === 'design'
   const isMarketingActive = hoveredZone === 'marketing'
   const isBlogActive = hoveredZone === 'blog'
@@ -123,13 +127,14 @@ export default function Home() {
           {[
             { label: 'Design', sub: 'UX/UI · Web Design', href: '/design' },
             { label: 'Marketing', sub: 'Growth · AI', href: '/marketing' },
+            { label: 'Services', sub: 'What I can do for you', href: '/services' },
             { label: 'Blog', sub: 'Writing', href: '/blog' },
-          ].map((item, i) => (
+          ].map((item, i, all) => (
             <button
               key={item.href}
               onClick={() => router.push(item.href)}
               className="w-full flex justify-between items-center px-5 py-4 text-left active:opacity-60"
-              style={{ borderBottom: i < 2 ? '1px solid rgba(47,47,43,0.08)' : 'none' }}
+              style={{ borderBottom: i < all.length - 1 ? '1px solid rgba(47,47,43,0.08)' : 'none' }}
             >
               <span className="font-display text-[7.5vw] font-semibold" style={{ color: '#2f2f2b' }}>{item.label}</span>
               <span className="font-sans font-medium text-[11px] tracking-[0.18em] uppercase" style={{ color: '#2f2f2b' }}>{item.sub}</span>
@@ -250,7 +255,25 @@ export default function Home() {
               style={{ width: 'calc(28% - 280px)' }} animate={{ opacity: hoveredZone === 'design' ? 0.4 : 0.15 }} />
             <motion.div className="absolute right-[22%] top-1/2 -translate-y-1/2 h-px bg-ink/10 hidden lg:block"
               style={{ width: 'calc(28% - 280px)' }} animate={{ opacity: hoveredZone === 'marketing' ? 0.4 : 0.15 }} />
-            <div className="pointer-events-auto flex flex-col items-center gap-3 group/avatar">
+            <div className="pointer-events-auto relative flex flex-col items-center gap-3 group/avatar">
+              {/* SERVICES — sits above the CV hint, mirrors BLOG at the bottom */}
+              <motion.div
+                className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer whitespace-nowrap"
+                onClick={() => router.push('/services')}
+                onMouseEnter={() => setHoveredZone('services')}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isServicesFaded ? 0.28 : 1 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+              >
+                <motion.p className="font-sans text-[9px] tracking-[0.3em] uppercase text-ink/30 mb-1"
+                  animate={{ opacity: isServicesActive ? 1 : 0 }}>What I can do for you</motion.p>
+                <motion.div className="flex items-center gap-3"
+                  animate={{ scale: isServicesActive ? 1.07 : 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
+                  <span className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/30">—</span>
+                  <span className="font-display font-light text-ink tracking-[0.2em]" style={{ fontSize: 'clamp(1.1rem, 2.8vw, 3.2rem)' }}>SERVICES</span>
+                  <span className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/30">—</span>
+                </motion.div>
+              </motion.div>
               <motion.p
                 className="font-sans text-[9px] tracking-[0.35em] uppercase text-ink/35 group-hover/avatar:text-ink/70 transition-colors duration-300 cursor-pointer"
                 onClick={() => setModalOpen(true)}
