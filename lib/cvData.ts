@@ -41,11 +41,10 @@ export const EXPERIENCE = [
     period: 'Aug 2026 – Oct 2026',
     context: 'B2B hardware company · Professional hearing protection',
     points: [
-      'Built the company\'s first documented brand system in Figma from a ~95-file audit — identity, design tokens, custom icon set and tone of voice — and won leadership approval on the most contested decisions with a research-backed case.',
+      'Built the company\'s first documented brand system in Figma from a ~95-file audit — identity, design tokens, an adapted icon set and tone of voice — and won leadership approval on the most contested decisions with a research-backed case.',
       'Unblocked a stalled retail-display redesign by documenting defects and agreeing print specs with the external production vendor.',
       'Built buyer personas for 7 segments mapped across a 6-stage buyer journey, and set up the first social media baseline, content calendar and customer proof bank.',
       'Ran the first SEO, web performance and AI-search visibility baselines, turning findings into a prioritised workstream for leadership.',
-      'Built an internal issue-tracking tool from scratch to give leadership real-time visibility into open marketing and operations issues.',
     ],
   },
   {

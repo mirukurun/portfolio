@@ -47,7 +47,7 @@ export const VOXEAR_CASES: VoxearCase[] = [
       'Audit of ~95 files with no documented brand rules, turned into eight documented areas: foundations, colour, typography, logo, iconography, components, voice and tone, applied examples',
       'Reusable design tokens and a shared asset library, so colleagues and vendors could start using the identity before the guidelines were signed off',
       'Voice and tone principles expanded from a single line in the old handbook into a usable guide with words to use and avoid',
-      'Evidence-based case for the two contested decisions (accent colour, body typeface), citing published branding research and real identity reversals. Leadership approved both',
+      'Evidence-based case for the two contested decisions (accent colour, body typeface), citing published branding research and real identity reversals. Both were approved in review',
     ],
     tools: ['Figma', 'Figma Make', 'Design Tokens', 'Brand Strategy'],
   },
@@ -56,7 +56,7 @@ export const VOXEAR_CASES: VoxearCase[] = [
     eyebrow: 'Iconography · Visual Design',
     title: 'Custom Icon Set',
     intro:
-      'The system had no icons, and the products are sold on specs: battery life, connectivity, water resistance, attenuation. I drew a set matched to the logo geometry and the technical type, then put it to work on real materials.',
+      'The system had no icons, and the products are sold on specs: battery life, connectivity, water resistance, attenuation. I selected icons from open-source sets and adapted them into one family that follows the logo geometry and the technical type.',
     grid: 1,
     images: [
       {
@@ -66,10 +66,9 @@ export const VOXEAR_CASES: VoxearCase[] = [
       },
     ],
     points: [
-      'Seven icons drawn on a 24px grid (16px and 32px variants) with a proportional 1.5px stroke',
-      'Geometric outline style: sharp corners where the shape allows it, curves only where the subject needs them (ear, umbrella)',
-      'Orange reserved for a single accent per icon, never a fully orange-filled icon',
-      'Certification stays a text badge by decision: certification marks read as verifiable fact better as text than as an invented pictogram',
+      'Seven icons selected from open-source sets (Font Awesome, Boxicons, Ionicons, Eva Icons), plus two vectorised from reference images (ear, SNR)',
+      'Unified in two passes, a first pass and a sharpening pass, so the mixed sources read as one family matched to the logo geometry',
+      'Sharp corners where the shape allows it, curves only where the subject needs them (ear, umbrella)',
     ],
     tools: ['Figma', 'Iconography', 'Design Tokens'],
   },
@@ -78,7 +77,7 @@ export const VOXEAR_CASES: VoxearCase[] = [
     eyebrow: 'Physical Design · Print Production',
     title: 'Retail Display Redesign',
     intro:
-      'The in-store product display had known problems, but nobody had written down what was wrong and sign-off had stalled for months. I documented the current state with specific, dated defects, worked with the external production vendor on a print specification, and brought the new brand accent colour from guideline pages onto a physical fixture for the first time.',
+      'The in-store product display had known problems, but nobody had written down what was wrong and sign-off had stalled. I documented the current state with specific, dated defects, worked with the external production vendor on a print specification, and brought the new brand accent colour from guideline pages onto a physical fixture for the first time. The display was printed and delivered on 13 October.',
     pairs: [
       {
         title: 'Front graphic',
@@ -129,8 +128,9 @@ export const VOXEAR_CASES: VoxearCase[] = [
     points: [
       'Replaced a vague "it doesn\'t feel right" with a written, checkable list of dated defects',
       'Translated feedback into a print specification: colour profile, bleed, dimensions and colour-build guidance for the new accent colour',
-      'Ran a structural design review with the product owner and sales lead, agreeing an itemised revision list on the spot',
-      'The vendor proposed a second comparison prototype the same day',
+      'Ran a structural design review with the CEO and sales lead, agreeing an itemised revision list on the spot',
+      'Agreed with the vendor to build a second comparison unit',
+      'Printed display delivered on 13 October',
     ],
     tools: ['Figma', 'Print Specification', 'Vendor Coordination'],
   },
@@ -156,7 +156,7 @@ export const VOXEAR_CASES: VoxearCase[] = [
     points: [
       'Self-demonstrating: the guide uses every style it teaches',
       'Fonts, colours and table styles specified so they carry over from any existing document',
-      'Product sheets rebuilt as editable documents with exact lab-tested attenuation tables and an Italian translation alongside',
+      'Product sheets rebuilt as editable documents with exact lab-tested attenuation tables',
     ],
     tools: ['Word', 'Style Guide', 'Layout'],
   },

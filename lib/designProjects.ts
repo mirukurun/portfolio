@@ -20,7 +20,7 @@ export const DESIGN_PROJECTS = [
     year: '2026',
     description: 'First documented brand system for a hardware company, reverse-engineered from ~95 existing files: foundations, colour, typography, logo usage, UI components, voice and tone, applied examples. Exported as reusable design tokens.',
     summary: 'First brand system for a hardware company, built from ~95 scattered files.',
-    thumb: '/projects/thumbs/voxear-brand-system.jpg',
+    thumb: '/projects/thumbs/voxear-brand-system.webp',
     href: '/design/voxear-brand-system',
   },
   {
@@ -28,9 +28,9 @@ export const DESIGN_PROJECTS = [
     title: 'Voxear — Custom Icon Set',
     category: 'Iconography · Visual Design',
     year: '2026',
-    description: 'Icon set drawn from scratch to match the brand\'s existing logo geometry, and reused across new deliverables within the same month.',
-    summary: 'Custom icon set drawn to match the logo geometry.',
-    thumb: '/projects/thumbs/voxear-icon-set.jpg',
+    description: 'Icon set selected from open-source sets and adapted into one family matched to the brand\'s existing logo geometry.',
+    summary: 'Open-source icons adapted to match the logo geometry.',
+    thumb: '/projects/thumbs/voxear-icon-set.webp',
     href: '/design/voxear-icon-set',
   },
   {
@@ -40,7 +40,7 @@ export const DESIGN_PROJECTS = [
     year: '2026',
     description: 'Took the new brand accent colour off the guideline pages and onto a physical product display. Reviewed the vendor\'s concept, wrote the print specification (colour profile, bleed, dimensions, colour build) and agreed the revision list in the design review.',
     summary: 'New brand colour taken off the guidelines and onto a printed retail display.',
-    thumb: '/projects/thumbs/voxear-retail-display.jpg',
+    thumb: '/projects/thumbs/voxear-retail-display.webp',
     href: '/design/voxear-retail-display',
   },
   {
@@ -48,9 +48,9 @@ export const DESIGN_PROJECTS = [
     title: 'Voxear — Document Templates & Product Sheets',
     category: 'Layout · Templates · Print',
     year: '2026',
-    description: 'Branded document template with a self-demonstrating style guide so the team can produce on-brand documents without a designer, plus editable, translated product sheets with exact lab-tested specs.',
-    summary: 'Templates that let the team make on-brand documents without a designer.',
-    thumb: '/projects/thumbs/voxear-templates.jpg',
+    description: 'Branded document template with a self-demonstrating style guide, built so the team can make on-brand documents without a designer, plus editable product sheets with exact lab-tested specs.',
+    summary: 'Templates built so the team can make on-brand documents without a designer.',
+    thumb: '/projects/thumbs/voxear-templates.webp',
     href: '/design/voxear-templates',
   },
   {

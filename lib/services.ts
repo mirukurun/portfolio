@@ -39,7 +39,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
       },
       {
         title: 'Custom icon set',
-        description: 'Icons drawn to match your logo instead of generic stock icons.',
+        description: 'A consistent icon family matched to your logo, instead of a mix of unrelated stock icons.',
         proof: [{ label: 'Voxear icon set', href: '/design/voxear-icon-set' }],
       },
       {
@@ -116,7 +116,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
       {
         title: 'Dashboards & internal tools',
         description: 'Complex data and internal processes turned into screens people can actually read and use.',
-        proof: [{ label: 'Karolinska Institutet', href: '/design/karolinska' }, VOXEAR],
+        proof: [{ label: 'Karolinska Institutet', href: '/design/karolinska' }],
       },
       {
         title: 'UX audit & developer-ready issues',
