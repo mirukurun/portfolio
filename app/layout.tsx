@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Space_Grotesk } from 'next/font/google'
 import './globals.css'
+import { JsonLd, personJsonLd } from '@/lib/jsonLd'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -52,6 +53,8 @@ export default function RootLayout({
     <html lang="en" className={`${cormorant.variable} ${spaceGrotesk.variable}`}>
       <head>
         <meta name="color-scheme" content="only light" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable profile" />
+        <JsonLd data={personJsonLd} />
         <style>{`:root,html,body{background-color:#F4F0EB!important;color:#2f2f2b!important;}`}</style>
       </head>
       <body className="font-sans antialiased bg-bg text-ink">

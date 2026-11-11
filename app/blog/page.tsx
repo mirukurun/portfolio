@@ -3,57 +3,7 @@
 import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
 import { TextureOverlay } from '@/components/TextureOverlay'
-
-const POSTS = [
-  {
-    id: '001',
-    title: 'AI Didn\'t Replace the Marketers. It Came Through Them.',
-    category: 'AI · Marketing',
-    date: 'Jun 2026',
-    readTime: '4 min',
-    excerpt: 'A developer\'s Reddit post about six fired engineers got me thinking about which parts of my own job a model could do without me. The answer is more than I\'d like to admit.',
-    href: '/blog/ai-marketers',
-    draft: false,
-  },
-  {
-    id: '002',
-    title: 'Running a 30-Person Remote Team with No Budget',
-    category: 'Operations · Leadership',
-    date: 'Mar 2023',
-    readTime: '5 min',
-    excerpt: 'The Ukrainian Media Localisation Initiative was my first real test in team management — and I had no playbook, no budget, and a completely distributed, volunteer-only team.',
-    href: '/blog/remote-team',
-    draft: false,
-  },
-  {
-    id: '003',
-    title: 'Learning Swedish While Working Full-Time: What Actually Helped',
-    category: 'Language · Personal',
-    date: 'May 2026',
-    readTime: '5 min',
-    excerpt: 'A practical account of learning Swedish at Stockholm University while managing work, personal projects, and several languages.',
-    href: '/blog/swedish',
-    draft: false,
-  },
-  {
-    id: '004',
-    title: 'What B2B Founders Get Wrong About Product Messaging',
-    category: 'Marketing · Copy',
-    date: 'Coming soon',
-    readTime: '—',
-    excerpt: 'After writing dozens of outreach campaigns, I noticed patterns in what resonates and what gets ignored. Here is what most founders misunderstand about their own product narrative.',
-    draft: true,
-  },
-  {
-    id: '005',
-    title: 'Designing for Developers: Lessons from SpaceCorps',
-    category: 'Design · UX',
-    date: 'Coming soon',
-    readTime: '—',
-    excerpt: 'Designing a UI/UX system for a product built by engineers who know exactly what they want — and learning to balance aesthetic intent with technical constraints.',
-    draft: true,
-  },
-]
+import { BLOG_POSTS as POSTS } from '@/lib/blogPosts'
 
 const containerVariants: Variants = {
   hidden: {},
