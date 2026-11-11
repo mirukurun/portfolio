@@ -87,7 +87,7 @@ export const VOXEAR_CASES: VoxearCase[] = [
           description: 'A text list over a photo, without brand colour.',
         },
         after: {
-          src: '/projects/voxear/display-front.jpg', w: 1600, h: 1462,
+          src: '/projects/voxear/display-front.jpg', w: 1280, h: 1170,
           label: 'After',
           description: 'Headline in the brand accent, three spec callouts with icons.',
         },
