@@ -13,6 +13,8 @@ export type CaseItem = {
   company?: string
   href?: string
   site?: string
+  thumb?: string
+  stat?: string
 }
 
 /**
@@ -35,7 +37,21 @@ export function MobileCaseList({ items }: { items: CaseItem[] }) {
               aria-expanded={isOpen}
               className="w-full flex items-start gap-4 py-4 text-left active:opacity-60"
             >
-              <span className="shrink-0 w-6 pt-1.5 font-sans text-[11px] tracking-[0.12em] text-ink/60">{item.id}</span>
+              <span aria-hidden="true" className="shrink-0 mt-1 w-[76px] aspect-[16/10] overflow-hidden bg-ink/[0.06] flex items-center justify-center">
+                {item.thumb ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={item.thumb} alt="" loading="lazy" className="w-full h-full object-cover" />
+                ) : item.stat ? (
+                  <span
+                    className="font-display font-light text-accent leading-none px-1 text-center"
+                    style={{ fontSize: item.stat.length <= 3 ? '1.6rem' : '0.95rem' }}
+                  >
+                    {item.stat}
+                  </span>
+                ) : (
+                  <span className="font-sans text-[11px] tracking-[0.12em] text-ink/60">{item.id}</span>
+                )}
+              </span>
               <span className="flex-1 min-w-0">
                 <span className={`block font-display text-[1.45rem] font-medium leading-tight ${isOpen ? 'text-accent' : 'text-ink'}`}>
                   {item.title}
@@ -63,9 +79,9 @@ export function MobileCaseList({ items }: { items: CaseItem[] }) {
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="pl-10 pb-5">
+                  <div className="pb-5">
                     <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/50 mb-3">
-                      {item.company ? `${item.company} · ` : ''}{item.year}
+                      {item.id} · {item.company ? `${item.company} · ` : ''}{item.year}
                     </p>
                     <p className="font-sans text-[15px] text-ink/90 leading-relaxed">{item.description}</p>
                     <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
