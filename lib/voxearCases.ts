@@ -60,9 +60,9 @@ export const VOXEAR_CASES: VoxearCase[] = [
     grid: 1,
     images: [
       {
-        src: '/projects/voxear/icons-in-use.jpg', w: 1200, h: 1138,
-        label: 'Icons in use',
-        description: 'Icon set applied to spec callouts on a display graphic: two-device connectivity, 40 h battery, 35 dB attenuation.',
+        src: '/projects/voxear/icon-set.webp', w: 842, h: 454,
+        label: 'The set',
+        description: 'Seven icons for the specs the products are sold on: battery, Bluetooth, IP67, SNR, certified, radio and in-ear, shown next to the logo mark they were adapted to.',
       },
     ],
     points: [
