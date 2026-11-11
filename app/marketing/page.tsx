@@ -65,29 +65,6 @@ export default function MarketingPage() {
               const isLastOdd = i === WORK.length - 1 && WORK.length % 2 !== 0
               const cardInner = (
                 <>
-                  <div className="relative overflow-hidden aspect-[16/10] mb-7 bg-ink/[0.045]">
-                    {item.thumb ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={item.thumb}
-                        alt={`${item.title} preview`}
-                        loading={i < 4 ? 'eager' : 'lazy'}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-10 transition-transform duration-700 ease-out group-hover:scale-[1.03]">
-                        <span
-                          className="font-display font-light text-accent leading-[0.9] tracking-tight"
-                          style={{ fontSize: (item.stat ?? '').length <= 3 ? 'clamp(5rem, 9vw, 9rem)' : 'clamp(3.5rem, 6vw, 6rem)' }}
-                        >
-                          {item.stat}
-                        </span>
-                        <span className="mt-4 font-sans text-[11px] tracking-[0.18em] uppercase text-ink/70 max-w-xs leading-relaxed">
-                          {item.statLabel}
-                        </span>
-                      </div>
-                    )}
-                  </div>
                   <div className="flex justify-between items-start mb-3">
                     <span className="font-sans text-[11px] tracking-[0.12em] uppercase text-ink/60">{item.id}</span>
                     <span className="font-sans text-[11px] tracking-[0.08em] uppercase text-ink/60">{item.year}</span>

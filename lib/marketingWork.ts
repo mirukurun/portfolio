@@ -1,7 +1,7 @@
 // Marketing case list: rendered on /marketing and in /llms.txt and JSON-LD.
 // `summary` is the one-line card copy; `description` is the full text (mobile accordion, llms.txt).
 
-export const MARKETING_WORK: { id: string; title: string; category: string; company: string; year: string; description: string; summary: string; thumb?: string; stat?: string; statLabel?: string; videoSrc?: string; href?: string; site?: string }[] = [
+export const MARKETING_WORK: { id: string; title: string; category: string; company: string; year: string; description: string; summary: string; videoSrc?: string; href?: string; site?: string }[] = [
   {
     id: '01',
     title: 'Hordi Nails',
@@ -10,8 +10,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2026',
     description: 'My home nail studio north of Stockholm, where I run all of the marketing. The site carries NailSalon, price and FAQ structured data (39 questions) plus an llms.txt file, so Google and AI assistants can answer questions about prices, hours and booking. I also rebuilt the Google Business Profile and wrote local posts in Swedish, English and Ukrainian. Now building a reel pipeline (Kokoro TTS, Whisper, Remotion, FFmpeg) so I can publish without filming clients.',
     summary: 'All marketing for my nail studio: local SEO, Google profile and AI-search setup.',
-    stat: '39',
-    statLabel: 'FAQ answers Google and AI assistants can quote',
     href: '/marketing/hordi-nails',
     site: 'https://hordinails.com',
   },
@@ -23,7 +21,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2026',
     description: 'Marketing audit for a company comparison platform that showed the public site was selling a different product from the one being built, and a new positioning around fair, apples-to-apples comparison. Wrote product issues detailed enough for an AI coding agent to fix as-is, and built “Finance from zero”, a short-video series rendered from scripts with TTS narration and timed captions.',
     summary: 'New positioning, an AI-ready product backlog and a short explainer video series.',
-    thumb: '/projects/thumbs/icpress.jpg',
     href: '/marketing/icpress',
   },
   {
@@ -34,8 +31,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2026',
     description: 'Closed the company\'s first web and SEO baseline (Search Console, GA4, Core Web Vitals, rankings, backlinks) and separately tested how the brand shows up in Google AI Overviews and ChatGPT for real buyer questions. Turned the gaps into a prioritised action list and a briefing that won leadership buy-in for a new workstream.',
     summary: 'First SEO and AI-search baseline, turned into a plan leadership approved.',
-    stat: '1st',
-    statLabel: 'web, SEO and AI-search baseline',
   },
   {
     id: '04',
@@ -45,8 +40,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2026',
     description: 'Built 5 end-user and 2 distributor personas from EU professional communities, each mapped across a 6-stage buyer journey with message, proof and channel. Gave a distributor-led go-to-market a working model for who every page, post, sheet and deck is for.',
     summary: 'Personas and a messaging matrix for a distributor-led go-to-market.',
-    stat: '7',
-    statLabel: 'personas × 6 buyer-journey stages',
   },
   {
     id: '05',
@@ -56,8 +49,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2026',
     description: 'Benchmarked every active social channel using public data only, then set up a content calendar and monthly metrics. Turned raw customer field-test forms into a reusable bank of testimonials and stats with consent tracking, and proposed a zero-cost review-collection flow.',
     summary: 'Social benchmark, content calendar and a reusable bank of customer proof.',
-    stat: 'Proof',
-    statLabel: 'testimonials and stats with consent tracking',
   },
   {
     id: '06',
@@ -67,8 +58,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2026',
     description: 'Local-first job application assistant built with Next.js and Claude. Upload a resume, get an AI-extracted candidate profile, and match against job listings with scored reasoning — all running on your own machine.',
     summary: 'Job application assistant built with Next.js and Claude.',
-    stat: 'Local',
-    statLabel: 'AI job assistant that runs on your own machine',
   },
   {
     id: '07',
@@ -78,8 +67,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2026',
     description: 'A research and drafting pipeline that turns Reddit discussions into original LinkedIn content. Fetches threads, extracts human insights via LLM, generates post angles and drafts — in your voice, not Reddit\'s.',
     summary: 'Pipeline that turns Reddit discussions into LinkedIn posts in your own voice.',
-    stat: 'R → in',
-    statLabel: 'Reddit threads into original LinkedIn drafts',
   },
   {
     id: '08',
@@ -89,8 +76,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2025–2026',
     description: 'Built and operated a full LinkedIn outreach workflow: lead segmentation, campaign variants, AI-automated reply categorisation and follow-up drafting. Turned manual processes into a repeatable, scalable system.',
     summary: 'Full LinkedIn outreach workflow, from lead segments to AI-drafted follow-ups.',
-    stat: 'Outreach',
-    statLabel: 'segments, variants and AI reply sorting',
   },
   {
     id: '09',
@@ -100,8 +85,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2025–2026',
     description: 'Designed and deployed AI-assisted outreach automation using Claude, n8n, and Clay. Reduced manual task time significantly across lead research, reply handling, and follow-up scheduling.',
     summary: 'AI-assisted automation for lead research, replies and follow-ups.',
-    stat: 'n8n',
-    statLabel: 'Claude · n8n · Clay',
   },
   {
     id: '10',
@@ -111,8 +94,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2025',
     description: 'Built Facebook and Instagram presence from zero for a Swedish social initiative. Created multilingual content, managed ad campaigns, and covered live events — from photography to short-form video.',
     summary: 'Facebook and Instagram from zero: multilingual content, ads and event coverage.',
-    stat: '0 → 1',
-    statLabel: 'Facebook and Instagram, built from zero',
   },
   {
     id: '11',
@@ -122,8 +103,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2023',
     description: 'Founded and led a 30-person remote volunteer team across translation, voice acting, and post-production. Delivered 3 complete localised episodes through structured async workflows.',
     summary: 'Founded and led a remote team that localised 3 full episodes.',
-    stat: '30',
-    statLabel: 'volunteers · 3 localised episodes',
   },
   {
     id: '12',
@@ -133,7 +112,6 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     year: '2023',
     description: 'Targeted advertising content for a beauty salon — posts, images, and video edits for Meta campaigns. Built a warm, consistent visual identity that converts local audiences into bookings.',
     summary: 'Meta ad content for a beauty salon: posts, images and video edits.',
-    thumb: '/projects/thumbs/beauty.jpg',
     href: '/marketing/beauty',
   },
 ]
