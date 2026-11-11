@@ -82,7 +82,7 @@ export default function Home() {
             onClick={() => setModalOpen(true)}
           >
             <Image
-              src="/avatar/avatar_front_half.png"
+              src="/avatar/avatar_front_half.webp"
               alt="Diana Horbyk"
               fill
               className="object-contain object-right-top"
@@ -243,7 +243,7 @@ export default function Home() {
             className="absolute bottom-6 right-7 z-40 flex items-center gap-3 font-sans text-[10px] tracking-[0.35em] uppercase text-accent hover:text-ink transition-colors"
             onMouseEnter={() => setHoveredZone(null)}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
           >
             <span className="w-6 h-px bg-current" />
             Download CV as PDF ↓
@@ -278,7 +278,7 @@ export default function Home() {
                 className="font-sans text-[9px] tracking-[0.35em] uppercase text-ink/35 group-hover/avatar:text-ink/70 transition-colors duration-300 cursor-pointer"
                 onClick={() => setModalOpen(true)}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 0.8 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
               >— CV —</motion.p>
               <Avatar hoveredZone={hoveredZone} onClick={() => setModalOpen(true)} />
             </div>

@@ -12,10 +12,10 @@ interface AvatarProps {
 }
 
 const AVATAR_STATES = [
-  { key: null, src: '/avatar/avatar-front.png' },
-  { key: 'design', src: '/avatar/avatar-left.png' },
-  { key: 'marketing', src: '/avatar/avatar-right.png' },
-  { key: 'blog', src: '/avatar/avatar-bottom.png' },
+  { key: null, src: '/avatar/avatar-front.webp' },
+  { key: 'design', src: '/avatar/avatar-left.webp' },
+  { key: 'marketing', src: '/avatar/avatar-right.webp' },
+  { key: 'blog', src: '/avatar/avatar-bottom.webp' },
 ] as const
 
 function getTransform(zone: Zone) {
