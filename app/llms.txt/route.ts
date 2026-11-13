@@ -7,6 +7,7 @@ import { DESIGN_PROJECTS } from '@/lib/designProjects'
 import { MARKETING_WORK } from '@/lib/marketingWork'
 import { BLOG_POSTS } from '@/lib/blogPosts'
 import { SERVICE_GROUPS } from '@/lib/services'
+import { CURRENT_ROLES } from '@/lib/jsonLd'
 
 export const dynamic = 'force-static'
 
@@ -29,6 +30,8 @@ export function GET() {
     '',
     `> ${CONTACT.headline}. Based in ${CONTACT.location}. Works across UX/UI and web design, growth marketing and AI automation; every project below is real work, with links to case studies.`,
     '',
+    `- Current roles: ${CURRENT_ROLES.map((j) => `${j.title}, ${j.company} (${j.period})`).join('; ')}`,
+    '- Every other role under Experience has ended; its dates show when.',
     `- Website: ${SITE}`,
     `- LinkedIn: ${CONTACT.linkedin}`,
     `- Email: ${CONTACT.email}`,
@@ -39,7 +42,8 @@ export function GET() {
 
   out.push('## Experience', '')
   for (const job of EXPERIENCE) {
-    out.push(`### ${job.title}, ${job.company} (${job.period})`, job.context, ...job.points.map((p) => `- ${p}`), '')
+    const status = job.period.endsWith('Present') ? 'current' : 'ended'
+    out.push(`### ${job.title}, ${job.company} (${job.period}, ${status})`, job.context, ...job.points.map((p) => `- ${p}`), '')
   }
 
   out.push('## Design projects', '')

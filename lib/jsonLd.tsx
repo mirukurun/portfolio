@@ -1,7 +1,7 @@
 // schema.org structured data (JSON-LD) for search engines and AI assistants.
 // Built from the same data the pages render.
 
-import { CONTACT, LANGUAGES } from '@/lib/cvData'
+import { CONTACT, EXPERIENCE, LANGUAGES } from '@/lib/cvData'
 
 const SITE = CONTACT.website
 const abs = (href?: string) => (href ? (href.startsWith('http') ? href : `${SITE}${href}/`) : undefined)
@@ -15,6 +15,8 @@ export function JsonLd({ data }: { data: object }) {
     />
   )
 }
+
+export const CURRENT_ROLES = EXPERIENCE.filter((j) => j.period.endsWith('Present'))
 
 export const PERSON_ID = `${SITE}/#person`
 
@@ -32,6 +34,9 @@ export const personJsonLd = {
       email: `mailto:${CONTACT.email}`,
       address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressCountry: 'SE' },
       sameAs: [CONTACT.linkedin],
+      // Only roles marked "Present", so assistants don't mistake a finished job for a current one.
+      worksFor: CURRENT_ROLES.map((j) => ({ '@type': 'Organization', name: j.company })),
+      hasOccupation: CURRENT_ROLES.map((j) => ({ '@type': 'Occupation', name: j.title })),
       knowsLanguage: LANGUAGES.map((l) => l.lang),
       knowsAbout: ['UX/UI design', 'Web design', 'Brand identity', 'Design systems', 'Growth marketing', 'Product marketing', 'SEO', 'AI search visibility', 'AI automation', 'LinkedIn outreach'],
     },

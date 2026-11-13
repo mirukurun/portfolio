@@ -27,8 +27,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dianahorbyk.eu'),
-  title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
+  title: {
+    default: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
+    template: '%s — Diana Horbyk',
+  },
   description: 'Portfolio of Diana Horbyk — UX/UI Designer, Web Designer & Growth Marketer based in Stockholm.',
+  alternates: { canonical: '/' },
+  authors: [{ name: 'Diana Horbyk', url: 'https://dianahorbyk.eu' }],
   openGraph: {
     title: 'Diana Horbyk — UX/UI Designer & Growth Marketer',
     description: 'Portfolio of Diana Horbyk — UX/UI Designer, Web Designer & Growth Marketer based in Stockholm.',
