@@ -1,6 +1,6 @@
-import { VoxearCasePage } from '@/components/VoxearCasePage'
-import { VOXEAR_CASES } from '@/lib/voxearCases'
+import { CaseStudyPage } from '@/components/CaseStudyPage'
+import { getCase } from '@/lib/caseStudies'
 
 export default function Page() {
-  return <VoxearCasePage item={VOXEAR_CASES.find((c) => c.slug === 'brand-system')!} />
+  return <CaseStudyPage item={getCase('voxear-brand-system')} />
 }

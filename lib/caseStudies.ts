@@ -1,14 +1,28 @@
-export type CaseImg = { src: string; w: number; h: number; label: string; description?: string; contain?: boolean }
+// Every case page (/design/*, /marketing/*) renders from this file through components/CaseStudyPage.tsx.
+// Editorial format: a one-line `deck`, a few `stats`, one `quote`, and sections with a short `lede`.
+// Longer detail goes into `more`, which is folded behind "Read more".
 
-export type CaseVideo = { src: string; poster: string; label: string }
+export type CaseImg = {
+  src: string
+  w: number
+  h: number
+  label: string
+  description?: string
+  contain?: boolean
+  /** Tall screenshot: show a preview cropped to height = width × crop; the lightbox shows it whole. */
+  crop?: number
+}
+
+export type CaseVideo = { src: string; poster?: string; label: string; autoplay?: boolean }
 
 export type CaseSection = {
   title: string
-  text?: string[]
-  bullets?: string[]
+  lede: string
+  more?: string[]
   images?: CaseImg[]
-  layout?: 'phones' | 'grid2' | 'grid3' | 'wide'
+  layout?: 'phones' | 'grid2' | 'grid3' | 'wide' | 'single'
   videos?: CaseVideo[]
+  pair?: { before: CaseImg; after: CaseImg }
 }
 
 export type CaseStudy = {
@@ -17,8 +31,12 @@ export type CaseStudy = {
   navLabel: string
   eyebrow: string
   title: string
+  deck: string
   meta: { label: string; value: string }[]
-  intro: string
+  stats?: { value: string; label: string }[]
+  quote?: string
+  /** Index of the section the quote follows (default 0). */
+  quoteAfter?: number
   live?: { href: string; label: string }
   sections: CaseSection[]
   points: string[]
@@ -28,6 +46,7 @@ export type CaseStudy = {
 const H = '/projects/hordi'
 const I = '/projects/icpress'
 const V = '/projects/tasstur'
+const X = '/projects/voxear'
 const vPhone = (name: string, label: string, description?: string): CaseImg => ({
   src: `${V}/m-${name}.jpg`, w: 1170, h: 2532, label, description,
 })
@@ -38,131 +57,146 @@ const phone = (name: string, label: string, description?: string): CaseImg => ({
   src: `${H}/site-${name}.jpg`, w: 1170, h: 2532, label, description,
 })
 
+const DESIGN = { href: '/design', label: 'Design' }
+const MARKETING = { href: '/marketing', label: 'Marketing' }
+
+const voxearMeta = [
+  { label: 'Role', value: 'Marketing Coordinator' },
+  { label: 'Period', value: '2026' },
+  { label: 'Context', value: 'B2B hardware company, professional hearing protection' },
+]
+
 export const CASE_STUDIES: CaseStudy[] = [
+  // ─── Hordi Nails · design ───────────────────────────────────────────
   {
     slug: 'hordi-nails-design',
-    back: { href: '/design', label: 'Design' },
+    back: DESIGN,
     navLabel: 'Hordi Nails — 2026',
     eyebrow: 'Brand Identity · Web Design · Print',
     title: 'Hordi Nails',
+    deck: 'A brand and booking site for my own nail studio, where clients see the full price of their set before they book.',
     meta: [
       { label: 'Role', value: 'Owner · Designer · Developer' },
       { label: 'Period', value: 'October 2026' },
-      { label: 'Context', value: 'My own home nail studio in Upplands Väsby, north of Stockholm' },
+      { label: 'Context', value: 'Home nail studio in Upplands Väsby, Stockholm' },
     ],
-    intro:
-      'A brand and booking site for my own nail studio. I wanted clients to see the full price of the set they have in mind before they book, and to pick only time slots long enough for that set. Everything here, from the wordmark to the booking flow and the print pieces, I designed and built myself.',
+    stats: [
+      { value: '0 kr', label: 'upfront to book' },
+      { value: '5', label: 'design tiers with photo examples' },
+      { value: '1', label: 'accent colour for the whole brand' },
+    ],
+    quote: 'A 3.5-hour set never gets squeezed into a 2-hour gap.',
+    quoteAfter: 1,
     live: { href: 'https://hordinails.com', label: 'Live at hordinails.com' },
     sections: [
       {
         title: 'Identity',
-        text: [
-          'A heavy lowercase wordmark with a single lime dot over the “i”. The dot is the one accent colour across the whole brand: buttons, highlights, the selected option in the booking flow. The monogram works as an avatar and favicon.',
-        ],
+        lede: 'A heavy lowercase wordmark with one lime dot over the “i”. That dot is the only accent in the brand: buttons, highlights, the selected option.',
         layout: 'grid2',
         images: [
           { src: `${H}/hordi-logo-black.svg`, w: 2612, h: 1300, label: 'Wordmark', contain: true },
-          { src: `${H}/avatar.jpg`, w: 1080, h: 1080, label: 'Avatar / monogram', description: 'Used on Instagram, TikTok and Google Business Profile.' },
+          { src: `${H}/avatar.jpg`, w: 1080, h: 1080, label: 'Monogram', description: 'Avatar for Instagram, TikTok and Google.' },
         ],
       },
       {
         title: 'Build your set, see your price',
-        text: [
-          'The site is one page designed mobile-first, since almost every client books from a phone. Instead of a long price list, the booking is a short configurator: length, extension method, design tier and extras. The total and the approximate duration update with every choice.',
-          'Design tiers come with photos of real work, so a client can match their idea to a tier on their own. A note asks them to pick honestly and explains that a more complex design moves to the right tier when we agree the details.',
+        lede: 'Instead of a price list, booking is a short configurator: length, method, design tier, extras. Total and duration update with every tap.',
+        more: [
+          'One page, designed mobile-first: almost every client books from a phone',
+          'Design tiers come with photos of real work, so clients match their idea to a tier on their own',
+          'A note asks them to pick honestly; a more complex design moves to the right tier when we agree the details',
         ],
         layout: 'phones',
         images: [
-          phone('home', 'Hero', 'What I do, where, and “0 kr upfront”.'),
-          phone('booking', 'Length', 'Six lengths from XS to XXL, measured from the fingertip, with prices.'),
-          phone('tier_picked', 'Design tier', 'Five tiers with photo examples, priced for the whole set.'),
-          phone('total', 'Price and time', 'Running total and approximate duration of the set.'),
+          phone('home', 'Hero', '“0 kr upfront.”'),
+          phone('booking', 'Length', 'Six lengths, XS to XXL.'),
+          phone('tier_picked', 'Design tier', 'Priced for the whole set.'),
+          phone('total', 'Price and time', 'Running total and duration.'),
         ],
       },
       {
         title: 'Only slots that fit',
-        text: [
-          'The calendar shows only start times that leave enough room for the chosen set, so a 3.5-hour set never gets squeezed into a 2-hour gap. There is no prepayment. A booking request reaches me in Telegram through a Cloudflare Worker, and the client gets a confirmation email and a reminder before the visit.',
+        lede: 'The calendar offers only start times long enough for the chosen set. No prepayment: a request lands straight in my Telegram.',
+        more: [
+          'Requests go through a Cloudflare Worker to a Telegram bot',
+          'Clients get a confirmation email and a reminder before the visit',
         ],
         layout: 'phones',
         images: [
-          phone('modal_slots', 'Day and time', 'Start times calculated from the length of the set.'),
-          phone('length_picked', 'Selected state', 'The lime accent marks the current choice.'),
-          phone('works', 'Works', 'Gallery of 28 sets, plus gel colours and charms.'),
+          phone('modal_slots', 'Day and time', 'Calculated from the set length.'),
+          phone('length_picked', 'Selected state', 'Lime marks the choice.'),
+          phone('works', 'Works', '28 sets, gel colours, charms.'),
         ],
       },
       {
         title: 'Print',
-        text: [
-          'A business card and an A5 flyer to hand out locally. Both carry a QR code to the booking page and a −30 % “you and a friend” offer, so a printed piece turns into two bookings.',
-        ],
+        lede: 'A business card and an A5 flyer, each with a QR code to booking and a −30 % “you and a friend” offer. One printed piece, two bookings.',
         layout: 'grid2',
         images: [
-          { src: `${H}/card-front.jpg`, w: 1075, h: 721, label: 'Business card — front' },
-          { src: `${H}/card-back.jpg`, w: 1075, h: 721, label: 'Business card — back', description: 'QR to hordinails.com and the referral offer.' },
+          { src: `${H}/card-front.jpg`, w: 1075, h: 721, label: 'Business card, front' },
+          { src: `${H}/card-back.jpg`, w: 1075, h: 721, label: 'Business card, back', description: 'QR code and the referral offer.' },
           { src: `${H}/flyer-a5.jpg`, w: 988, h: 1400, label: 'A5 flyer' },
-          { src: `${H}/works-07.jpg`, w: 1000, h: 1000, label: 'Work photo', description: 'Photos of my own sets are used across the site, print and social.' },
+          { src: `${H}/works-07.jpg`, w: 1000, h: 1000, label: 'Work photo', description: 'My own sets, used across site, print and social.' },
         ],
       },
     ],
     points: [
-      'Designed the wordmark, monogram and a one-accent colour system',
-      'Designed and built a mobile-first, one-page booking site',
-      'Price and duration configurator: length, method, design tier, extras',
-      'Calendar that offers only slots long enough for the chosen set',
-      'Booking requests to Telegram via a Cloudflare Worker, plus confirmation and reminder emails',
-      'Business card and A5 flyer with QR code and referral offer',
+      'Wordmark, monogram and a one-accent colour system',
+      'Mobile-first booking site with a price and duration configurator',
+      'Calendar that only offers slots long enough for the set',
+      'Telegram booking via a Cloudflare Worker, plus confirmation and reminder emails',
+      'Business card and flyer with QR code and referral offer',
     ],
     tools: ['Brand Identity', 'Web Design', 'HTML / CSS / JS', 'Cloudflare Workers', 'Telegram Bot API', 'Print Design'],
   },
 
+  // ─── Hordi Nails · marketing ────────────────────────────────────────
   {
     slug: 'hordi-nails-marketing',
-    back: { href: '/marketing', label: 'Marketing' },
+    back: MARKETING,
     navLabel: 'Hordi Nails — 2026',
     eyebrow: 'Small Business · Local SEO · AI Search',
     title: 'Hordi Nails',
+    deck: 'All the marketing for my own studio: found on Google and by AI assistants, and a local presence that leads to bookings.',
     meta: [
       { label: 'Role', value: 'Owner · All marketing' },
       { label: 'Period', value: 'May 2026 – present' },
       { label: 'Context', value: 'Home nail studio, one client at a time, local audience' },
     ],
-    intro:
-      'All the marketing for my own nail studio: being found on Google and by AI assistants, a Google Business Profile that actually leads to bookings, and posts for local groups. I work alone and don’t film clients, so everything has to keep working without an agency, a camera crew or a big budget.',
+    stats: [
+      { value: '39', label: 'FAQ answers in structured data' },
+      { value: '3', label: 'languages for local groups' },
+      { value: 'All', label: 'Google reviews answered' },
+    ],
+    quote: 'I work alone and don’t film clients, so everything has to run without an agency or a camera crew.',
     live: { href: 'https://hordinails.com', label: 'Live at hordinails.com' },
     sections: [
       {
-        title: 'Found by Google and by AI assistants',
-        text: [
-          'The site carries NailSalon, price and FAQ structured data (39 questions) and an llms.txt file, so Google and AI assistants can answer questions about prices, hours and booking straight from the source.',
-          'I also cleaned up the Google Business Profile: the website link pointed to Instagram, services had no prices, and none of the reviews had a reply.',
-        ],
-        bullets: [
-          'Website changed from Instagram to hordinails.com, with direct links to booking',
-          'Services rewritten in Swedish with prices and descriptions; services I don’t offer removed',
-          'Replied to every review',
+        title: 'Found by Google and by AI',
+        lede: 'NailSalon, price and FAQ structured data plus an llms.txt let Google and AI assistants answer questions about prices and booking straight from the site.',
+        more: [
+          'Google Business Profile: the website link pointed to Instagram; now it goes to the site, with direct booking links',
+          'Services rewritten in Swedish with prices; services I don’t offer removed',
+          'Every review replied to',
           'Attributes set: by appointment only, payment methods, free parking',
-          'Published a “Book online now” post with a booking button',
+          'A “Book online now” post with a booking button',
         ],
       },
       {
-        title: 'Reels without filming clients (in progress)',
-        text: [
-          'I’m building a small video pipeline so I can publish short videos without filming anyone. Each reel is a script in code: text, scenes, timing and sound. One command turns it into a finished vertical video. The first reels are still being refined, so they aren’t shown here yet.',
-        ],
-        bullets: [
+        title: 'Reels without filming clients',
+        lede: 'In progress: each reel is a script in code, and one command turns it into a finished vertical video. The first reels are still being refined.',
+        more: [
           'Voice: Kokoro TTS reads the script',
-          'Captions: faster-whisper gets the timing of every word and checks the voice is clear',
-          'Sound: music and effects are generated and ducked under the voice',
+          'Captions: faster-whisper times every word and checks the voice is clear',
+          'Sound: generated music and effects, ducked under the voice',
           'Scenes: animated in Remotion from the timing data',
-          'Finish: FFmpeg normalises loudness to −14 LUFS for social platforms',
+          'Finish: FFmpeg normalises loudness to −14 LUFS',
         ],
       },
       {
         title: 'Local posts in three languages',
-        text: [
-          'A plan for where to post and what to say: local Facebook groups for my area, international groups, and Ukrainian community groups, each with its own text in Swedish, English or Ukrainian. Every post links to the site and gives the area rather than the street address. There are also ready-made replies for “how much / do you have time?” comments.',
-        ],
+        lede: 'Posts for local, international and Ukrainian groups, each in its own language, with ready replies for “how much / do you have time?” comments.',
+        more: ['Every post links to the site and names the area, never the street address'],
         layout: 'grid3',
         images: [
           { src: `${H}/works-01.jpg`, w: 563, h: 1000, label: 'Work photo' },
@@ -172,276 +206,674 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     points: [
-      'Added NailSalon, price and FAQ structured data (39 questions) and llms.txt',
-      'Rebuilt the Google Business Profile: link, services and prices, review replies, booking post',
-      'Wrote local posts and replies in Swedish, English and Ukrainian',
-      'Building a code-driven reel pipeline: TTS voice, word-timed captions, generated sound, Remotion scenes',
+      'NailSalon, price and FAQ structured data (39 questions) and llms.txt',
+      'Rebuilt Google Business Profile: link, priced services, review replies, booking post',
+      'Local posts and replies in Swedish, English and Ukrainian',
+      'A code-driven reel pipeline: TTS voice, timed captions, generated sound, Remotion',
     ],
     tools: ['Local SEO', 'Schema.org', 'llms.txt', 'Google Business Profile', 'Facebook Groups', 'Kokoro TTS', 'Whisper', 'Remotion', 'FFmpeg'],
   },
 
+  // ─── ICPress ─────────────────────────────────────────────────────────
   {
     slug: 'icpress',
-    back: { href: '/marketing', label: 'Marketing' },
+    back: MARKETING,
     navLabel: 'ICPress — 2026',
     eyebrow: 'Product Marketing · UX Audit · Video Content',
     title: 'ICPress',
+    deck: 'Before it needed more promotion, the product needed sharper positioning and a clearer surface. That is where I started.',
     meta: [
       { label: 'Role', value: 'Co-Founder & Head of Marketing' },
       { label: 'Period', value: 'November 2026 – present' },
-      { label: 'Context', value: 'Individual Contributor Press (StoryPop AB), Sweden: a platform for comparing companies with their real peers' },
+      { label: 'Context', value: 'StoryPop AB, Sweden: compare a company with its real peers' },
     ],
-    intro:
-      'ICPress (Individual Contributor Press) lets you compare a company with genuinely similar companies (same sector, same business model, metrics calculated the same way) instead of reading the financial reports yourself. As co-founder and head of marketing, I found early on that the product needed sharper positioning and a clearer product surface before it needed more promotion. The work covered three things: a marketing audit, a product issue backlog and an educational video series.',
+    stats: [
+      { value: '5', label: 'frameworks in the audit' },
+      { value: '3', label: 'presentation levels, same numbers' },
+      { value: '1+12', label: 'pilot and episodes of “Finance from zero”' },
+    ],
+    quote: 'The site was selling a different product from the one being built.',
     live: { href: 'https://icpress.org', label: 'icpress.org' },
     sections: [
       {
         title: 'Marketing audit',
-        text: [
-          'I went through the public site, article pages, app listing, GitHub organisation and social channels, then ran the findings through positioning, SEO, social, community and launch frameworks. The main finding: the public site presented a news feed, while the team described a company comparison tool in closed beta. The site was selling a different product from the one being built.',
-          'After working through it with the team, the recommendation shifted the whole plan:',
-        ],
-        bullets: [
-          'Positioning: “Compare companies apples to apples. Same metrics, same periods, one method — so you don’t have to read the reports.”',
-          'Waitlist as the main marketing goal before the beta opens, with separate landing pages for beginners and professionals',
-          'Articles reworked into comparisons (one metric, one period, several peers) so content leads into the product',
-          'After the beta: programmatic “X vs Y” and “sector leaders by metric” pages for search',
-          'Onboarding with one comparison before sign-up and three presentation levels that change the explanation, never the numbers',
-          'A pricing sketch where beginners pay for confidence and professionals pay for time',
+        lede: 'I went through the site, articles, app listing, GitHub and social channels. The site showed a news feed. The team was building a comparison tool.',
+        more: [
+          'Positioning: “Compare companies apples to apples. Same metrics, same periods, one method.”',
+          'A waitlist as the main goal before beta, with separate landings for beginners and pros',
+          'Articles reworked into comparisons, so content leads into the product',
+          'After beta: programmatic “X vs Y” and “sector leaders by metric” pages',
+          'Onboarding with one comparison before sign-up',
+          'Pricing sketch: beginners pay for confidence, professionals pay for time',
         ],
       },
       {
-        title: 'Issue backlog an AI agent can act on',
-        text: [
-          'The developers work with AI coding agents, and the site source wasn’t available to me. So I wrote every issue to be handed to an agent as-is (“fix issue #N”) by someone who has never seen the page. I filed them directly in the team’s GitHub repository.',
-        ],
-        bullets: [
-          'Exact URL and user state (guest, signed in, on the waitlist)',
-          'Element IDs, classes, texts and asset names found on the live site, so the agent can locate the code by search',
+        title: 'Issues an AI agent can fix',
+        lede: 'The developers work with AI coding agents, so I wrote every issue to be handed over as-is (“fix issue #N”) by someone who has never seen the page.',
+        more: [
+          'Exact URL and user state: guest, signed in, on the waitlist',
+          'Element IDs, classes and texts from the live site, so the agent finds the code by search',
           'Measurements in px and viewports for layout problems',
           'Likely cause, proposed fix and an acceptance checklist',
-          'What not to touch and which related places are affected',
+          'What not to touch, and which related places are affected',
         ],
       },
       {
         title: 'Finance from zero',
-        text: [
-          'A series of short vertical videos for TikTok, YouTube Shorts and Reels, meant to bring beginners to ICPress. The first version assumed viewers knew the terms. Feedback showed that someone starting from zero couldn’t follow it, so I rebuilt the format: no word goes unexplained, and every number on screen can be recalculated from the formula shown.',
-          'Each episode follows the same structure: a hook, new words one at a time with a lemonade-stand example, the calculation step by step, the same formula on a real company using ICPress data, then a comparison with its peers. Episodes are written as data, and a small engine renders the animation in Chrome, adds Kokoro TTS narration with timed captions and assembles the MP4 with FFmpeg. A pilot and 12 episodes are built.',
+        lede: 'Short vertical videos for beginners. After feedback, I rebuilt the format: no word goes unexplained, every number on screen can be recalculated.',
+        more: [
+          'Each episode: hook → new words with a lemonade-stand example → the maths step by step → the same formula on a real company → comparison with peers',
+          'Episodes are written as data; an engine renders the animation in Chrome, adds Kokoro TTS narration and timed captions, and assembles the MP4 with FFmpeg',
         ],
         videos: [
           { src: `${I}/pilot_margin_from_zero.mp4`, poster: `${I}/pilot_margin_from_zero.jpg`, label: 'Pilot: what is a margin?' },
           { src: `${I}/fz01_two_margins.mp4`, poster: `${I}/fz01_two_margins.jpg`, label: 'Two kinds of margin' },
           { src: `${I}/fz04_inventory.mp4`, poster: `${I}/fz04_inventory.jpg`, label: 'What is inventory?' },
-          { src: `${I}/fz12_peers.mp4`, poster: `${I}/fz12_peers.jpg`, label: 'Apples to apples: why peers matter' },
+          { src: `${I}/fz12_peers.mp4`, poster: `${I}/fz12_peers.jpg`, label: 'Why peers matter' },
         ],
       },
     ],
     points: [
-      'Audited positioning, site, SEO, social and community, and proposed a new positioning around fair comparison',
-      'Planned a waitlist-first launch, comparison-led content and onboarding with three presentation levels',
-      'Wrote and filed product issues detailed enough for an AI coding agent to fix without extra context',
-      'Designed the “Finance from zero” format and rebuilt it after viewer feedback',
-      'Built a video engine: scripts as data, animation rendered in Chrome, TTS narration, timed captions',
+      'Audited positioning, site, SEO, social and community; proposed positioning around fair comparison',
+      'Planned a waitlist-first launch, comparison-led content and three-level onboarding',
+      'Filed product issues detailed enough for an AI agent to fix without context',
+      'Designed “Finance from zero”, rebuilt it after feedback, and built its video engine',
     ],
     tools: ['Positioning', 'SEO Audit', 'UX Review', 'GitHub Issues', 'Kokoro TTS', 'Headless Chrome', 'FFmpeg', 'Claude'],
   },
 
+  // ─── Tasstur · design ───────────────────────────────────────────────
   {
     slug: 'tasstur-design',
-    back: { href: '/design', label: 'Design' },
+    back: DESIGN,
     navLabel: 'Tasstur — 2026',
     eyebrow: 'Product Design · Web · PWA',
     title: 'Tasstur',
+    deck: 'A map for friends with dogs grew into a guide to Stockholm. The job: make a map, reference pages, tools and a sales page feel like one calm product.',
     meta: [
       { label: 'Role', value: 'Founder · Designer · Developer' },
       { label: 'Period', value: 'November 2026 – present' },
       { label: 'Context', value: 'My own product for dog owners in Stockholm, pre-launch' },
     ],
-    intro:
-      'Tasstur (Swedish: tass is a paw, tur is a trip) started as a map for friends: where in Stockholm can I take my dachshund? It grew into a guide with the law in plain words, advice for visitors and a section on getting a first puppy. The hard part was not the number of pages but making a map, long reference pages, interactive tools and a sales page feel like one calm product.',
+    stats: [
+      { value: '1,400+', label: 'places on the map' },
+      { value: '413', label: 'breeds in the breed test' },
+      { value: '3', label: 'visual directions tried' },
+    ],
+    quote: 'Real photos carry the emotion, so the interface can stay quiet.',
     sections: [
       {
         title: 'Three directions, one that stayed',
-        text: [
-          'The first version used blue and yellow, the colours dogs see best, with a vector dachshund as the mascot. It looked like every other AI-made landing page, and the card grid left one card alone on the last row. The second try was a neo-brutalist “dog zine” with thick outlines, hard shadows and stickers. It was loud and felt dated within a day.',
-          'The direction that stayed is “Nordic editorial”: an oat background, white surfaces with soft shadows, no outlines, large light headings in Onest, navy for actions and one yellow dot as the only accent. Real photos carry the emotion, so the interface can stay quiet. The section grid became a bento with the map as the big tile, so nothing is ever left hanging.',
+        lede: 'Dog-vision blue and yellow looked like every AI-made landing page. A neo-brutalist “dog zine” felt dated within a day. “Nordic editorial” stayed.',
+        more: [
+          'First: blue and yellow, a vector dachshund mascot, and a grid that left one card alone on the last row',
+          'Second: thick outlines, hard shadows, stickers. Loud',
+          'Final: oat background, soft white surfaces, light Onest headings, navy for actions, one yellow dot as the only accent',
+          'The section grid became a bento with the map as the big tile, so nothing is left hanging',
         ],
         layout: 'grid2',
         images: [
-          vWide('v1-guide', 'Before: first direction', 'Dog-vision blue and yellow, a vector mascot and a 4 + 1 card grid.', 1600, 1000),
-          vWide('guide-desktop', 'After: Nordic editorial', 'Oat background, photo hero, one yellow accent.'),
+          vWide('v1-guide', 'Before', 'Blue and yellow, mascot, a 4 + 1 grid.', 1600, 1000),
+          vWide('guide-desktop', 'After', 'Oat, photo hero, one yellow accent.'),
         ],
       },
       {
-        title: 'The map: calm chrome, loud data',
-        text: [
-          'The panel holds search, category chips with live counts, two filters (venues with a dog menu, places rated “Dog Favourite”) and “Near me”, which lists the closest places within a radius you choose. On a phone it becomes a bottom sheet over the map.',
-          'I tried the brand colours on the markers too, and it made categories impossible to tell apart. So the markers kept their distinct category colours, and the brand palette lives only in the interface around them.',
+        title: 'Calm chrome, loud data',
+        lede: 'Brand colours on the markers made categories impossible to tell apart. So markers keep their own colours, and the brand lives only in the interface around them.',
+        more: [
+          'Search, category chips with live counts, “dog menu” and “Dog Favourite” filters',
+          '“Near me” lists the closest places within a radius you choose',
+          'On a phone the panel becomes a bottom sheet',
         ],
         layout: 'wide',
-        images: [vWide('map-desktop', 'Map, desktop', '1,400+ places in eight categories, clustered by area.')],
+        images: [vWide('map-desktop', 'Map, desktop', '1,400+ places in eight categories.')],
       },
       {
         title: 'One layout for every long page',
-        text: [
-          'The rules page started as a long list that read like Wikipedia. I rebuilt it as a reference: “At a glance” tiles with the eight facts people ask most, a sticky table of contents with scroll tracking and a count of items per section, season bars, tap-to-call numbers, and sources folded into one line.',
-          'Then I made the layout automatic: any page with a table of contents and four or more sections gets the sidebar on desktop and a sticky chip strip on mobile. Visiting, First dog and Ribbons & signals all use it without extra work.',
+        lede: 'The rules page read like Wikipedia. I rebuilt it as a reference, then made that layout switch on by itself for any long page.',
+        more: [
+          '“At a glance” tiles with the eight facts people ask most',
+          'Sticky table of contents with scroll tracking; a chip strip on mobile',
+          'Season bars, tap-to-call numbers, sources folded into one line',
+          'Any page with four or more sections gets the layout automatically',
         ],
         layout: 'phones',
         images: [
-          vPhone('rules', 'Rules & laws', 'Fact tiles and the chip strip that follows you down the page.'),
-          vPhone('visiting', 'Visiting', 'Entry rules with “Save to Notes” and a PDF version.'),
-          vPhone('signals', 'Ribbons & signals', 'Tap a colour to see what it means.'),
-          vPhone('guide', 'Guide hub', 'Search across all pages from the hero.'),
+          vPhone('rules', 'Rules & laws', 'Fact tiles and chip strip.'),
+          vPhone('visiting', 'Visiting', '“Save to Notes” and PDF.'),
+          vPhone('signals', 'Ribbons & signals', 'Tap a colour to learn it.'),
+          vPhone('guide', 'Guide hub', 'Search from the hero.'),
         ],
       },
       {
-        title: 'Tools instead of walls of text',
-        text: [
-          'The First dog section answers three questions with small tools instead of paragraphs. A time test asks how long the home is empty. A cost calculator shows what a puppy really costs in the first three months, using real shop prices in Stockholm. A breed test covers 413 breeds in five short steps, from the home to the family, and is loaded only when someone opens it.',
-        ],
+        title: 'Tools, not walls of text',
+        lede: 'First dog answers three questions with small tools: a time test, a cost calculator with real Stockholm prices, and a breed test across 413 breeds.',
+        more: ['The breed test takes five short steps and loads only when someone opens it'],
         layout: 'phones',
         images: [
-          vPhone('first-dog', 'First dog', 'Four questions to answer before you decide.'),
+          vPhone('first-dog', 'First dog', 'Four questions first.'),
           vPhone('time', 'Time test', 'One question per screen.'),
-          vPhone('money', 'Cost calculator', 'Real items and prices, by dog size.'),
+          vPhone('money', 'Cost calculator', 'Real prices, by dog size.'),
           vPhone('breed', 'Breed test', '413 breeds, five steps.'),
         ],
       },
       {
         title: 'A sales page that reads like a letter',
-        text: [
-          'The paid guide on choosing a puppy needed a landing page. The first version was the usual stack of cards, and it felt like an ad. I rebuilt it as a magazine spread with a letter from me: a typographic hero next to a photo of my puppy with a handwritten note, a pull quote beside a photo of my first dog, three big numbers, a numbered contents list, and a plain comparison of the free checklist and the paid guide.',
-          'All photos on this page are my own dogs. The guide hero photos elsewhere on the site are stock.',
+        lede: 'The first version was a stack of cards and felt like an ad. I rebuilt it as a magazine spread: a letter from me, with photos of my own dogs.',
+        more: [
+          'Typographic hero beside my puppy, with a handwritten note',
+          'A pull quote beside my first dog, three big numbers, a numbered contents list',
+          'A plain comparison of the free checklist and the paid guide',
+          'Hero photos elsewhere on the site are stock; on this page they are all mine',
         ],
         layout: 'grid2',
         images: [
-          vWide('landing-hero', 'Landing hero', 'Headline, waitlist button and a handwritten caption.'),
-          vWide('landing-letter', 'The letter', 'Pull quote next to a photo of my first dog.', 1600, 1000),
+          vWide('landing-hero', 'Landing hero', 'Headline, waitlist, handwritten caption.'),
+          vWide('landing-letter', 'The letter', 'Pull quote and my first dog.', 1600, 1000),
         ],
       },
       {
         title: 'Print and offline',
-        text: [
-          'The free puppy checklist is generated from the same text as the site, as a one-page PDF and a plain-text version for the phone’s Notes app, in ten languages. The site installs as an app (PWA) and keeps working offline once opened.',
-        ],
+        lede: 'The free checklist is generated from the site’s own text, as a PDF and a Notes-ready version in ten languages. The site installs as an app and works offline.',
         layout: 'grid2',
         images: [
-          { src: `${V}/checklist-en.jpg`, w: 989, h: 1400, label: 'Free checklist, PDF', description: 'Red flags, anti-smuggling checks and the first month.' },
-          vWide('landing-waitlist', 'Waitlist', 'Navy band at the end of the landing page.', 1600, 1000),
+          { src: `${V}/checklist-en.jpg`, w: 989, h: 1400, label: 'Free checklist', description: 'Red flags, anti-smuggling checks, the first month.' },
+          vWide('landing-waitlist', 'Waitlist', 'Navy band at the end of the landing.', 1600, 1000),
         ],
       },
     ],
     points: [
-      'Took the visual style through three directions and wrote down why each one failed',
-      'Designed a map interface where the brand stays in the chrome and data stays readable',
-      'Built a reference-page layout that turns on by itself for any long page',
-      'Designed a breed test across 413 breeds, a time test and a puppy cost calculator',
-      'Rebuilt the paid-guide landing from cards into a letter with my own photos',
-      'Made a printable checklist in ten languages and an installable, offline-ready app',
+      'Took the look through three directions and wrote down why each failed',
+      'Map interface where the brand stays in the chrome and data stays readable',
+      'A reference layout that turns on by itself for any long page',
+      'Breed test (413 breeds), time test and puppy cost calculator',
+      'Paid-guide landing rebuilt from cards into a letter',
+      'Checklist in ten languages; installable, offline-ready app',
     ],
     tools: ['Product Design', 'UI Design', 'Information Architecture', 'HTML / CSS / JS', 'Leaflet', 'PWA', 'Claude Code'],
   },
 
+  // ─── Tasstur · marketing ────────────────────────────────────────────
   {
     slug: 'tasstur-marketing',
-    back: { href: '/marketing', label: 'Marketing' },
+    back: MARKETING,
     navLabel: 'Tasstur — 2026',
     eyebrow: 'Product Marketing · Programmatic SEO · Funnel',
     title: 'Tasstur',
+    deck: 'The go-to-market for my own dog guide, set up before launch: audiences, name, data, search, languages and a free-to-paid funnel.',
     meta: [
       { label: 'Role', value: 'Founder · All marketing' },
       { label: 'Period', value: 'November 2026 – present' },
-      { label: 'Status', value: 'Pre-launch: shared with friends, not yet open to search engines' },
+      { label: 'Status', value: 'Pre-launch, not yet open to search engines' },
     ],
-    intro:
-      'Tasstur is my own guide for dog owners in Stockholm: a map of places that welcome dogs and plain-language pages on the law, visiting and getting a first puppy. The map and guide are free. The plan is to earn from a paid guide on choosing a healthy, well-socialised puppy. This case is the go-to-market I set up before launch, so there are no traffic numbers yet.',
+    stats: [
+      { value: '1,545', label: 'SEO pages from one dataset' },
+      { value: '1,400+', label: 'places merged from several sources' },
+      { value: '10', label: 'languages, picked from tourism data' },
+    ],
+    quote: 'Trust is the product here, and a source next to every claim is how I show it.',
+    quoteAfter: 1,
     sections: [
       {
-        title: 'Who it is for, and what it is called',
-        text: [
-          'Two audiences search for the same thing in different ways: people visiting Stockholm with a dog, who search in their own language, and locals, who search in Swedish for “hundvänligt” plus an area. New owners are a third group, and the one that leads to the paid product.',
-          'The first name was Vovve, Swedish for “doggie”. No dog map or app used it, but the domain was already taken, so I renamed the product before launch rather than after. Tasstur (tass is a paw, tur is a trip) is short, says what the product is for, and the .se and .com domains and the social handle were all free. Search keywords stay in page titles and URLs (/hundvanligt/södermalm/), and the brand is only a suffix, so the name never costs a ranking.',
+        title: 'Who it’s for, and the name',
+        lede: 'Visitors search in their own language, locals in Swedish, and new owners lead to the paid guide. The first name, Vovve, had lost its domain, so I renamed before launch.',
+        more: [
+          'Tasstur: tass is a paw, tur is a trip. The .se, .com and social handle were all free',
+          'Keywords stay in titles and URLs (/hundvanligt/södermalm/); the brand is only a suffix, so the name never costs a ranking',
         ],
       },
       {
-        title: 'Data people can’t get elsewhere',
-        text: [
-          'No single source lists every dog-friendly place in Stockholm, so that became the advantage. I merged dog-friendly guides, review sites, pet-friendly hotels and OpenStreetMap dog parks into one map of 1,400+ places, removed duplicates across sources, and asked the owners of the largest source for permission to use their data.',
-          'Every rule in the guide links to its source: Swedish law, the city’s local regulations, Jordbruksverket and SL. Trust is the product here, and a source next to every claim is how I show it.',
+        title: 'Data nobody else has',
+        lede: 'No single source lists every dog-friendly place in Stockholm. I merged guides, review sites, hotels and OpenStreetMap into one map, and asked the largest source for permission.',
+        more: [
+          'Duplicates removed across sources',
+          'Every rule links to its source: Swedish law, city regulations, Jordbruksverket, SL',
         ],
       },
       {
         title: '1,545 pages from one dataset',
-        text: [
-          'The same data that drives the map builds static Swedish pages for search, generated by a build script on every deploy:',
-        ],
-        bullets: [
-          '35 districts and municipalities, each with its own category pages (“Hundvänliga kaféer på Södermalm”), plus city-wide category pages: 122 listing pages in total',
-          '1,422 place pages with address, dog rules, nearby places and a “Show on map” deep link',
-          'schema.org markup: BreadcrumbList on every page, plus the right business type (café, bar, hotel) with coordinates on each place',
-          'Titles and descriptions written from the real counts (“300 places on Södermalm where your dog can come along”)',
-          'Sitemap and canonical URLs; pages stay noindex until the own domain and the data agreement are final',
+        lede: 'The map’s data also builds static Swedish pages for search, regenerated on every deploy.',
+        more: [
+          '122 listing pages: 35 districts with category pages (“Hundvänliga kaféer på Södermalm”) plus city-wide categories',
+          '1,422 place pages with address, dog rules, nearby places and a map deep link',
+          'schema.org: breadcrumbs everywhere, the right business type with coordinates on each place',
+          'Titles written from real counts (“300 places on Södermalm where your dog can come along”)',
+          'Sitemap and canonicals; noindex until the domain and data agreement are final',
         ],
         layout: 'phones',
         images: [
-          vPhone('seo-area', 'District page', 'Counts per category and a map button.'),
-          vPhone('seo-category', 'Category page', 'Every café on Södermalm with its dog rules.'),
-          vPhone('seo-place', 'Place page', 'Rules, directions and places nearby.'),
+          vPhone('seo-area', 'District page', 'Counts and a map button.'),
+          vPhone('seo-category', 'Category page', 'Every café, with dog rules.'),
+          vPhone('seo-place', 'Place page', 'Rules, directions, nearby.'),
         ],
       },
       {
-        title: 'Languages chosen from tourism data',
-        text: [
-          'Instead of guessing, I picked languages from visitor statistics. The largest groups of visitors to Stockholm come from the US, Germany, Norway, the UK and Finland. Norwegians and Danes read Swedish, so English, Swedish, German and Finnish already cover most visitors. Dutch came next from the same statistics, and Spanish, Polish, Russian, French and Chinese cover other large visitor and expat groups.',
-        ],
-        bullets: [
-          'Map interface: 10 languages, picked from the browser language',
-          'Guide pages and the free checklist: the same 10 languages',
-          'A checker flags any translation whose structure drifts from the English original',
+        title: 'Languages from tourism data',
+        lede: 'Most visitors come from the US, Germany, Norway, the UK and Finland, and Norwegians read Swedish. Ten languages cover them and the large expat groups.',
+        more: [
+          'English, Swedish, German and Finnish first; then Dutch, Spanish, Polish, Russian, French, Chinese',
+          'Map, guide pages and checklist all in the same ten languages',
+          'A checker flags translations whose structure drifts from the English',
         ],
       },
       {
         title: 'From free map to paid guide',
-        text: [
-          'The funnel follows the user’s own path. A visitor comes for the map or the rules. A future owner reads First dog and downloads the free checklist. Someone who wants more joins the waitlist for the paid guide.',
-          'The line between free and paid is strict. The checklist contains only Jordbruksverket’s official advice, because that should be free. The insider knowledge, the uncomfortable questions for breeders and how to read their answers, stays in the guide. Its pitch is that a truly good breeder is almost impossible to find, and that a registered kennel is not proof of a well-socialised puppy.',
-        ],
+        lede: 'Map or rules → First dog → free checklist → waitlist. Official advice stays free; the insider questions for breeders stay in the paid guide.',
+        more: ['The pitch: a truly good breeder is almost impossible to find, and a registered kennel is no proof of a well-socialised puppy'],
         layout: 'phones',
         images: [
-          vPhone('first-dog', 'First dog (free)', 'Useful tools and official advice.'),
-          vPhone('landing', 'Paid guide landing', 'Waitlist first, price at launch.'),
+          vPhone('first-dog', 'First dog (free)', 'Tools and official advice.'),
+          vPhone('landing', 'Paid guide', 'Waitlist first, price at launch.'),
         ],
       },
       {
         title: 'The story is the proof',
-        text: [
-          'I have worked with dogs since I was 14, and my first dog from a breeder with papers still turned out so fearful that I had to rehome her. That story is the core of the landing page, told as a letter with photos of both dogs and three numbers: 14 years old when I started, 3 trainers, 0 times I could stroke her.',
-          'The page answers objections directly in a short FAQ (“The breeder is SKK-registered. Isn’t that enough?”). The waitlist asks for one thing, an email, and promises one email when the guide is out. Each language has its own form, so I can see which markets want it.',
+        lede: 'My first dog, from a breeder with papers, was so fearful I had to rehome her. That story, told as a letter, is the landing page.',
+        more: [
+          'Three numbers: 14 years old when I started with dogs, 3 trainers, 0 times I could stroke her',
+          'A short FAQ answers objections: “The breeder is SKK-registered. Isn’t that enough?”',
+          'The waitlist asks for an email and promises one email; a form per language shows which markets want it',
         ],
         layout: 'grid2',
         images: [
-          vWide('landing-letter', 'Letter from the author', 'The story told with a pull quote and a real photo.', 1600, 1000),
-          vWide('landing-waitlist', 'Waitlist', 'One field, one promise, one email.', 1600, 1000),
+          vWide('landing-letter', 'The letter', 'Pull quote and a real photo.', 1600, 1000),
+          vWide('landing-waitlist', 'Waitlist', 'One field, one promise.', 1600, 1000),
         ],
       },
       {
         title: 'Privacy as a selling point',
-        text: [
-          'No accounts, no ads, no tracking, and location never leaves the phone. That is written into the store listing as a feature, not hidden in a policy. The site installs as an app, and a Google Play listing (text in English and Russian, icon, screenshots) is ready for when I publish it.',
+        lede: 'No accounts, no ads, no tracking, and location never leaves the phone, written into the store listing as a feature.',
+        more: ['A Google Play listing (English and Russian, icon, screenshots) is ready to publish'],
+      },
+    ],
+    points: [
+      'Defined three audiences; renamed the product before launch',
+      'Merged 1,400+ places into one dataset, with permission from the largest source',
+      'Generated 1,545 Swedish SEO pages with schema.org markup',
+      'Picked 10 languages from tourism statistics',
+      'Free-to-paid funnel: map → checklist → waitlist, around my own story',
+    ],
+    tools: ['Positioning', 'Programmatic SEO', 'Schema.org', 'Localisation', 'Lead Magnet', 'Waitlist', 'Netlify Forms', 'PWA'],
+  },
+
+  // ─── Voxear · brand system ──────────────────────────────────────────
+  {
+    slug: 'voxear-brand-system',
+    back: DESIGN,
+    navLabel: 'Voxear — 2026',
+    eyebrow: 'Brand Identity · Design System · Figma',
+    title: 'Brand System from Zero',
+    deck: 'Close to a hundred marketing files and no written brand rules. I turned the identity already in use into a system the whole company can reuse.',
+    meta: voxearMeta,
+    stats: [
+      { value: '~95', label: 'files audited' },
+      { value: '8', label: 'documented areas' },
+      { value: '2', label: 'contested decisions, both approved' },
+    ],
+    sections: [
+      {
+        title: 'From habits to a system',
+        lede: 'I audited the whole library, reverse-engineered the identity in circulation and documented it in Figma, exported as design tokens.',
+        more: [
+          'Eight areas: foundations, colour, typography, logo, iconography, components, voice and tone, applied examples',
+          'A shared asset library, so colleagues and vendors could use the identity before sign-off',
+          'Voice and tone grew from one line in the old handbook into a guide with words to use and avoid',
+        ],
+      },
+      {
+        title: 'Colour and type',
+        lede: 'An orange accent and a secondary blue, taken from colours already on the collateral. Type styles with sizes, line heights and token names.',
+        layout: 'grid2',
+        images: [
+          { src: `${X}/brand-colour.jpg`, w: 1584, h: 1113, label: 'Colour', description: 'Accent, secondary and tints, with HEX and RGB.' },
+          { src: `${X}/brand-type.jpg`, w: 1584, h: 2227, label: 'Typography', description: 'Display to label, with tokens.' },
+        ],
+      },
+      {
+        title: 'Spacing and logo',
+        lede: 'A 4px scale, a 12-column web grid and an A4 print grid share one rhythm. Logo rules cover clear space, minimum size and misuse.',
+        layout: 'grid2',
+        images: [
+          { src: `${X}/brand-spacing.jpg`, w: 1584, h: 1470, label: 'Spacing & grid', description: 'Screen and print on one rhythm.' },
+          { src: `${X}/brand-logo.jpg`, w: 1584, h: 1747, label: 'Logo usage', description: 'Clear space, sizes, one-colour, misuse.' },
+        ],
+      },
+      {
+        title: 'Two contested decisions',
+        lede: 'The accent colour and the body typeface were debated. I made the case from published branding research and real identity reversals. Both were approved.',
+      },
+    ],
+    points: [
+      'Audit of ~95 files turned into eight documented brand areas',
+      'Design tokens and a shared asset library, usable before sign-off',
+      'Voice and tone guide with words to use and avoid',
+      'Evidence-based case for the accent colour and body typeface',
+    ],
+    tools: ['Figma', 'Figma Make', 'Design Tokens', 'Brand Strategy'],
+  },
+
+  // ─── Voxear · icon set ──────────────────────────────────────────────
+  {
+    slug: 'voxear-icon-set',
+    back: DESIGN,
+    navLabel: 'Voxear — 2026',
+    eyebrow: 'Iconography · Visual Design',
+    title: 'Custom Icon Set',
+    deck: 'The products are sold on specs, and the system had no icons. I made one family that follows the logo geometry.',
+    meta: voxearMeta,
+    stats: [
+      { value: '7', label: 'icons for the specs that sell' },
+      { value: '4', label: 'open-source sets unified' },
+      { value: '2', label: 'passes to make one family' },
+    ],
+    sections: [
+      {
+        title: 'One family from mixed sources',
+        lede: 'Icons from Font Awesome, Boxicons, Ionicons and Eva Icons, plus two vectorised from references, redrawn in two passes until they read as one set.',
+        more: [
+          'Battery, Bluetooth, IP67, SNR, certified, radio and in-ear',
+          'Sharp corners where the shape allows, curves only where the subject needs them (ear, umbrella)',
+        ],
+        layout: 'single',
+        images: [
+          { src: `${X}/icon-set.webp`, w: 842, h: 454, label: 'The set', description: 'Seven spec icons next to the logo mark they follow.' },
         ],
       },
     ],
     points: [
-      'Defined three audiences and renamed the product before launch when the first domain was taken',
-      'Merged 1,400+ places from several sources into one dataset, with permission from the largest source',
-      'Generated 1,545 Swedish SEO pages with schema.org markup from that dataset',
-      'Picked 10 languages for the map, guide and checklist from tourism statistics',
-      'Designed a free-to-paid funnel: map → checklist → waitlist for a paid guide',
-      'Wrote the landing page around my own story, with an objection-handling FAQ and per-language waitlists',
+      'Seven icons selected from four open-source sets, plus two vectorised from references',
+      'Unified in two passes to match the logo geometry',
     ],
-    tools: ['Positioning', 'Programmatic SEO', 'Schema.org', 'Localisation', 'Lead Magnet', 'Waitlist', 'Netlify Forms', 'PWA'],
+    tools: ['Figma', 'Iconography', 'Design Tokens'],
+  },
+
+  // ─── Voxear · retail display ────────────────────────────────────────
+  {
+    slug: 'voxear-retail-display',
+    back: DESIGN,
+    navLabel: 'Voxear — 2026',
+    eyebrow: 'Physical Design · Print Production',
+    title: 'Retail Display Redesign',
+    deck: 'Everyone knew the display had problems, but nobody had written them down and sign-off had stalled. I wrote the list, specified the print and got it delivered.',
+    meta: voxearMeta,
+    stats: [
+      { value: '2', label: 'panels redesigned' },
+      { value: '1st', label: 'brand accent on a physical fixture' },
+      { value: '13.10', label: 'printed and delivered' },
+    ],
+    quote: 'One message instead of four bullets, readable in seconds from a few metres away.',
+    sections: [
+      {
+        title: 'Front graphic',
+        lede: 'From a text list over a photo to a two-line headline in the brand accent and three spec callouts with icons.',
+        more: [
+          'Specs become numbers: 40 h and 35 dB set large, so shoppers compare at a glance',
+          'The brand accent appears on a physical surface for the first time',
+          'The earbud is shown in the ear; the award mark sits in a fixed corner',
+        ],
+        pair: {
+          before: { src: `${X}/before-front.jpg`, w: 1000, h: 1124, label: 'Front, before', description: 'A list over a photo.' },
+          after: { src: `${X}/display-front.jpg`, w: 1280, h: 1170, label: 'Front, after', description: 'Headline and three specs.' },
+        },
+      },
+      {
+        title: 'Product panel',
+        lede: 'The product shown once, as it’s sold, with only the functions that sell it called out. Plus a fit chart and a QR code.',
+        more: [
+          'Before: three small views and a dozen thin labels. After: case open, both earbuds inside, orange leader lines',
+          'Each function gets a name and one line, which is all someone at a display will read',
+          'A fit chart shows every eartip size against its rating (SNR29 / SNR35)',
+          'Target trades and a QR code to the product page close the panel',
+        ],
+        pair: {
+          before: { src: `${X}/before-back.jpg`, w: 1200, h: 1108, label: 'Panel, before', description: 'Small views, many labels.' },
+          after: { src: `${X}/display-back.jpg`, w: 1600, h: 1483, label: 'Panel, after', description: 'Annotated, fit chart, QR.' },
+        },
+      },
+      {
+        title: 'From board to print',
+        lede: 'Layout and colour variants compared on one board. The feedback became a print spec, agreed with the vendor, the CEO and sales.',
+        more: [
+          'A dated, checkable defect list replaced “it doesn’t feel right”',
+          'Print spec: colour profile, bleed, dimensions, colour build for the new accent',
+          'Design review with the CEO and sales lead, with an itemised revision list agreed on the spot',
+          'The vendor agreed to build a second comparison unit',
+        ],
+        layout: 'wide',
+        images: [
+          { src: `${X}/display-explorations.jpg`, w: 1400, h: 928, label: 'Explorations', description: 'Light to dark variants on one Figma board.' },
+        ],
+      },
+    ],
+    points: [
+      'Turned “it doesn’t feel right” into a dated, checkable defect list',
+      'Wrote the print specification for the new accent colour',
+      'Ran the design review with the CEO and sales lead',
+      'Printed display delivered on 13 October',
+    ],
+    tools: ['Figma', 'Print Specification', 'Vendor Coordination'],
+  },
+
+  // ─── Voxear · templates ─────────────────────────────────────────────
+  {
+    slug: 'voxear-templates',
+    back: DESIGN,
+    navLabel: 'Voxear — 2026',
+    eyebrow: 'Layout · Templates · Documentation',
+    title: 'Document Template & Style Guide',
+    deck: 'Every document was built from scratch, so none looked alike. I made a Word template, and a style guide written in that template.',
+    meta: voxearMeta,
+    quote: 'The guide uses every style it teaches.',
+    sections: [
+      {
+        title: 'A guide that shows itself',
+        lede: 'Every heading, table and callout in the guide is the real thing, with steps next to it, so anyone can rebuild it without asking a designer.',
+        more: [
+          'Fonts, colours and table styles carry over from any existing document',
+          'A colour table with the HEX codes Word asks for',
+          'Product sheets rebuilt as editable documents with lab-tested attenuation tables',
+        ],
+        layout: 'grid2',
+        images: [
+          { src: `${X}/doc-template-1.jpg`, w: 935, h: 1210, label: 'Page 1', description: 'How to use it, and the colour table.' },
+          { src: `${X}/doc-template-2.jpg`, w: 935, h: 1210, label: 'Page 2', description: 'Heading levels as working examples.' },
+        ],
+      },
+    ],
+    points: [
+      'Branded Word template and a self-demonstrating style guide',
+      'Styles that carry over from any existing document',
+      'Product sheets rebuilt as editable documents',
+    ],
+    tools: ['Word', 'Style Guide', 'Layout'],
+  },
+
+  // ─── SpaceCorps ──────────────────────────────────────────────────────
+  {
+    slug: 'spacecorps',
+    back: DESIGN,
+    navLabel: 'SpaceCorps — 2025',
+    eyebrow: 'UX/UI Design · Brand Identity · Game Interface',
+    title: 'SpaceCorps',
+    deck: 'The sole designer at MVP stage: identity, design system and every screen, from colour tokens to the pilot dashboard.',
+    meta: [
+      { label: 'Role', value: 'UX/UI & Product Designer' },
+      { label: 'Period', value: 'Jun – Dec 2025' },
+      { label: 'Context', value: 'Early-stage browser game startup · Remote' },
+    ],
+    live: { href: 'https://spacecorpstechnology.com', label: 'Live at spacecorpstechnology.com' },
+    sections: [
+      {
+        title: 'A dark sci-fi system',
+        lede: 'Accent, secondary, neutral and semantic tones, built as tokens for a dark interface that stays readable under dense data.',
+        layout: 'grid2',
+        images: [{ src: '/projects/spacecorps/colors.jpg', w: 782, h: 956, label: 'Brand system', description: 'Palette and tokens.' }],
+      },
+      {
+        title: 'Landing & auth',
+        lede: 'Registration and login over a full-bleed space background.',
+        images: [{ src: '/projects/spacecorps/landing.png', w: 1920, h: 2910, label: 'Landing', description: 'The full page opens on tap.', crop: 0.85 }],
+      },
+      {
+        title: 'Pilot dashboard',
+        lede: 'The main hub: pilot profile, worldwide leaderboard, clan stats and an activity feed. Data-dense, still readable.',
+        images: [{ src: '/projects/spacecorps/dashboard.png', w: 1920, h: 1080, label: 'Dashboard' }],
+      },
+      {
+        title: 'Lore reader',
+        lede: 'An in-game story reader with reading progress, chapter navigation and a lore score that rewards engagement.',
+        images: [{ src: '/projects/spacecorps/lore.png', w: 1920, h: 1080, label: 'Lore / wiki' }],
+      },
+    ],
+    points: [
+      'Brand identity: colours, typography, component system',
+      'Live company website',
+      'UX/UI concepts and prototypes for the game MVP',
+      'Pilot dashboard and lore reader',
+      'A dark design system for complex data layouts',
+    ],
+    tools: ['Figma', 'Design Systems', 'UX Prototyping', 'Brand Identity', 'Dark UI', 'Component Library', 'Game UI/UX'],
+  },
+
+  // ─── Karolinska ─────────────────────────────────────────────────────
+  {
+    slug: 'karolinska',
+    back: DESIGN,
+    navLabel: 'Karolinska Institutet — 2025',
+    eyebrow: 'UX/UI Design · Data Dashboard · HR Analytics',
+    title: 'Karolinska Institutet',
+    deck: 'An internal HR and operations dashboard that makes complex data readable for administrative staff, in the university’s plum and coral.',
+    meta: [
+      { label: 'Role', value: 'UX/UI Designer' },
+      { label: 'Type', value: 'HR & Analytics Dashboard' },
+      { label: 'Client', value: 'Karolinska Institutet, Stockholm' },
+    ],
+    sections: [
+      {
+        title: 'The whole case on one board',
+        lede: 'Dashboard layout, data visualisation, HR flows and a colour system adapted to the university brand.',
+        images: [
+          { src: '/projects/dashboards/Create Behance Case Study.png', w: 2618, h: 7523, label: 'Case board', description: 'The full board opens on tap.', crop: 1.1 },
+        ],
+      },
+    ],
+    points: [
+      'HR analytics dashboard with performance and budget tracking',
+      'Charts, tables and KPI cards',
+      'Colour system adapted to the Karolinska brand',
+      'Information architecture for complex operational data',
+    ],
+    tools: ['Figma', 'Data Visualisation', 'Dashboard Design', 'Brand System', 'UX Research', 'Prototyping'],
+  },
+
+  // ─── Ivy Interactive ────────────────────────────────────────────────
+  {
+    slug: 'ivy',
+    back: DESIGN,
+    navLabel: 'Ivy Interactive — 2025',
+    eyebrow: 'UX/UI Design · Landing Page · Product Messaging',
+    title: 'Ivy Interactive',
+    deck: 'A webinar landing page that turns highly technical features into clear messaging for developers, without losing precision.',
+    meta: [
+      { label: 'Role', value: 'UX/UI Designer' },
+      { label: 'Type', value: 'B2B Landing Page' },
+      { label: 'Context', value: 'Developer-focused SaaS platform' },
+    ],
+    sections: [
+      {
+        title: 'The promise, then the why',
+        lede: 'Headline, subtext and one CTA above the fold, then the value proposition against the alternatives.',
+        images: [
+          { src: '/projects/ivy/landingpage.jpg', w: 1280, h: 935, label: 'Hero' },
+          { src: '/projects/ivy/why Ivy.jpg', w: 1280, h: 584, label: 'Why Ivy' },
+        ],
+      },
+      {
+        title: 'Features developers care about',
+        lede: 'What the platform delivers, Blazor support, and what it deliberately avoids, each with a clear hierarchy.',
+        images: [
+          { src: '/projects/ivy/what you ll see.jpg', w: 1280, h: 949, label: 'What you’ll see' },
+          { src: '/projects/ivy/blazor.jpg', w: 1280, h: 801, label: 'Blazor integration' },
+          { src: '/projects/ivy/no razor.jpg', w: 1280, h: 965, label: 'No Razor' },
+        ],
+      },
+      {
+        title: 'The bottom line',
+        lede: 'A closing summary and the conversion point.',
+        images: [{ src: '/projects/ivy/thebottomline.jpg', w: 1280, h: 1026, label: 'Closing CTA' }],
+      },
+    ],
+    points: [
+      'Full landing page, from hero to closing CTA',
+      'Messaging hierarchy for a technical B2B audience',
+      'Feature sections: Blazor, platform differentiators',
+      'Figma prototype ready for developer handoff',
+    ],
+    tools: ['Figma', 'Landing Page Design', 'Product Messaging', 'B2B UX', 'Prototyping'],
+  },
+
+  // ─── Ivy Studio ─────────────────────────────────────────────────────
+  {
+    slug: 'ivy-studio',
+    back: DESIGN,
+    navLabel: 'Ivy Interactive — 2025',
+    eyebrow: 'UX/UI Design · App Interface · Prototype',
+    title: 'Ivy Studio',
+    deck: 'The first prototype of a developer-focused studio tool: workspace layout, navigation and core interaction patterns.',
+    meta: [
+      { label: 'Role', value: 'UX/UI Designer' },
+      { label: 'Type', value: 'Product Interface Prototype' },
+      { label: 'Context', value: 'Ivy Interactive, 2025' },
+    ],
+    sections: [
+      {
+        title: 'Studio interface',
+        lede: 'First iteration of the workspace and its navigation structure, in Ivy Interactive’s visual language.',
+        images: [{ src: '/projects/ivy/firstivystudioprototype.jpg', w: 1280, h: 879, label: 'First prototype' }],
+      },
+    ],
+    points: [
+      'Core workspace layout for a developer-facing tool',
+      'Navigation structure and information architecture',
+      'Early interaction patterns and UI components',
+      'Visual language aligned with the Ivy brand',
+    ],
+    tools: ['Figma', 'UX Prototyping', 'App Interface', 'Design Systems', 'Developer Tools UX'],
+  },
+
+  // ─── Beauty by Luidmila ─────────────────────────────────────────────
+  {
+    slug: 'beauty',
+    back: MARKETING,
+    navLabel: 'Beauty by Luidmila — 2023',
+    eyebrow: 'Targeted Ads · Content Creation · Social Media',
+    title: 'Beauty by Luidmila',
+    deck: 'Posts, images and short videos for a beauty salon’s Meta campaigns: a warm, consistent look that turns local audiences into bookings.',
+    meta: [
+      { label: 'Role', value: 'Content Creator · Ads Manager' },
+      { label: 'Type', value: 'Targeted Advertising' },
+      { label: 'Year', value: '2023' },
+    ],
+    sections: [
+      {
+        title: 'Content for local ads',
+        lede: 'Ad creatives for Facebook and Instagram, short-form video for feeds, and post design for service promotion, all aimed at a local audience.',
+        videos: [
+          {
+            src: '/projects/Beautybyluidmila/Content%20Creation%20Create%20and%20design%20posts%2C%20images%20and%20videos.mp4',
+            label: 'Content reel',
+            autoplay: true,
+          },
+        ],
+      },
+    ],
+    points: [
+      'Ad creatives for Facebook and Instagram',
+      'Short-form video for social feeds',
+      'Post design and image editing for service promotion',
+      'Content plan aligned with local targeting',
+    ],
+    tools: ['Meta Ads', 'Video Editing', 'Content Design', 'Canva', 'Social Media'],
   },
 ]
 
