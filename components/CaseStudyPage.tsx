@@ -157,7 +157,7 @@ function PullQuote({ text }: { text: string }) {
   return (
     <motion.blockquote className="mb-20 md:mb-28 md:pl-[calc(41.666%+1rem)]" {...reveal}>
       <span className="block font-display text-accent text-7xl md:text-8xl leading-[0.6] h-8 md:h-10">“</span>
-      <p className="font-display font-light text-ink text-[1.9rem] md:text-5xl leading-[1.12] tracking-tight max-w-2xl">
+      <p className="font-display font-light text-ink text-[1.9rem] md:text-5xl leading-[1.15]! tracking-tight max-w-2xl">
         {text}
       </p>
       <div className="mt-6 w-12 h-px bg-accent" />
@@ -239,7 +239,7 @@ export function CaseStudyPage({ item }: { item: CaseStudy }) {
               {item.title}
             </h1>
 
-            <p className="mt-6 md:mt-8 font-display font-light text-ink/80 text-[1.45rem] md:text-[2rem] leading-[1.25] max-w-3xl">
+            <p className="mt-6 md:mt-8 font-display font-light text-ink/80 text-[1.45rem] md:text-[2rem] leading-[1.3]! max-w-3xl">
               {item.deck}
             </p>
 
