@@ -4,6 +4,16 @@
 export const DESIGN_PROJECTS = [
   {
     id: '01',
+    title: 'Vovve: Dog Guide & Map for Stockholm',
+    category: 'Product Design · Web · PWA',
+    year: '2026',
+    description: 'A map of 1,400+ places in Stockholm that welcome dogs, plus guide pages on the law, visiting with a dog and getting a first puppy. I took the look through three directions before settling on a calm “Nordic editorial” style, built one layout that every long reference page reuses, designed interactive tools (a breed test across 413 breeds, a puppy cost calculator) and a sales landing for a paid guide written as a letter from me.',
+    summary: 'Dog-friendly map and guide for Stockholm, taken through three visual directions.',
+    thumb: '/projects/thumbs/vovve.webp',
+    href: '/design/vovve',
+  },
+  {
+    id: '02',
     title: 'Hordi Nails: Brand & Booking Site',
     category: 'Brand Identity · Web Design · Live',
     year: '2026',
@@ -14,7 +24,7 @@ export const DESIGN_PROJECTS = [
     site: 'https://hordinails.com',
   },
   {
-    id: '02',
+    id: '03',
     title: 'Voxear — Brand System',
     category: 'Brand Identity · Design System · Figma',
     year: '2026',
@@ -24,7 +34,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/voxear-brand-system',
   },
   {
-    id: '03',
+    id: '04',
     title: 'Voxear — Custom Icon Set',
     category: 'Iconography · Visual Design',
     year: '2026',
@@ -34,7 +44,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/voxear-icon-set',
   },
   {
-    id: '04',
+    id: '05',
     title: 'Voxear — Retail Display Redesign',
     category: 'Physical Design · Print Production',
     year: '2026',
@@ -44,7 +54,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/voxear-retail-display',
   },
   {
-    id: '05',
+    id: '06',
     title: 'Voxear — Document Templates & Product Sheets',
     category: 'Layout · Templates · Print',
     year: '2026',
@@ -54,7 +64,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/voxear-templates',
   },
   {
-    id: '06',
+    id: '07',
     title: 'SpaceCorps — Game Platform',
     category: 'UX/UI Design · Brand Identity',
     year: '2025',
@@ -64,7 +74,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/spacecorps',
   },
   {
-    id: '07',
+    id: '08',
     title: 'SpaceCorps — Company Website',
     category: 'Web Design · Live',
     year: '2025',
@@ -75,7 +85,7 @@ export const DESIGN_PROJECTS = [
     external: true,
   },
   {
-    id: '08',
+    id: '09',
     title: 'Queens Qoncept Clinic — Beauty Website',
     category: 'Web Design · Live',
     year: '2025',
@@ -86,7 +96,7 @@ export const DESIGN_PROJECTS = [
     external: true,
   },
   {
-    id: '09',
+    id: '10',
     title: 'Karolinska Institutet — HR Dashboard',
     category: 'UX/UI Design · Data Dashboard',
     year: '2025',
@@ -96,7 +106,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/karolinska',
   },
   {
-    id: '10',
+    id: '11',
     title: 'Ivy Interactive — Landing Page Prototype',
     category: 'UX/UI Design · Product Messaging',
     year: '2025',
@@ -106,7 +116,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/ivy',
   },
   {
-    id: '11',
+    id: '12',
     title: 'Ivy Interactive — Studio Prototype',
     category: 'UX/UI Design · App Interface',
     year: '2025',

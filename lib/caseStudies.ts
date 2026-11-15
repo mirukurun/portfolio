@@ -27,6 +27,13 @@ export type CaseStudy = {
 
 const H = '/projects/hordi'
 const I = '/projects/icpress'
+const V = '/projects/vovve'
+const vPhone = (name: string, label: string, description?: string): CaseImg => ({
+  src: `${V}/m-${name}.jpg`, w: 1170, h: 2532, label, description,
+})
+const vWide = (name: string, label: string, description?: string, w = 1440, h = 900): CaseImg => ({
+  src: `${V}/${name}.jpg`, w, h, label, description,
+})
 const phone = (name: string, label: string, description?: string): CaseImg => ({
   src: `${H}/site-${name}.jpg`, w: 1170, h: 2532, label, description,
 })
@@ -238,6 +245,203 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Built a video engine: scripts as data, animation rendered in Chrome, TTS narration, timed captions',
     ],
     tools: ['Positioning', 'SEO Audit', 'UX Review', 'GitHub Issues', 'Kokoro TTS', 'Headless Chrome', 'FFmpeg', 'Claude'],
+  },
+
+  {
+    slug: 'vovve-design',
+    back: { href: '/design', label: 'Design' },
+    navLabel: 'Vovve — 2026',
+    eyebrow: 'Product Design · Web · PWA',
+    title: 'Vovve',
+    meta: [
+      { label: 'Role', value: 'Founder · Designer · Developer' },
+      { label: 'Period', value: 'November 2026 – present' },
+      { label: 'Context', value: 'My own product for dog owners in Stockholm, pre-launch' },
+    ],
+    intro:
+      'Vovve (Swedish for “doggie”) started as a map for friends: where in Stockholm can I take my dachshund? It grew into a guide with the law in plain words, advice for visitors and a section on getting a first puppy. The hard part was not the number of pages but making a map, long reference pages, interactive tools and a sales page feel like one calm product.',
+    sections: [
+      {
+        title: 'Three directions, one that stayed',
+        text: [
+          'The first version used blue and yellow, the colours dogs see best, with a vector dachshund as the mascot. It looked like every other AI-made landing page, and the card grid left one card alone on the last row. The second try was a neo-brutalist “dog zine” with thick outlines, hard shadows and stickers. It was loud and felt dated within a day.',
+          'The direction that stayed is “Nordic editorial”: an oat background, white surfaces with soft shadows, no outlines, large light headings in Onest, navy for actions and one yellow dot as the only accent. Real photos carry the emotion, so the interface can stay quiet. The section grid became a bento with the map as the big tile, so nothing is ever left hanging.',
+        ],
+        layout: 'grid2',
+        images: [
+          vWide('v1-guide', 'Before: first direction', 'Dog-vision blue and yellow, a vector mascot and a 4 + 1 card grid.', 1600, 1000),
+          vWide('guide-desktop', 'After: Nordic editorial', 'Oat background, photo hero, one yellow accent.'),
+        ],
+      },
+      {
+        title: 'The map: calm chrome, loud data',
+        text: [
+          'The panel holds search, category chips with live counts, two filters (venues with a dog menu, places rated “Dog Favourite”) and “Near me”, which lists the closest places within a radius you choose. On a phone it becomes a bottom sheet over the map.',
+          'I tried the brand colours on the markers too, and it made categories impossible to tell apart. So the markers kept their distinct category colours, and the brand palette lives only in the interface around them.',
+        ],
+        layout: 'wide',
+        images: [vWide('map-desktop', 'Map, desktop', '1,400+ places in eight categories, clustered by area.')],
+      },
+      {
+        title: 'One layout for every long page',
+        text: [
+          'The rules page started as a long list that read like Wikipedia. I rebuilt it as a reference: “At a glance” tiles with the eight facts people ask most, a sticky table of contents with scroll tracking and a count of items per section, season bars, tap-to-call numbers, and sources folded into one line.',
+          'Then I made the layout automatic: any page with a table of contents and four or more sections gets the sidebar on desktop and a sticky chip strip on mobile. Visiting, First dog and Ribbons & signals all use it without extra work.',
+        ],
+        layout: 'phones',
+        images: [
+          vPhone('rules', 'Rules & laws', 'Fact tiles and the chip strip that follows you down the page.'),
+          vPhone('visiting', 'Visiting', 'Entry rules with “Save to Notes” and a PDF version.'),
+          vPhone('signals', 'Ribbons & signals', 'Tap a colour to see what it means.'),
+          vPhone('guide', 'Guide hub', 'Search across all pages from the hero.'),
+        ],
+      },
+      {
+        title: 'Tools instead of walls of text',
+        text: [
+          'The First dog section answers three questions with small tools instead of paragraphs. A time test asks how long the home is empty. A cost calculator shows what a puppy really costs in the first three months, using real shop prices in Stockholm. A breed test covers 413 breeds in five short steps, from the home to the family, and is loaded only when someone opens it.',
+        ],
+        layout: 'phones',
+        images: [
+          vPhone('first-dog', 'First dog', 'Four questions to answer before you decide.'),
+          vPhone('time', 'Time test', 'One question per screen.'),
+          vPhone('money', 'Cost calculator', 'Real items and prices, by dog size.'),
+          vPhone('breed', 'Breed test', '413 breeds, five steps.'),
+        ],
+      },
+      {
+        title: 'A sales page that reads like a letter',
+        text: [
+          'The paid guide on choosing a puppy needed a landing page. The first version was the usual stack of cards, and it felt like an ad. I rebuilt it as a magazine spread with a letter from me: a typographic hero next to a photo of my puppy with a handwritten note, a pull quote beside a photo of my first dog, three big numbers, a numbered contents list, and a plain comparison of the free checklist and the paid guide.',
+          'All photos on this page are my own dogs. The guide hero photos elsewhere on the site are stock.',
+        ],
+        layout: 'grid2',
+        images: [
+          vWide('landing-hero', 'Landing hero', 'Headline, waitlist button and a handwritten caption.'),
+          vWide('landing-letter', 'The letter', 'Pull quote next to a photo of my first dog.', 1600, 1000),
+        ],
+      },
+      {
+        title: 'Print and offline',
+        text: [
+          'The free puppy checklist is generated from the same text as the site, as a one-page PDF and a plain-text version for the phone’s Notes app, in eight languages. The site installs as an app (PWA) and keeps working offline once opened.',
+        ],
+        layout: 'grid2',
+        images: [
+          { src: `${V}/checklist-en.jpg`, w: 989, h: 1400, label: 'Free checklist, PDF', description: 'Red flags, anti-smuggling checks and the first month.' },
+          vWide('landing-waitlist', 'Waitlist', 'Navy band at the end of the landing page.', 1600, 1000),
+        ],
+      },
+    ],
+    points: [
+      'Took the visual style through three directions and wrote down why each one failed',
+      'Designed a map interface where the brand stays in the chrome and data stays readable',
+      'Built a reference-page layout that turns on by itself for any long page',
+      'Designed a breed test across 413 breeds, a time test and a puppy cost calculator',
+      'Rebuilt the paid-guide landing from cards into a letter with my own photos',
+      'Made a printable checklist in eight languages and an installable, offline-ready app',
+    ],
+    tools: ['Product Design', 'UI Design', 'Information Architecture', 'HTML / CSS / JS', 'Leaflet', 'PWA', 'Claude Code'],
+  },
+
+  {
+    slug: 'vovve-marketing',
+    back: { href: '/marketing', label: 'Marketing' },
+    navLabel: 'Vovve — 2026',
+    eyebrow: 'Product Marketing · Programmatic SEO · Funnel',
+    title: 'Vovve',
+    meta: [
+      { label: 'Role', value: 'Founder · All marketing' },
+      { label: 'Period', value: 'November 2026 – present' },
+      { label: 'Status', value: 'Pre-launch: shared with friends, not yet open to search engines' },
+    ],
+    intro:
+      'Vovve is my own guide for dog owners in Stockholm: a map of places that welcome dogs and plain-language pages on the law, visiting and getting a first puppy. The map and guide are free. The plan is to earn from a paid guide on choosing a healthy, well-socialised puppy. This case is the go-to-market I set up before launch, so there are no traffic numbers yet.',
+    sections: [
+      {
+        title: 'Who it is for, and what it is called',
+        text: [
+          'Two audiences search for the same thing in different ways: people visiting Stockholm with a dog, who search in their own language, and locals, who search in Swedish for “hundvänligt” plus an area. New owners are a third group, and the one that leads to the paid product.',
+          'I named it Vovve, Swedish for “doggie”: short, friendly and easy to say in any language. Before settling on it I checked that no dog map or app used the name. Search keywords stay in page titles and URLs (/hundvanligt/södermalm/), and the brand is only a suffix, so the name never costs a ranking.',
+        ],
+      },
+      {
+        title: 'Data people can’t get elsewhere',
+        text: [
+          'No single source lists every dog-friendly place in Stockholm, so that became the advantage. I merged dog-friendly guides, review sites, pet-friendly hotels and OpenStreetMap dog parks into one map of 1,400+ places, removed duplicates across sources, and asked the owners of the largest source for permission to use their data.',
+          'Every rule in the guide links to its source: Swedish law, the city’s local regulations, Jordbruksverket and SL. Trust is the product here, and a source next to every claim is how I show it.',
+        ],
+      },
+      {
+        title: '1,545 pages from one dataset',
+        text: [
+          'The same data that drives the map builds static Swedish pages for search, generated by a build script on every deploy:',
+        ],
+        bullets: [
+          '35 districts and municipalities, each with its own category pages (“Hundvänliga kaféer på Södermalm”), plus city-wide category pages: 122 listing pages in total',
+          '1,422 place pages with address, dog rules, nearby places and a “Show on map” deep link',
+          'schema.org markup: BreadcrumbList on every page, plus the right business type (café, bar, hotel) with coordinates on each place',
+          'Titles and descriptions written from the real counts (“300 places on Södermalm where your dog can come along”)',
+          'Sitemap and canonical URLs; pages stay noindex until the own domain and the data agreement are final',
+        ],
+        layout: 'phones',
+        images: [
+          vPhone('seo-area', 'District page', 'Counts per category and a map button.'),
+          vPhone('seo-category', 'Category page', 'Every café on Södermalm with its dog rules.'),
+          vPhone('seo-place', 'Place page', 'Rules, directions and places nearby.'),
+        ],
+      },
+      {
+        title: 'Languages chosen from tourism data',
+        text: [
+          'Instead of guessing, I picked languages from visitor statistics. The largest groups of visitors to Stockholm come from the US, Germany, Norway, the UK and Finland. Norwegians and Danes read Swedish, so English, Swedish, German and Finnish already cover most visitors. Dutch came next from the same statistics, and Spanish, Polish, Russian, French and Chinese cover other large visitor and expat groups.',
+        ],
+        bullets: [
+          'Map interface: 10 languages, picked from the browser language',
+          'Guide pages and the free checklist: 8 languages',
+          'A checker flags any translation whose structure drifts from the English original',
+        ],
+      },
+      {
+        title: 'From free map to paid guide',
+        text: [
+          'The funnel follows the user’s own path. A visitor comes for the map or the rules. A future owner reads First dog and downloads the free checklist. Someone who wants more joins the waitlist for the paid guide.',
+          'The line between free and paid is strict. The checklist contains only Jordbruksverket’s official advice, because that should be free. The insider knowledge, the uncomfortable questions for breeders and how to read their answers, stays in the guide. Its pitch is that a truly good breeder is almost impossible to find, and that a registered kennel is not proof of a well-socialised puppy.',
+        ],
+        layout: 'phones',
+        images: [
+          vPhone('first-dog', 'First dog (free)', 'Useful tools and official advice.'),
+          vPhone('landing', 'Paid guide landing', 'Waitlist first, price at launch.'),
+        ],
+      },
+      {
+        title: 'The story is the proof',
+        text: [
+          'I have worked with dogs since I was 14, and my first dog from a breeder with papers still turned out so fearful that I had to rehome her. That story is the core of the landing page, told as a letter with photos of both dogs and three numbers: 14 years old when I started, 3 trainers, 0 times I could stroke her.',
+          'The page answers objections directly in a short FAQ (“The breeder is SKK-registered. Isn’t that enough?”). The waitlist asks for one thing, an email, and promises one email when the guide is out. Each language has its own form, so I can see which markets want it.',
+        ],
+        layout: 'grid2',
+        images: [
+          vWide('landing-letter', 'Letter from the author', 'The story told with a pull quote and a real photo.', 1600, 1000),
+          vWide('landing-waitlist', 'Waitlist', 'One field, one promise, one email.', 1600, 1000),
+        ],
+      },
+      {
+        title: 'Privacy as a selling point',
+        text: [
+          'No accounts, no ads, no tracking, and location never leaves the phone. That is written into the store listing as a feature, not hidden in a policy. The site installs as an app, and a Google Play listing (text in English and Russian, icon, screenshots) is ready for when I publish it.',
+        ],
+      },
+    ],
+    points: [
+      'Defined three audiences and named the product after checking the market',
+      'Merged 1,400+ places from several sources into one dataset, with permission from the largest source',
+      'Generated 1,545 Swedish SEO pages with schema.org markup from that dataset',
+      'Picked 10 map languages and 8 guide languages from tourism statistics',
+      'Designed a free-to-paid funnel: map → checklist → waitlist for a paid guide',
+      'Wrote the landing page around my own story, with an objection-handling FAQ and per-language waitlists',
+    ],
+    tools: ['Positioning', 'Programmatic SEO', 'Schema.org', 'Localisation', 'Lead Magnet', 'Waitlist', 'Netlify Forms', 'PWA'],
   },
 ]
 
