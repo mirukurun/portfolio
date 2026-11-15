@@ -301,7 +301,17 @@ export const CASE_STUDIES: CaseStudy[] = [
       { value: '3', label: 'visual directions tried' },
     ],
     quote: 'Real photos carry the emotion, so the interface can stay quiet.',
+    quoteAfter: 1,
     sections: [
+      {
+        title: 'The mark',
+        lede: 'A single-stroke lowercase “t” in navy, with the yellow dot that is the only accent across the product. It works as the app icon, favicon and social avatar.',
+        layout: 'grid2',
+        images: [
+          { src: `${V}/logo-oat.png`, w: 1080, h: 1080, label: 'Mark on oat', description: 'Primary version on the site background.' },
+          { src: `${V}/logo-navy.png`, w: 1080, h: 1080, label: 'Mark on navy', description: 'App icon and social avatar.' },
+        ],
+      },
       {
         title: 'Three directions, one that stayed',
         lede: 'Dog-vision blue and yellow looked like every AI-made landing page. A neo-brutalist “dog zine” felt dated within a day. “Nordic editorial” stayed.',
@@ -383,6 +393,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     points: [
+      'Designed the mark: a single-stroke “t” with one yellow accent',
       'Took the look through three directions and wrote down why each failed',
       'Map interface where the brand stays in the chrome and data stays readable',
       'A reference layout that turns on by itself for any long page',

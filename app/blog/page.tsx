@@ -25,45 +25,52 @@ export default function BlogPage() {
           <Link href="/" className="font-display font-light text-ink/60 hover:text-ink transition-colors text-lg tracking-wide">
             ← Diana Horbyk
           </Link>
-          <p className="font-sans text-[9px] tracking-[0.4em] uppercase text-ink/35">Blog</p>
+          <p className="hidden sm:block font-sans text-[9px] tracking-[0.4em] uppercase text-ink/35">Blog</p>
         </nav>
 
         <div className="pt-20 pb-20 px-7 md:px-12 lg:px-20 max-w-screen-lg mx-auto">
           {/* Header */}
-          <motion.div
-            className="mb-10 md:mb-14"
+          <motion.header
+            className="mb-8 md:mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="font-sans text-[9px] tracking-[0.18em] uppercase text-accent mb-6">Writing · Thoughts</p>
-            <h1 className="font-display font-light text-ink leading-none tracking-tight"
-              style={{ fontSize: 'clamp(4rem, 11vw, 13rem)' }}>
-              Blog
-            </h1>
-            <div className="mt-6 w-12 h-px bg-accent" />
-            <div className="mt-6 flex items-start justify-between gap-8 max-w-2xl">
-              <p className="font-sans text-base text-ink/90 max-w-sm leading-relaxed">
-                Notes on design, marketing automation, AI tools, and working across languages and borders.
+            <div className="flex justify-between items-center gap-4 border-y border-ink/15 py-2.5 mb-6 md:mb-8">
+              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-accent">Writing · Thoughts</p>
+              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-ink/40 shrink-0">
+                {POSTS.filter((p) => !p.draft).length} posts
               </p>
-              <a
-                href="https://www.linkedin.com/in/diana-h-133a68336/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0 inline-flex items-center gap-2 font-sans text-sm text-ink/50 hover:text-accent transition-colors duration-300"
-              >
-                <div className="w-5 h-px bg-current" />
-                LinkedIn ↗
-              </a>
             </div>
-          </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 md:items-end">
+              <div className="md:col-span-8">
+                <h1 className="font-display font-light text-ink leading-[0.95] tracking-tight" style={{ fontSize: 'clamp(3rem, 6.5vw, 7rem)' }}>
+                  Blog
+                </h1>
+                <p className="mt-5 font-display font-light text-ink/80 text-[1.45rem] md:text-[1.75rem] leading-[1.3]! max-w-2xl">
+                  Notes on design, marketing automation, AI tools, and working across languages and borders.
+                </p>
+              </div>
+              <div className="md:col-span-4 md:text-right">
+                <a
+                  href="https://www.linkedin.com/in/diana-h-133a68336/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 font-sans text-[11px] tracking-[0.3em] uppercase text-accent hover:text-ink transition-colors"
+                >
+                  <span className="w-6 h-px bg-current" />
+                  LinkedIn ↗
+                </a>
+              </div>
+            </div>
+          </motion.header>
 
           {/* Post list */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-0 divide-y divide-ink/8"
+            className="space-y-0 divide-y divide-ink/10 border-t border-ink/15"
           >
             {POSTS.map((post) => {
               const hasArticle = !post.draft && 'href' in post && post.href
@@ -80,7 +87,7 @@ export default function BlogPage() {
                     </div>
                   </div>
 
-                  <h2 className={`font-display text-3xl md:text-4xl lg:text-5xl font-medium text-ink leading-tight mb-3 ${hasArticle ? 'group-hover:text-accent' : ''} transition-colors duration-300`}>
+                  <h2 className={`font-display text-3xl md:text-4xl font-light text-ink leading-[1.1] tracking-tight mb-3 ${hasArticle ? 'group-hover:text-accent' : ''} transition-colors duration-300`}>
                     {post.title}
                   </h2>
                   <p className="font-sans text-base text-ink/90 leading-relaxed max-w-2xl">{post.excerpt}</p>
