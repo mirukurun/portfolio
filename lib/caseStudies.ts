@@ -27,7 +27,7 @@ export type CaseStudy = {
 
 const H = '/projects/hordi'
 const I = '/projects/icpress'
-const V = '/projects/vovve'
+const V = '/projects/tasstur'
 const vPhone = (name: string, label: string, description?: string): CaseImg => ({
   src: `${V}/m-${name}.jpg`, w: 1170, h: 2532, label, description,
 })
@@ -248,18 +248,18 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
 
   {
-    slug: 'vovve-design',
+    slug: 'tasstur-design',
     back: { href: '/design', label: 'Design' },
-    navLabel: 'Vovve — 2026',
+    navLabel: 'Tasstur — 2026',
     eyebrow: 'Product Design · Web · PWA',
-    title: 'Vovve',
+    title: 'Tasstur',
     meta: [
       { label: 'Role', value: 'Founder · Designer · Developer' },
       { label: 'Period', value: 'November 2026 – present' },
       { label: 'Context', value: 'My own product for dog owners in Stockholm, pre-launch' },
     ],
     intro:
-      'Vovve (Swedish for “doggie”) started as a map for friends: where in Stockholm can I take my dachshund? It grew into a guide with the law in plain words, advice for visitors and a section on getting a first puppy. The hard part was not the number of pages but making a map, long reference pages, interactive tools and a sales page feel like one calm product.',
+      'Tasstur (Swedish: tass is a paw, tur is a trip) started as a map for friends: where in Stockholm can I take my dachshund? It grew into a guide with the law in plain words, advice for visitors and a section on getting a first puppy. The hard part was not the number of pages but making a map, long reference pages, interactive tools and a sales page feel like one calm product.',
     sections: [
       {
         title: 'Three directions, one that stayed',
@@ -324,7 +324,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         title: 'Print and offline',
         text: [
-          'The free puppy checklist is generated from the same text as the site, as a one-page PDF and a plain-text version for the phone’s Notes app, in eight languages. The site installs as an app (PWA) and keeps working offline once opened.',
+          'The free puppy checklist is generated from the same text as the site, as a one-page PDF and a plain-text version for the phone’s Notes app, in ten languages. The site installs as an app (PWA) and keeps working offline once opened.',
         ],
         layout: 'grid2',
         images: [
@@ -339,30 +339,30 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Built a reference-page layout that turns on by itself for any long page',
       'Designed a breed test across 413 breeds, a time test and a puppy cost calculator',
       'Rebuilt the paid-guide landing from cards into a letter with my own photos',
-      'Made a printable checklist in eight languages and an installable, offline-ready app',
+      'Made a printable checklist in ten languages and an installable, offline-ready app',
     ],
     tools: ['Product Design', 'UI Design', 'Information Architecture', 'HTML / CSS / JS', 'Leaflet', 'PWA', 'Claude Code'],
   },
 
   {
-    slug: 'vovve-marketing',
+    slug: 'tasstur-marketing',
     back: { href: '/marketing', label: 'Marketing' },
-    navLabel: 'Vovve — 2026',
+    navLabel: 'Tasstur — 2026',
     eyebrow: 'Product Marketing · Programmatic SEO · Funnel',
-    title: 'Vovve',
+    title: 'Tasstur',
     meta: [
       { label: 'Role', value: 'Founder · All marketing' },
       { label: 'Period', value: 'November 2026 – present' },
       { label: 'Status', value: 'Pre-launch: shared with friends, not yet open to search engines' },
     ],
     intro:
-      'Vovve is my own guide for dog owners in Stockholm: a map of places that welcome dogs and plain-language pages on the law, visiting and getting a first puppy. The map and guide are free. The plan is to earn from a paid guide on choosing a healthy, well-socialised puppy. This case is the go-to-market I set up before launch, so there are no traffic numbers yet.',
+      'Tasstur is my own guide for dog owners in Stockholm: a map of places that welcome dogs and plain-language pages on the law, visiting and getting a first puppy. The map and guide are free. The plan is to earn from a paid guide on choosing a healthy, well-socialised puppy. This case is the go-to-market I set up before launch, so there are no traffic numbers yet.',
     sections: [
       {
         title: 'Who it is for, and what it is called',
         text: [
           'Two audiences search for the same thing in different ways: people visiting Stockholm with a dog, who search in their own language, and locals, who search in Swedish for “hundvänligt” plus an area. New owners are a third group, and the one that leads to the paid product.',
-          'I named it Vovve, Swedish for “doggie”: short, friendly and easy to say in any language. Before settling on it I checked that no dog map or app used the name. Search keywords stay in page titles and URLs (/hundvanligt/södermalm/), and the brand is only a suffix, so the name never costs a ranking.',
+          'The first name was Vovve, Swedish for “doggie”. No dog map or app used it, but the domain was already taken, so I renamed the product before launch rather than after. Tasstur (tass is a paw, tur is a trip) is short, says what the product is for, and the .se and .com domains and the social handle were all free. Search keywords stay in page titles and URLs (/hundvanligt/södermalm/), and the brand is only a suffix, so the name never costs a ranking.',
         ],
       },
       {
@@ -398,7 +398,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
         bullets: [
           'Map interface: 10 languages, picked from the browser language',
-          'Guide pages and the free checklist: 8 languages',
+          'Guide pages and the free checklist: the same 10 languages',
           'A checker flags any translation whose structure drifts from the English original',
         ],
       },
@@ -434,10 +434,10 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     points: [
-      'Defined three audiences and named the product after checking the market',
+      'Defined three audiences and renamed the product before launch when the first domain was taken',
       'Merged 1,400+ places from several sources into one dataset, with permission from the largest source',
       'Generated 1,545 Swedish SEO pages with schema.org markup from that dataset',
-      'Picked 10 map languages and 8 guide languages from tourism statistics',
+      'Picked 10 languages for the map, guide and checklist from tourism statistics',
       'Designed a free-to-paid funnel: map → checklist → waitlist for a paid guide',
       'Wrote the landing page around my own story, with an objection-handling FAQ and per-language waitlists',
     ],

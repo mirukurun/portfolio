@@ -4,13 +4,13 @@
 export const MARKETING_WORK: { id: string; title: string; category: string; company: string; year: string; description: string; summary: string; videoSrc?: string; href?: string; site?: string }[] = [
   {
     id: '01',
-    title: 'Vovve: Pre-Launch Strategy for a Dog Guide',
+    title: 'Tasstur: Pre-Launch Strategy for a Dog Guide',
     category: 'Product Marketing · Programmatic SEO · Funnel',
     company: 'Own product',
     year: '2026',
-    description: 'Go-to-market for my own Stockholm dog guide before launch. A name checked against the market, 1,545 Swedish SEO pages generated from the place data (every district, category and venue, with schema.org markup), languages picked from tourism statistics, and a funnel from the free map to a free checklist to a waitlist for a paid puppy guide built on my own story.',
+    description: 'Go-to-market for my own Stockholm dog guide before launch. A name changed before launch when the first domain was taken, 1,545 Swedish SEO pages generated from the place data (every district, category and venue, with schema.org markup), languages picked from tourism statistics, and a funnel from the free map to a free checklist to a waitlist for a paid puppy guide built on my own story.',
     summary: 'Pre-launch plan: programmatic SEO, languages from tourism data, a free-to-paid funnel.',
-    href: '/marketing/vovve',
+    href: '/marketing/tasstur',
   },
   {
     id: '02',

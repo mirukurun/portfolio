@@ -4,13 +4,13 @@
 export const DESIGN_PROJECTS = [
   {
     id: '01',
-    title: 'Vovve: Dog Guide & Map for Stockholm',
+    title: 'Tasstur: Dog Guide & Map for Stockholm',
     category: 'Product Design · Web · PWA',
     year: '2026',
     description: 'A map of 1,400+ places in Stockholm that welcome dogs, plus guide pages on the law, visiting with a dog and getting a first puppy. I took the look through three directions before settling on a calm “Nordic editorial” style, built one layout that every long reference page reuses, designed interactive tools (a breed test across 413 breeds, a puppy cost calculator) and a sales landing for a paid guide written as a letter from me.',
     summary: 'Dog-friendly map and guide for Stockholm, taken through three visual directions.',
-    thumb: '/projects/thumbs/vovve.webp',
-    href: '/design/vovve',
+    thumb: '/projects/thumbs/tasstur.webp',
+    href: '/design/tasstur',
   },
   {
     id: '02',

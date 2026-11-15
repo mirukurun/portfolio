@@ -2,5 +2,5 @@ import { CaseStudyPage } from '@/components/CaseStudyPage'
 import { getCase } from '@/lib/caseStudies'
 
 export default function Page() {
-  return <CaseStudyPage item={getCase('vovve-marketing')} />
+  return <CaseStudyPage item={getCase('tasstur-marketing')} />
 }
