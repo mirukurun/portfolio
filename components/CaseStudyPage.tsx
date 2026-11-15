@@ -65,28 +65,22 @@ function Figure({ img, onOpen, bleed }: { img: CaseImg; onOpen: (i: CaseImg) => 
 function Section({ s, index, onOpen }: { s: CaseSection; index: number; onOpen: (i: CaseImg) => void }) {
   const singleWide = s.images?.length === 1 && (s.layout === 'wide' || !s.layout)
   return (
-    <motion.section className="mb-20 md:mb-28" {...reveal}>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 border-t border-ink/15 pt-6 md:pt-8">
-        <div className="md:col-span-5 flex items-baseline gap-4 md:gap-6">
-          <span className="font-display font-light lining-nums text-accent text-5xl md:text-7xl leading-none shrink-0">
+    <motion.section className="mb-16 md:mb-20" {...reveal}>
+      <div className="border-t border-ink/15 pt-6 md:pt-7">
+        <div className="flex items-baseline gap-4 md:gap-5">
+          <span className="font-display font-light lining-nums text-accent text-4xl md:text-5xl leading-none shrink-0">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <h2 className="font-display font-light text-ink text-[1.9rem] md:text-[2.6rem] leading-[1.05] tracking-tight">
+          <h2 className="font-display font-light text-ink text-[1.9rem] md:text-[2.4rem] leading-[1.05] tracking-tight">
             {s.title}
           </h2>
         </div>
-        <div className="md:col-span-7 md:pt-2">
-          <p
-            className={`font-sans text-[17px] md:text-lg text-ink/85 leading-relaxed max-w-xl ${
-              index === 0
-                ? 'first-letter:float-left first-letter:font-display first-letter:text-[4.2rem] first-letter:leading-[0.85] first-letter:mr-2 first-letter:mt-1 first-letter:text-accent'
-                : ''
-            }`}
-          >
+        <div className="mt-3 md:mt-4">
+          <p className="font-sans text-[17px] md:text-lg text-ink/85 leading-relaxed max-w-2xl">
             {s.lede}
           </p>
           {s.more && (
-            <details className="group/more mt-4 max-w-xl">
+            <details className="group/more mt-3 max-w-2xl">
               <summary className={`${kicker} text-accent cursor-pointer list-none inline-flex items-center gap-3 select-none [&::-webkit-details-marker]:hidden`}>
                 <span className="w-6 h-px bg-current" />
                 <span className="group-open/more:hidden">Read more</span>
@@ -117,7 +111,7 @@ function Section({ s, index, onOpen }: { s: CaseSection; index: number; onOpen: 
       )}
 
       {s.images && (
-        <div className={`mt-8 md:mt-10 ${layoutClass[s.layout ?? 'wide']}`}>
+        <div className={`mt-6 md:mt-8 ${layoutClass[s.layout ?? 'wide']}`}>
           {s.images.map((img) => (
             <Figure key={img.src} img={img} onOpen={onOpen} bleed={singleWide} />
           ))}
@@ -126,7 +120,7 @@ function Section({ s, index, onOpen }: { s: CaseSection; index: number; onOpen: 
 
       {s.videos && (
         <div
-          className={`mt-8 md:mt-10 ${
+          className={`mt-6 md:mt-8 ${
             s.videos.length === 1 ? 'max-w-sm' : 'grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-6 md:gap-6'
           }`}
         >
@@ -155,7 +149,7 @@ function Section({ s, index, onOpen }: { s: CaseSection; index: number; onOpen: 
 
 function PullQuote({ text }: { text: string }) {
   return (
-    <motion.blockquote className="mb-20 md:mb-28 md:pl-[calc(41.666%+1rem)]" {...reveal}>
+    <motion.blockquote className="mb-16 md:mb-20 md:pl-16" {...reveal}>
       <span className="block font-display text-accent text-7xl md:text-8xl leading-[0.6] h-8 md:h-10">“</span>
       <p className="font-display font-light text-ink text-[1.9rem] md:text-5xl leading-[1.15]! tracking-tight max-w-2xl">
         {text}
@@ -222,64 +216,66 @@ export function CaseStudyPage({ item }: { item: CaseStudy }) {
         <article className="pt-20 pb-24 px-7 md:px-12 lg:px-20 max-w-screen-xl mx-auto">
           {/* Cover */}
           <motion.header
-            className="mb-16 md:mb-24"
+            className="mb-14 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease }}
           >
-            <div className="flex justify-between items-center gap-4 border-y border-ink/15 py-2.5 mb-8 md:mb-12">
+            <div className="flex justify-between items-center gap-4 border-y border-ink/15 py-2.5 mb-6 md:mb-8">
               <p className={`${kicker} text-accent`}>{item.eyebrow}</p>
               <p className={`${kicker} text-ink/40 shrink-0 hidden sm:block`}>Case study</p>
             </div>
 
-            <h1
-              className="font-display font-light text-ink leading-[0.95] tracking-tight"
-              style={{ fontSize: 'clamp(3rem, 8vw, 8.5rem)' }}
-            >
-              {item.title}
-            </h1>
-
-            <p className="mt-6 md:mt-8 font-display font-light text-ink/80 text-[1.45rem] md:text-[2rem] leading-[1.3]! max-w-3xl">
-              {item.deck}
-            </p>
-
-            <dl className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-3 border-t border-ink/15 md:border-b">
-              {item.meta.map((m, i) => (
-                <div
-                  key={m.label}
-                  className={`flex md:block gap-4 py-3 md:py-4 border-b md:border-b-0 border-ink/10 ${i > 0 ? 'md:border-l md:pl-6' : ''} md:pr-6`}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+              <div className="md:col-span-7">
+                <h1
+                  className="font-display font-light text-ink leading-[0.95] tracking-tight"
+                  style={{ fontSize: 'clamp(3rem, 6.5vw, 7rem)' }}
                 >
-                  <dt className={`${kicker} text-ink/40 w-20 md:w-auto shrink-0 pt-[3px] md:mb-1.5`}>{m.label}</dt>
-                  <dd className="font-sans text-[15px] text-ink/85 leading-snug">{m.value}</dd>
-                </div>
-              ))}
-            </dl>
-
-            {item.live && (
-              <a
-                href={item.live.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mt-6 inline-flex items-center gap-3 ${kicker} text-[11px] text-accent hover:text-ink transition-colors`}
-              >
-                <span className="w-6 h-px bg-current" />
-                {item.live.label} ↗
-              </a>
-            )}
-
-            {item.stats && (
-              <div
-                className="mt-10 md:mt-14 grid gap-x-4 gap-y-6"
-                style={{ gridTemplateColumns: `repeat(${item.stats.length}, minmax(0, 1fr))` }}
-              >
-                {item.stats.map((st) => (
-                  <div key={st.label} className="border-t-2 border-ink pt-3">
-                    <p className="font-display font-light lining-nums text-ink text-[2.6rem] md:text-7xl leading-none tracking-tight">{st.value}</p>
-                    <p className="mt-2 font-sans text-[11px] md:text-[13px] text-ink/60 leading-snug">{st.label}</p>
-                  </div>
-                ))}
+                  {item.title}
+                </h1>
+                <p className="mt-5 md:mt-6 font-display font-light text-ink/80 text-[1.45rem] md:text-[1.75rem] leading-[1.3]! max-w-2xl">
+                  {item.deck}
+                </p>
               </div>
-            )}
+
+              <div className="md:col-span-5 md:pt-3">
+                <dl className="border-t border-ink/15">
+                  {item.meta.map((m) => (
+                    <div key={m.label} className="flex gap-4 py-2.5 border-b border-ink/10">
+                      <dt className={`${kicker} text-ink/40 w-20 shrink-0 pt-[3px]`}>{m.label}</dt>
+                      <dd className="font-sans text-[15px] text-ink/85 leading-snug">{m.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                {item.live && (
+                  <a
+                    href={item.live.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`mt-4 inline-flex items-center gap-3 ${kicker} text-[11px] text-accent hover:text-ink transition-colors`}
+                  >
+                    <span className="w-6 h-px bg-current" />
+                    {item.live.label} ↗
+                  </a>
+                )}
+
+                {item.stats && (
+                  <div
+                    className="mt-6 grid gap-x-4"
+                    style={{ gridTemplateColumns: `repeat(${item.stats.length}, minmax(0, 1fr))` }}
+                  >
+                    {item.stats.map((st) => (
+                      <div key={st.label} className="border-t-2 border-ink pt-2.5">
+                        <div className="font-display font-light lining-nums text-ink text-[2.4rem] md:text-5xl leading-none tracking-tight">{st.value}</div>
+                        <div className="mt-1.5 font-sans text-[11px] md:text-xs text-ink/60 leading-snug">{st.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
           </motion.header>
 
           {item.sections.map((s, si) => (
