@@ -11,6 +11,7 @@ export const DESIGN_PROJECTS = [
     summary: 'Dog-friendly map and guide for Stockholm, taken through three visual directions.',
     thumb: '/projects/thumbs/tasstur.webp',
     href: '/design/tasstur',
+    site: 'https://tasstur.se',
   },
   {
     id: '02',

@@ -11,6 +11,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     description: 'Go-to-market for my own Stockholm dog guide before launch. A name changed before launch when the first domain was taken, 1,545 Swedish SEO pages generated from the place data (every district, category and venue, with schema.org markup), languages picked from tourism statistics, and a funnel from the free map to a free checklist to a waitlist for a paid puppy guide built on my own story.',
     summary: 'Pre-launch plan: programmatic SEO, languages from tourism data, a free-to-paid funnel.',
     href: '/marketing/tasstur',
+    site: 'https://tasstur.se',
   },
   {
     id: '02',

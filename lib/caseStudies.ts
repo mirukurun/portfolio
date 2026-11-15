@@ -302,6 +302,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     quote: 'Real photos carry the emotion, so the interface can stay quiet.',
     quoteAfter: 1,
+    live: { href: 'https://tasstur.se', label: 'Live at tasstur.se' },
     sections: [
       {
         title: 'The mark',
@@ -424,6 +425,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     quote: 'Trust is the product here, and a source next to every claim is how I show it.',
     quoteAfter: 1,
+    live: { href: 'https://tasstur.se', label: 'Live at tasstur.se' },
     sections: [
       {
         title: 'Who it’s for, and the name',
