@@ -55,7 +55,7 @@ function Figure({ img, onOpen, bleed }: { img: CaseImg; onOpen: (i: CaseImg) => 
       <figcaption className={`mt-2.5 ${bleed ? 'px-7 md:px-0' : ''}`}>
         <span className={`${kicker} text-ink/55`}>{img.label}</span>
         {img.description && (
-          <span className="block mt-1 font-display italic text-[17px] leading-snug text-ink/75">{img.description}</span>
+          <span className="block mt-1 font-sans text-sm leading-relaxed text-ink/70">{img.description}</span>
         )}
       </figcaption>
     </figure>
@@ -68,7 +68,7 @@ function Section({ s, index, onOpen }: { s: CaseSection; index: number; onOpen: 
     <motion.section className="mb-20 md:mb-28" {...reveal}>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 border-t border-ink/15 pt-6 md:pt-8">
         <div className="md:col-span-5 flex items-baseline gap-4 md:gap-6">
-          <span className="font-display italic font-light lining-nums text-accent text-5xl md:text-7xl leading-none shrink-0">
+          <span className="font-display font-light lining-nums text-accent text-5xl md:text-7xl leading-none shrink-0">
             {String(index + 1).padStart(2, '0')}
           </span>
           <h2 className="font-display font-light text-ink text-[1.9rem] md:text-[2.6rem] leading-[1.05] tracking-tight">
@@ -144,7 +144,7 @@ function Section({ s, index, onOpen }: { s: CaseSection; index: number; onOpen: 
                 className="w-full h-auto bg-ink/5 border border-ink/8"
                 style={{ aspectRatio: '9/16' }}
               />
-              <figcaption className="mt-2 font-display italic text-[17px] leading-snug text-ink/75">{v.label}</figcaption>
+              <figcaption className="mt-2 font-sans text-sm leading-relaxed text-ink/70">{v.label}</figcaption>
             </figure>
           ))}
         </div>
@@ -157,7 +157,7 @@ function PullQuote({ text }: { text: string }) {
   return (
     <motion.blockquote className="mb-20 md:mb-28 md:pl-[calc(41.666%+1rem)]" {...reveal}>
       <span className="block font-display text-accent text-7xl md:text-8xl leading-[0.6] h-8 md:h-10">“</span>
-      <p className="font-display italic font-light text-ink text-[1.9rem] md:text-5xl leading-[1.12] tracking-tight max-w-2xl">
+      <p className="font-display font-light text-ink text-[1.9rem] md:text-5xl leading-[1.12] tracking-tight max-w-2xl">
         {text}
       </p>
       <div className="mt-6 w-12 h-px bg-accent" />
@@ -239,7 +239,7 @@ export function CaseStudyPage({ item }: { item: CaseStudy }) {
               {item.title}
             </h1>
 
-            <p className="mt-6 md:mt-8 font-display italic font-light text-ink/80 text-[1.45rem] md:text-[2rem] leading-[1.25] max-w-3xl">
+            <p className="mt-6 md:mt-8 font-display font-light text-ink/80 text-[1.45rem] md:text-[2rem] leading-[1.25] max-w-3xl">
               {item.deck}
             </p>
 
@@ -296,7 +296,7 @@ export function CaseStudyPage({ item }: { item: CaseStudy }) {
               <ol className="space-y-3">
                 {item.points.map((point, i) => (
                   <li key={point} className="flex gap-4 font-sans text-[15px] md:text-base text-ink/85 leading-relaxed">
-                    <span className="font-display italic text-accent text-lg leading-[1.4] w-5 shrink-0">{i + 1}</span>
+                    <span className="font-display text-accent text-lg leading-[1.4] w-5 shrink-0">{i + 1}</span>
                     {point}
                   </li>
                 ))}
