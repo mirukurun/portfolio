@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { JsonLd, personJsonLd } from '@/lib/jsonLd'
+import { SiteFooter } from '@/components/SiteFooter'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -64,6 +65,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-bg text-ink">
         {children}
+        <SiteFooter />
       </body>
     </html>
   )

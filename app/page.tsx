@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { Avatar, type Zone } from '@/components/Avatar'
 import { CVModal } from '@/components/CVModal'
 import { TextureOverlay } from '@/components/TextureOverlay'
-import { CV_PDF } from '@/lib/cvData'
+import { CV_PDF, SOCIAL_LINKS } from '@/lib/cvData'
 
 export default function Home() {
   const [hoveredZone, setHoveredZone] = useState<Zone>(null)
@@ -148,6 +148,23 @@ export default function Home() {
           >
             Download CV as PDF <span aria-hidden="true">↓</span>
           </a>
+          <nav
+            aria-label="Social links"
+            className="flex justify-center items-center gap-8 px-5 pt-1 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
+          >
+            {SOCIAL_LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans font-medium text-[10px] tracking-[0.3em] uppercase active:opacity-60"
+                style={{ color: '#2f2f2b' }}
+              >
+                {l.label} ↗
+              </a>
+            ))}
+          </nav>
         </motion.div>
       </main>
 
@@ -235,6 +252,27 @@ export default function Home() {
             <motion.p className="font-sans text-[9px] tracking-[0.3em] uppercase text-ink/30 mt-1"
               animate={{ opacity: isBlogActive ? 1 : 0 }}>Writing & Thoughts</motion.p>
           </motion.div>
+
+          {/* Social links — mirrors Download CV on the left */}
+          <motion.nav
+            aria-label="Social links"
+            className="absolute bottom-6 left-7 z-40 flex items-center gap-6"
+            onMouseEnter={() => setHoveredZone(null)}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            {SOCIAL_LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-[10px] tracking-[0.35em] uppercase text-ink/50 hover:text-accent transition-colors"
+              >
+                {l.label} ↗
+              </a>
+            ))}
+          </motion.nav>
 
           {/* Download CV */}
           <motion.a

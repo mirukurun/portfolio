@@ -33,7 +33,7 @@ export const personJsonLd = {
       image: `${SITE}/avatar/avatar_front_half.png`,
       email: `mailto:${CONTACT.email}`,
       address: { '@type': 'PostalAddress', addressLocality: 'Stockholm', addressCountry: 'SE' },
-      sameAs: [CONTACT.linkedin],
+      sameAs: [CONTACT.linkedin, CONTACT.github],
       // Only roles marked "Present", so assistants don't mistake a finished job for a current one.
       worksFor: CURRENT_ROLES.map((j) => ({ '@type': 'Organization', name: j.company })),
       hasOccupation: CURRENT_ROLES.map((j) => ({ '@type': 'Occupation', name: j.title })),

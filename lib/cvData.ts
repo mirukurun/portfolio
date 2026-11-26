@@ -8,6 +8,7 @@ export const CONTACT = {
   phone: '(+46) 76-174-5666',
   location: 'Stockholm, Sweden',
   linkedin: 'https://linkedin.com/in/diana-h-133a68336',
+  github: 'https://github.com/mirukurun',
   website: 'https://dianahorbyk.eu',
 }
 
@@ -118,3 +119,8 @@ export const LANGUAGES = [
 ]
 
 export const CV_PDF = '/Diana-Horbyk-CV.pdf'
+
+export const SOCIAL_LINKS = [
+  { label: 'LinkedIn', href: CONTACT.linkedin },
+  { label: 'GitHub', href: CONTACT.github },
+]
