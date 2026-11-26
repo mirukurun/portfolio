@@ -67,7 +67,7 @@ for i, fr in enumerate(frames):
     packed[i, :S] = rgb
     packed[i, S:] = a[:, :, None]
     if i == 0:
-        Image.fromarray(np.dstack([rgb, a])).resize((480, 480), Image.LANCZOS).save(
+        Image.fromarray(np.dstack([rgb, a])).save(
             OUT / "gaze-poster.webp", quality=82
         )
 

@@ -4,7 +4,6 @@ import { useState, useCallback, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Avatar, GAZE_MASK, GAZE_VIDEO, type Zone } from '@/components/Avatar'
-import { GazeVideo } from '@/components/GazeVideo'
 import { CVModal } from '@/components/CVModal'
 import { TextureOverlay } from '@/components/TextureOverlay'
 import { CV_PDF, SOCIAL_LINKS } from '@/lib/cvData'
@@ -73,7 +72,7 @@ export default function Home() {
         {/* Main area */}
         <div className="flex-1 relative overflow-hidden min-h-0">
 
-          {/* Avatar — center-right; the video head follows the finger */}
+          {/* Avatar — center-right; static on mobile (the video follows the cursor on desktop only) */}
           <motion.div
             className="absolute top-0 bottom-0 right-0 left-[22%] z-[1]"
             style={{ backgroundColor: '#F4F0EB' }}
@@ -83,10 +82,12 @@ export default function Home() {
             role="img"
             aria-label="Diana Horbyk"
           >
-            {/* Square head clip: hair (78% of its width) runs from just past the name
-                to the right edge; the empty margin right of the hair is cropped */}
-            <GazeVideo
-              {...GAZE_VIDEO}
+            {/* Front frame of the head clip: hair (78% of its width) runs from just past
+                the name to the right edge; the empty margin right of the hair is cropped */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={GAZE_VIDEO.poster}
+              alt=""
               className="absolute top-1/2 -translate-y-1/2"
               style={{ ...GAZE_MASK, width: '70vw', aspectRatio: '1', right: '-7.7vw' }}
             />
