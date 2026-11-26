@@ -3,8 +3,8 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { Avatar, type Zone } from '@/components/Avatar'
+import { Avatar, GAZE_MASK, GAZE_VIDEO, type Zone } from '@/components/Avatar'
+import { GazeVideo } from '@/components/GazeVideo'
 import { CVModal } from '@/components/CVModal'
 import { TextureOverlay } from '@/components/TextureOverlay'
 import { CV_PDF, SOCIAL_LINKS } from '@/lib/cvData'
@@ -73,20 +73,22 @@ export default function Home() {
         {/* Main area */}
         <div className="flex-1 relative overflow-hidden min-h-0">
 
-          {/* Avatar — center-right, transparent PNG, sized to fit */}
+          {/* Avatar — center-right; the video head follows the finger */}
           <motion.div
             className="absolute top-0 bottom-0 right-0 left-[22%] z-[1]"
             style={{ backgroundColor: '#F4F0EB' }}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             onClick={() => setModalOpen(true)}
+            role="img"
+            aria-label="Diana Horbyk"
           >
-            <Image
-              src="/avatar/avatar_front_half.webp"
-              alt="Diana Horbyk"
-              fill
-              className="object-contain object-right-top"
-              priority
+            {/* Square head clip: hair (78% of its width) runs from just past the name
+                to the right edge; the empty margin right of the hair is cropped */}
+            <GazeVideo
+              {...GAZE_VIDEO}
+              className="absolute top-1/2 -translate-y-1/2"
+              style={{ ...GAZE_MASK, width: '70vw', aspectRatio: '1', right: '-7.7vw' }}
             />
           </motion.div>
 
@@ -318,7 +320,7 @@ export default function Home() {
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >— CV —</motion.p>
-              <Avatar hoveredZone={hoveredZone} onClick={() => setModalOpen(true)} />
+              <Avatar onClick={() => setModalOpen(true)} />
             </div>
           </div>
         </div>
