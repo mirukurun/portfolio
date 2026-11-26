@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react'
 /*
  * Avatar video that looks at the cursor (or finger) in every direction.
  *
- * The clip is one loop of the head: front (frame 0) → right (≈26) → down (≈64)
- * → left (≈100) → front again (144 ≡ 0). So the angle from the face to the
+ * The clip is one loop of the head: front (frame 0) → turned to the viewer's left
+ * (≈26) → down (≈64) → turned to the viewer's right (≈100) → front again (144 ≡ 0). So the angle from the face to the
  * pointer picks a frame on that loop, and the playhead eases toward it along the
  * shorter way round. Every frame is a keyframe (ffmpeg -g 1), so seeks are instant.
  *
@@ -18,17 +18,19 @@ import { useEffect, useRef, useState } from 'react'
 const FPS = 24
 const LOOP = 144 // frames in one loop; frame 144 looks the same as frame 0
 
-// Pointer angle (degrees, screen space: 0 = right, 90 = down) → video frame.
+// Pointer angle (degrees, mirrored screen space: 0 = left, 90 = down) → video frame.
+// Mirrored because the head reads as the gaze, and in this clip the head turns
+// opposite to the pupils.
 // Angles run from -90 (up) to 270 (up again); frames are unwrapped so they only rise.
 const KEYS: [number, number][] = [
   [-90, 0],    // up → face front
-  [-45, 12],   // up-right
-  [0, 26],     // right
-  [45, 46],    // down-right
+  [-45, 12],   // up-left
+  [0, 26],     // left
+  [45, 46],    // down-left
   [90, 64],    // down
-  [135, 86],   // down-left
-  [180, 100],  // left
-  [225, 112],  // up-left
+  [135, 86],   // down-right
+  [180, 100],  // right
+  [225, 112],  // up-right
   [250, 114],
   [262, 136],  // jump over the blink at 118–128 so she never rests with eyes shut
   [270, 144],  // up → front
@@ -162,7 +164,7 @@ export function GazeVideo({ src, srcSmall, poster, position = '50% 50%', classNa
       const dy = clientY - faceY
       // Pointer on the face itself → look straight ahead
       if (Math.hypot(dx, dy) < Math.min(r.width, r.height) * 0.14) target = 0
-      else target = angleToFrame((Math.atan2(dy, dx) * 180) / Math.PI)
+      else target = angleToFrame((Math.atan2(dy, -dx) * 180) / Math.PI)
     }
     const onPointer = (e: PointerEvent) => aim(e.clientX, e.clientY)
     const onTouch = (e: TouchEvent) => {
