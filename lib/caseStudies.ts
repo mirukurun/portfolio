@@ -539,6 +539,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         title: 'A hero that looks ahead',
         lede: 'A tomato-red classical bust with binoculars, and a row of real events from test runs gliding past as torn ticket stubs. The tagline answers what he is looking at: three months ahead.',
         more: [
+          'I generated the bust illustration with AI and built the page around it',
           'The palette is taken from the illustration: paper #F4ECE3, tomato #EE4A2A, ink #241C18',
           'The lenses reflect the passing tickets, and a glint on the glass follows the cursor',
           'The bust leans a few pixels away from the cursor; the ticket row is fitted between the headline and the text so it never covers either',
@@ -613,7 +614,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     points: [
-      'Art direction for a developer tool: classical bust, tomato and ink, tickets as the visual unit',
+      'Art direction for a developer tool: a classical bust I generated with AI, tomato and ink, tickets as the visual unit',
       'Four scroll scenes: ticket row, turning cube, fly-through, a self-drawing line',
       'Layout code that keeps moving parts clear of the text',
       'A copyable agent prompt as the main call to action',
