@@ -542,12 +542,15 @@ export const CASE_STUDIES: CaseStudy[] = [
           'I generated the bust illustration with AI and built the page around it',
           'The palette is taken from the illustration: paper #F4ECE3, tomato #EE4A2A, ink #241C18',
           'The lenses reflect the passing tickets, and a glint on the glass follows the cursor',
-          'The bust leans a few pixels away from the cursor; the ticket row is fitted between the headline and the text so it never covers either',
+          'Headline, one-line pitch and both buttons sit in one block on the right, so the offer reads in a single glance',
+          'The ticket row runs below that block and passes behind the bust, which gives the scene depth',
+          'An earlier version had the pitch in a bottom corner next to a spinning “open source” badge; I removed the badge and moved the text up under the headline',
+          'The bust leans a few pixels away from the cursor',
           'Tickets use a poster face (Anton) for dates and titles, a dashed tear line with notches, and an Open or Apply stamp',
         ],
         layout: 'wide',
         images: [
-          { src: `${E}/d-hero.jpg`, w: 1440, h: 900, label: 'Hero', description: 'Bust, binoculars and a row of ticket stubs.' },
+          { src: `${E}/d-hero.jpg`, w: 1440, h: 900, label: 'Hero', description: 'Headline and offer on the right, tickets passing behind the bust.' },
         ],
       },
       {
