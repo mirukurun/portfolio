@@ -512,6 +512,116 @@ export const CASE_STUDIES: CaseStudy[] = [
     tools: ['Positioning', 'Programmatic SEO', 'Schema.org', 'Localisation', 'Lead Magnet', 'Waitlist', 'Netlify Forms', 'PWA'],
   },
 
+  // ─── eventfinder · design ───────────────────────────────────────────
+  {
+    slug: 'eventfinder-design',
+    back: DESIGN,
+    navLabel: 'eventfinder — 2026',
+    eyebrow: 'Landing Page · Motion · Open Source',
+    title: 'eventfinder',
+    deck: 'A landing page for an open-source developer tool that had to feel like a poster, not a README. Every section moves as you scroll.',
+    meta: [
+      { label: 'Role', value: 'Designer · Front-end, built with an AI coding agent' },
+      { label: 'Period', value: 'November 2026' },
+      { label: 'Context', value: 'Landing for my open-source event finder, on GitHub Pages' },
+    ],
+    stats: [
+      { value: '1', label: 'HTML file, no framework' },
+      { value: '4', label: 'scroll scenes' },
+      { value: '4', label: 'typefaces, one per job' },
+    ],
+    quote: 'An event list is a pile of tickets, so the page is built from tickets.',
+    quoteAfter: 0,
+    live: { href: 'https://mirukurun.github.io/eventfinder/', label: 'Live site' },
+    links: [{ href: 'https://github.com/mirukurun/eventfinder', label: 'Code on GitHub' }],
+    sections: [
+      {
+        title: 'A hero that looks ahead',
+        lede: 'A tomato-red classical bust with binoculars, and a row of real events from test runs gliding past as torn ticket stubs. The tagline answers what he is looking at: three months ahead.',
+        more: [
+          'The palette is taken from the illustration: paper #F4ECE3, tomato #EE4A2A, ink #241C18',
+          'The lenses reflect the passing tickets, and a glint on the glass follows the cursor',
+          'The bust leans a few pixels away from the cursor; the ticket row is fitted between the headline and the text so it never covers either',
+          'Tickets use a poster face (Anton) for dates and titles, a dashed tear line with notches, and an Open or Apply stamp',
+        ],
+        layout: 'wide',
+        images: [
+          { src: `${E}/d-hero.jpg`, w: 1440, h: 900, label: 'Hero', description: 'Bust, binoculars and a row of ticket stubs.' },
+        ],
+      },
+      {
+        title: 'Numbers on a turning cube',
+        lede: 'Four numbers instead of a stats row: a cube that turns one face per stretch of scroll and pauses on each, with the tagline running behind it as a giant marquee.',
+        more: [
+          'Faces darken as they turn away from a light at the front left',
+          'Four step marks under the cube show which number you are on',
+        ],
+        layout: 'wide',
+        images: [
+          { src: `${E}/d-cube.jpg`, w: 1440, h: 900, label: 'In numbers', description: '14 channels, 33 countries, 470+ in Berlin, 153 kept.' },
+        ],
+      },
+      {
+        title: 'Fourteen channels, flown through',
+        lede: 'A list of sources is the dullest part of any README. Here the 14 channels are cards that rush at you out of the dark, then resolve into one glowing line: one short list.',
+        more: [
+          'Each card says what the channel is, how it is read and one fact about it',
+          'Cards are spread around the centre by the golden angle, so none hides another',
+          'The dark section also breaks up the light page halfway down',
+        ],
+        layout: 'grid2',
+        images: [
+          { src: `${E}/d-fly.jpg`, w: 1440, h: 900, label: 'Fly-through', description: 'Channel cards coming out of the dark.' },
+          { src: `${E}/d-flyend.jpg`, w: 1440, h: 900, label: 'The payoff', description: 'Fourteen channels become one short list.' },
+        ],
+      },
+      {
+        title: 'A line drawn as you scroll',
+        lede: 'How it works is one thick red line that draws itself as you read, with four numbered steps on it. Text and stickers are placed by code into the free space, so the line never runs through them.',
+        more: [
+          'The layout samples the curve and picks, for each step, the nearest spot it does not cross',
+          'The open-source stickers go last, only where there is room; otherwise they stay hidden',
+          'Below 900px the curve becomes a plain vertical timeline',
+        ],
+        layout: 'wide',
+        images: [
+          { src: `${E}/d-how.jpg`, w: 1440, h: 1460, label: 'How it works', description: 'Collect, filter, first look, only what’s new.', crop: 0.625 },
+        ],
+      },
+      {
+        title: 'The call to action is a prompt',
+        lede: 'The audience sets tools up with AI agents, so the main button is a prompt to copy into Claude Code, Cursor or Codex, next to what the agent will do with it.',
+        more: [
+          'The cities and interests in the prompt are highlighted as the parts to change',
+          'Manual setup sits below for people who prefer a terminal: install, plus the whole config in eight lines',
+        ],
+        layout: 'wide',
+        images: [
+          { src: `${E}/d-agent.jpg`, w: 1440, h: 900, label: 'Set up', description: 'Copyable prompt and five steps the agent takes.' },
+        ],
+      },
+      {
+        title: 'On a phone',
+        lede: 'Every scene was reworked for small screens rather than shrunk: the headline moves above the bust, the cube and tickets scale down, and the curve turns into a timeline.',
+        layout: 'phones',
+        images: [
+          { src: `${E}/m-ld-hero.jpg`, w: 1170, h: 2532, label: 'Hero', description: 'Headline above, tickets at eye level.' },
+          { src: `${E}/m-ld-cube.jpg`, w: 1170, h: 2532, label: 'Cube', description: 'Same scroll, smaller cube.' },
+          { src: `${E}/m-ld-fly.jpg`, w: 1170, h: 2532, label: 'Channels', description: 'Cards on a tighter spread.' },
+          { src: `${E}/m-ld-how.jpg`, w: 1170, h: 2532, label: 'How it works', description: 'The curve as a timeline.' },
+        ],
+      },
+    ],
+    points: [
+      'Art direction for a developer tool: classical bust, tomato and ink, tickets as the visual unit',
+      'Four scroll scenes: ticket row, turning cube, fly-through, a self-drawing line',
+      'Layout code that keeps moving parts clear of the text',
+      'A copyable agent prompt as the main call to action',
+      'Separate mobile versions of every scene; reduced motion respected',
+    ],
+    tools: ['Art Direction', 'Landing Page', 'Motion Design', 'HTML / CSS / JS', 'SVG', 'GitHub Pages', 'Claude Code'],
+  },
+
   // ─── eventfinder · marketing ────────────────────────────────────────
   {
     slug: 'eventfinder-marketing',

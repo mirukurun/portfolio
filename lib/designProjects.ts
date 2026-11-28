@@ -4,6 +4,17 @@
 export const DESIGN_PROJECTS = [
   {
     id: '01',
+    title: 'eventfinder: Landing Page for an Open-Source Tool',
+    category: 'Landing Page · Motion · Art Direction',
+    year: '2026',
+    description: 'A one-file landing page for my open-source event finder. A tomato-red classical bust with binoculars watches real events glide past as ticket stubs; the numbers sit on a cube that turns as you scroll; the 14 channels fly at you out of the dark and resolve into one short list; how it works is a red line that draws itself, with text placed by code so the line never crosses it. The main call to action is a prompt to paste into an AI agent. Every scene has its own mobile version.',
+    summary: 'Poster-style landing for an open-source tool, with four scroll scenes.',
+    thumb: '/projects/thumbs/eventfinder.webp',
+    href: '/design/eventfinder',
+    site: 'https://mirukurun.github.io/eventfinder',
+  },
+  {
+    id: '02',
     title: 'Tasstur: Dog Guide & Map for Stockholm',
     category: 'Product Design · Web · PWA',
     year: '2026',
@@ -14,7 +25,7 @@ export const DESIGN_PROJECTS = [
     site: 'https://tasstur.se',
   },
   {
-    id: '02',
+    id: '03',
     title: 'Hordi Nails: Brand & Booking Site',
     category: 'Brand Identity · Web Design · Live',
     year: '2026',
@@ -25,7 +36,7 @@ export const DESIGN_PROJECTS = [
     site: 'https://hordinails.com',
   },
   {
-    id: '03',
+    id: '04',
     title: 'Voxear — Brand System',
     category: 'Brand Identity · Design System · Figma',
     year: '2026',
@@ -35,7 +46,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/voxear-brand-system',
   },
   {
-    id: '04',
+    id: '05',
     title: 'Voxear — Custom Icon Set',
     category: 'Iconography · Visual Design',
     year: '2026',
@@ -45,7 +56,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/voxear-icon-set',
   },
   {
-    id: '05',
+    id: '06',
     title: 'Voxear — Retail Display Redesign',
     category: 'Physical Design · Print Production',
     year: '2026',
@@ -55,7 +66,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/voxear-retail-display',
   },
   {
-    id: '06',
+    id: '07',
     title: 'Voxear — Document Templates & Product Sheets',
     category: 'Layout · Templates · Print',
     year: '2026',
@@ -65,7 +76,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/voxear-templates',
   },
   {
-    id: '07',
+    id: '08',
     title: 'SpaceCorps — Game Platform',
     category: 'UX/UI Design · Brand Identity',
     year: '2025',
@@ -75,7 +86,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/spacecorps',
   },
   {
-    id: '08',
+    id: '09',
     title: 'SpaceCorps — Company Website',
     category: 'Web Design · Live',
     year: '2025',
@@ -86,7 +97,7 @@ export const DESIGN_PROJECTS = [
     external: true,
   },
   {
-    id: '09',
+    id: '10',
     title: 'Queens Qoncept Clinic — Beauty Website',
     category: 'Web Design · Live',
     year: '2025',
@@ -97,7 +108,7 @@ export const DESIGN_PROJECTS = [
     external: true,
   },
   {
-    id: '10',
+    id: '11',
     title: 'Karolinska Institutet — HR Dashboard',
     category: 'UX/UI Design · Data Dashboard',
     year: '2025',
@@ -107,7 +118,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/karolinska',
   },
   {
-    id: '11',
+    id: '12',
     title: 'Ivy Interactive — Landing Page Prototype',
     category: 'UX/UI Design · Product Messaging',
     year: '2025',
@@ -117,7 +128,7 @@ export const DESIGN_PROJECTS = [
     href: '/design/ivy',
   },
   {
-    id: '12',
+    id: '13',
     title: 'Ivy Interactive — Studio Prototype',
     category: 'UX/UI Design · App Interface',
     year: '2025',
