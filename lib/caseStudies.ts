@@ -38,6 +38,8 @@ export type CaseStudy = {
   /** Index of the section the quote follows (default 0). */
   quoteAfter?: number
   live?: { href: string; label: string }
+  /** More links under `live`, in the same style (e.g. the code next to the site). */
+  links?: { href: string; label: string }[]
   sections: CaseSection[]
   points: string[]
   tools: string[]
@@ -47,6 +49,7 @@ const H = '/projects/hordi'
 const I = '/projects/icpress'
 const V = '/projects/tasstur'
 const X = '/projects/voxear'
+const E = '/projects/eventfinder'
 const vPhone = (name: string, label: string, description?: string): CaseImg => ({
   src: `${V}/m-${name}.jpg`, w: 1170, h: 2532, label, description,
 })
@@ -509,6 +512,90 @@ export const CASE_STUDIES: CaseStudy[] = [
     tools: ['Positioning', 'Programmatic SEO', 'Schema.org', 'Localisation', 'Lead Magnet', 'Waitlist', 'Netlify Forms', 'PWA'],
   },
 
+  // ─── eventfinder · marketing ────────────────────────────────────────
+  {
+    slug: 'eventfinder-marketing',
+    back: MARKETING,
+    navLabel: 'eventfinder — 2026',
+    eyebrow: 'AI Automation · Open Source · Market Research',
+    title: 'eventfinder',
+    deck: 'An open-source tool that finds in-person events across Europe that match your interests: a first look 90 days ahead, then only what is new.',
+    meta: [
+      { label: 'Role', value: 'Owner · Product design · Built with an AI coding agent' },
+      { label: 'Period', value: 'September – November 2026' },
+      { label: 'Status', value: 'Open source on GitHub, MIT licence' },
+    ],
+    stats: [
+      { value: '14', label: 'channels searched, from lu.ma to LinkedIn' },
+      { value: '33', label: 'European countries, 120+ cities ready to go' },
+      { value: '153', label: 'relevant of 1,231 found, Berlin + Lisbon' },
+    ],
+    quote: 'The hard part of networking is not going. It is knowing what is on before it fills up.',
+    quoteAfter: 0,
+    live: { href: 'https://mirukurun.github.io/eventfinder/', label: 'Live site' },
+    links: [{ href: 'https://github.com/mirukurun/eventfinder', label: 'Code on GitHub' }],
+    sections: [
+      {
+        title: 'Why I built it',
+        lede: 'I go to meetups to meet people and test product ideas, but the good ones are spread over a dozen platforms and fill up in days. I wanted one short list in my messenger every morning.',
+        more: [
+          'Started as a script for Stockholm, scored against keywords taken from my CV',
+          'Daily use showed what was missing: events more than a few weeks ahead, and sources beyond the big platforms',
+        ],
+      },
+      {
+        title: '14 channels, one list',
+        lede: 'The finder reads lu.ma, Meetup, Eventbrite, community platforms, open conference data, city open-data portals, venue calendars and a search engine, then keeps one copy of each event.',
+        more: [
+          'lu.ma searched around a city’s coordinates: 470+ events for Berlin, where the city page shows 20',
+          'Meetup read in date windows, so the whole 90 days is covered, not just the next week',
+          'Google Developer Groups, Friends of Figma and Startup Grind through one community API, filtered to your cities',
+          'LinkedIn events found through search results, since LinkedIn shows event pages only to logged-in users',
+          'Each event’s own page is read: real price, in person or online, and whether registration is still open',
+        ],
+        layout: 'wide',
+        images: [
+          { src: `${E}/pipeline.jpg`, w: 1440, h: 900, label: 'How it works', description: 'Collect, filter, deliver.' },
+        ],
+      },
+      {
+        title: 'A first look, then only what’s new',
+        lede: 'The first run sends every relevant event for the next three months: top picks, then week by week. After that, only events it hasn’t sent before, and no message on quiet days.',
+        more: [
+          'Adding a city gives that city its own first look',
+          'A weekly meetup shows up once, with “+5 more dates”, instead of every week',
+          'Sold-out, waitlist-only and cancelled events are dropped before you see them',
+          'A second run for two cities takes about two minutes: pages read yesterday come from a local cache',
+        ],
+        layout: 'phones',
+        images: [
+          { src: `${E}/m-first-look.jpg`, w: 1170, h: 2532, label: 'First look', description: 'Stockholm, the next 90 days.' },
+          { src: `${E}/m-update.jpg`, w: 1170, h: 2532, label: 'Later runs', description: 'Only new events, by topic.' },
+        ],
+      },
+      {
+        title: 'Open source, set up by an AI agent',
+        lede: 'Anyone can run it for their own cities and topics. Two cities and three topics are the whole config; a shared registry fills in the rest, and an AI agent can do the setup from the instructions in the repo.',
+        more: [
+          '12 interest areas (AI, design, marketing, startups, climate, culture…), each with keywords in several European languages',
+          'Per-country files with coordinates, currency, languages and local sources, open to pull requests',
+          'Commands an agent can use: check the setup, test any web page as a source, add events it found',
+          'Personal parts stay on your machine: your profile, keys and your own messenger bot',
+        ],
+        layout: 'wide',
+        images: [
+          { src: `${E}/terminal.jpg`, w: 1440, h: 900, label: 'Setup', description: 'Config, check and adding a source.' },
+        ],
+      },
+    ],
+    points: [
+      'Turned a personal script into an open-source tool for any city in Europe',
+      'Combined 14 event channels into one list, deduplicated and scored by interest',
+      'Designed the experience: a 90-day first look, then quiet updates with only new events',
+      'Wrote instructions so an AI agent can set it up for someone else',
+    ],
+    tools: ['Python', 'Claude Code', 'lu.ma & Meetup data', 'Bevy API', 'schema.org', 'SQLite', 'GitHub'],
+  },
   // ─── Voxear · brand system ──────────────────────────────────────────
   {
     slug: 'voxear-brand-system',

@@ -250,15 +250,20 @@ export function CaseStudyPage({ item }: { item: CaseStudy }) {
                 </dl>
 
                 {item.live && (
-                  <a
-                    href={item.live.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mt-4 inline-flex items-center gap-3 ${kicker} text-[11px] text-accent hover:text-ink transition-colors`}
-                  >
-                    <span className="w-6 h-px bg-current" />
-                    {item.live.label} ↗
-                  </a>
+                  <div className="mt-4 flex flex-col items-start gap-2">
+                    {[item.live, ...(item.links ?? [])].map((l) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-3 ${kicker} text-[11px] text-accent hover:text-ink transition-colors`}
+                      >
+                        <span className="w-6 h-px bg-current" />
+                        {l.label} ↗
+                      </a>
+                    ))}
+                  </div>
                 )}
 
                 {item.stats && (

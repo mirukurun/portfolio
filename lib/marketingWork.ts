@@ -15,6 +15,17 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
   },
   {
     id: '02',
+    title: 'eventfinder: Open-Source Event Discovery for Europe',
+    category: 'AI Automation · Open Source · Market Research',
+    company: 'Own product',
+    year: '2026',
+    description: 'An open-source tool that finds in-person events across Europe that match your interests. It reads 14 channels (lu.ma, Meetup, Eventbrite, community platforms, city open data, a search engine including LinkedIn events), keeps one copy of each event, checks that registration is still open, and sends a first look 90 days ahead, then only what is new. Anyone sets it up for their own cities and topics, or lets an AI agent do it.',
+    summary: 'Open-source event finder: 14 channels, a 90-day first look, then only what’s new.',
+    href: '/marketing/eventfinder',
+    site: 'https://mirukurun.github.io/eventfinder',
+  },
+  {
+    id: '03',
     title: 'Hordi Nails',
     category: 'Small Business · Local SEO · AI Search',
     company: 'Own business',
@@ -25,7 +36,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     site: 'https://hordinails.com',
   },
   {
-    id: '03',
+    id: '04',
     title: 'ICPress: Positioning, Product Backlog & Explainer Series',
     category: 'Product Marketing · UX Audit · Video Content',
     company: 'Co-Founder & Head of Marketing · Individual Contributor Press',
@@ -35,7 +46,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     href: '/marketing/icpress',
   },
   {
-    id: '04',
+    id: '05',
     title: 'SEO & AI-Search Visibility Baseline',
     category: 'SEO · Web Performance · GEO',
     company: 'Voxear Technologies AB',
@@ -44,7 +55,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     summary: 'First SEO and AI-search baseline, turned into a plan leadership approved.',
   },
   {
-    id: '05',
+    id: '06',
     title: 'Buyer Personas & Messaging Matrix',
     category: 'Positioning · Audience Research',
     company: 'Voxear Technologies AB',
@@ -53,7 +64,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     summary: 'Personas and a messaging matrix for a distributor-led go-to-market.',
   },
   {
-    id: '06',
+    id: '07',
     title: 'Social Baseline & Customer Proof Bank',
     category: 'Social · Content · Voice of Customer',
     company: 'Voxear Technologies AB',
@@ -62,7 +73,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     summary: 'Social benchmark, content calendar and a reusable bank of customer proof.',
   },
   {
-    id: '07',
+    id: '08',
     title: 'FindMeAJob',
     category: 'AI Product · Personal Project',
     company: 'Personal',
@@ -71,7 +82,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     summary: 'Job application assistant built with Next.js and Claude.',
   },
   {
-    id: '08',
+    id: '09',
     title: 'Reddit → LinkedIn Engine',
     category: 'AI Automation · Content · Personal Project',
     company: 'Personal',
@@ -80,7 +91,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     summary: 'Pipeline that turns Reddit discussions into LinkedIn posts in your own voice.',
   },
   {
-    id: '09',
+    id: '10',
     title: 'LinkedIn Outreach Engine',
     category: 'Growth Marketing · AI Automation',
     company: 'Ivy Interactive',
@@ -89,7 +100,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     summary: 'Full LinkedIn outreach workflow, from lead segments to AI-drafted follow-ups.',
   },
   {
-    id: '10',
+    id: '11',
     title: 'AI Workflow Automation',
     category: 'AI · n8n · Operations',
     company: 'Ivy Interactive',
@@ -98,7 +109,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     summary: 'AI-assisted automation for lead research, replies and follow-ups.',
   },
   {
-    id: '11',
+    id: '12',
     title: 'Social Media Launch',
     category: 'Content · Community · Ads',
     company: 'Beredskapslyftet',
@@ -107,7 +118,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     summary: 'Facebook and Instagram from zero: multilingual content, ads and event coverage.',
   },
   {
-    id: '12',
+    id: '13',
     title: 'Media Localisation at Scale',
     category: 'Operations · Project Management',
     company: 'Ukrainian Media Localisation Initiative',
@@ -116,7 +127,7 @@ export const MARKETING_WORK: { id: string; title: string; category: string; comp
     summary: 'Founded and led a remote team that localised 3 full episodes.',
   },
   {
-    id: '13',
+    id: '14',
     title: 'Content Creation — Targeted Advertising',
     category: 'Content · Video · Visual Design',
     company: 'Beauty by Luidmila',
